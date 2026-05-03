@@ -1,13 +1,13 @@
 (footprint "Waveshare 2.4in LCD"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "REF**"
 		(at 35.25 21.15 0)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "f9bfe207-2431-44dc-9748-6d44b5e865f0")
+		(uuid "10663c30-7e46-4c60-972d-ea12091091b2")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 		(at 35.25 22.65 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "9f6278c1-38c5-4c2a-95c3-d23f70b5295d")
+		(uuid "5b7e734c-1901-4b45-b44a-cb50473b3009")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "78de3a5d-e6a6-446f-aff2-3a802ab0a424")
+		(uuid "c0af9a0b-b703-4542-a80d-d0f8d76d9696")
 		(effects
 			(font
 				(size 1 1)
@@ -45,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "342ed684-799e-49c1-b047-6c8b9bc95100")
+		(uuid "6f5a9019-fb76-48f2-a255-4ddcf1b807bd")
 		(effects
 			(font
 				(size 1 1)
@@ -54,6 +54,7 @@
 		)
 	)
 	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_rect
 		(start 0 0)
 		(end 70.5 43.3)
@@ -63,13 +64,13 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "2139ceb7-8bdf-4741-8a1b-99b283243f1c")
+		(uuid "a6347019-58dc-4742-b610-61e1f85d713b")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 35.25 24.15 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "a95a6fa7-9bb1-49e4-a743-5329a9d7a733")
+		(uuid "507363c4-4c37-4b73-9d10-105f9ec96711")
 		(effects
 			(font
 				(size 1 1)
@@ -81,33 +82,33 @@
 		(at 2.5 2.5)
 		(size 3 3)
 		(drill 2)
-		(layers "F&B.Cu" "*.Mask")
+		(layers "*.Cu" "*.Mask")
 		(thermal_bridge_angle 90)
-		(uuid "3d7ac22e-7e6c-4d8e-8049-c1768aa40701")
+		(uuid "6a4e5697-5a3d-4c12-a045-2a3b3cd39a73")
 	)
 	(pad "" np_thru_hole circle
 		(at 2.5 40.8)
 		(size 3 3)
 		(drill 2)
-		(layers "F&B.Cu" "*.Mask")
+		(layers "*.Cu" "*.Mask")
 		(thermal_bridge_angle 90)
-		(uuid "f8b3d3a6-1551-45fe-8d49-b05435540a6e")
+		(uuid "90b191f6-e584-4c16-b4bb-bc39acd580a0")
 	)
 	(pad "" np_thru_hole circle
 		(at 68 2.5)
 		(size 3 3)
 		(drill 2)
-		(layers "F&B.Cu" "*.Mask")
+		(layers "*.Cu" "*.Mask")
 		(thermal_bridge_angle 90)
-		(uuid "f78c1dda-2b1b-4962-b18e-b81227fbbad9")
+		(uuid "28ac52e9-e8ef-4332-9955-2f32a0ba52db")
 	)
 	(pad "" np_thru_hole circle
 		(at 68 40.8)
 		(size 3 3)
 		(drill 2)
-		(layers "F&B.Cu" "*.Mask")
+		(layers "*.Cu" "*.Mask")
 		(thermal_bridge_angle 90)
-		(uuid "a35493c2-6d6b-4eb7-8c6c-c834e4e85e3a")
+		(uuid "6ae9d27e-05ca-4b2f-a917-31dfdb6f61ad")
 	)
 	(pad "1" thru_hole circle
 		(at 2.5 12.76)
@@ -116,7 +117,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "b0bd2034-cc1a-48ab-b8bf-17a4e8620ebb")
+		(uuid "cf5a71ba-a14b-484c-b704-a0e218e715aa")
 	)
 	(pad "2" thru_hole circle
 		(at 2.5 15.3)
@@ -125,7 +126,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "43214cad-f89f-491e-9cdf-0580cde22485")
+		(uuid "1643622a-9f2b-466e-ad2c-a506634dd341")
 	)
 	(pad "3" thru_hole circle
 		(at 2.5 17.84)
@@ -134,7 +135,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "c0521de9-5637-4fd1-98ba-d3e772ae3269")
+		(uuid "2316728d-42c6-4f2d-ac6b-3c45bb13e5bc")
 	)
 	(pad "4" thru_hole circle
 		(at 2.5 20.38)
@@ -143,7 +144,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "da09b2d7-aebb-4430-af66-0887b836881d")
+		(uuid "5a44c47c-5ade-49b4-b86e-bcd4d736c34a")
 	)
 	(pad "5" thru_hole circle
 		(at 2.5 22.92)
@@ -152,7 +153,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "d26afc97-9a59-4ac9-807c-81c95d49ef4c")
+		(uuid "40130694-fc71-4a77-9b72-d4d993398eb8")
 	)
 	(pad "6" thru_hole circle
 		(at 2.5 25.46)
@@ -161,7 +162,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "7cd7fab3-05c1-41f4-becc-1fb5ac98c3a1")
+		(uuid "e50491c0-93f0-4c9d-a3bd-1c416025edea")
 	)
 	(pad "7" thru_hole circle
 		(at 2.5 28)
@@ -170,7 +171,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "4ca7410c-bacb-4570-955c-691d7cf06594")
+		(uuid "1929d141-1cc9-4b5c-871f-d9e5843c41f7")
 	)
 	(pad "8" thru_hole circle
 		(at 2.5 30.54)
@@ -179,18 +180,18 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "5caacc34-33e9-4455-a325-fafe12afb5b5")
+		(uuid "2c9917b9-e6ee-498a-b7c0-bd9a7492cbcb")
 	)
 	(group ""
-		(uuid "3c889f82-7e84-41b2-b7e7-075e85b92177")
-		(members "43214cad-f89f-491e-9cdf-0580cde22485" "4ca7410c-bacb-4570-955c-691d7cf06594"
-			"5caacc34-33e9-4455-a325-fafe12afb5b5" "7cd7fab3-05c1-41f4-becc-1fb5ac98c3a1"
-			"b0bd2034-cc1a-48ab-b8bf-17a4e8620ebb" "c0521de9-5637-4fd1-98ba-d3e772ae3269"
-			"d26afc97-9a59-4ac9-807c-81c95d49ef4c" "da09b2d7-aebb-4430-af66-0887b836881d"
+		(uuid "d341eac7-0d12-400f-bfe6-51ea0419521e")
+		(members "1643622a-9f2b-466e-ad2c-a506634dd341" "1929d141-1cc9-4b5c-871f-d9e5843c41f7"
+			"2316728d-42c6-4f2d-ac6b-3c45bb13e5bc" "2c9917b9-e6ee-498a-b7c0-bd9a7492cbcb"
+			"40130694-fc71-4a77-9b72-d4d993398eb8" "5a44c47c-5ade-49b4-b86e-bcd4d736c34a"
+			"cf5a71ba-a14b-484c-b704-a0e218e715aa" "e50491c0-93f0-4c9d-a3bd-1c416025edea"
 		)
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../../../Libraries/Models/Waveshare 2.4in LCD.step"
+	(model "${KIPRJMOD}/../../../Models/Waveshare 2.4in LCD.step"
 		(offset
 			(xyz 35.25 -21.75 7)
 		)
