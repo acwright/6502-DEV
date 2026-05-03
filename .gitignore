@@ -1,0 +1,9 @@
+# Local environment variables
+.env
+.env.*.local
+
+# Editor and OS specific files
+.DS_Store
+.lck
+Thumbs.db
+.vscode/
