@@ -1,7 +1,7 @@
 6502-DEV
 ========
 
-![6502-DEV.png](./6502-DEV.png)
+![6502-DEV.png](./Images/6502-DEV.png)
 
 An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 
