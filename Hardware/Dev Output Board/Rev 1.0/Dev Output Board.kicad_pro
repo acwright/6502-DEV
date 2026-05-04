@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Dev Output Board.kicad_pro",
+    "filename": "DEV Output Board.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -560,7 +560,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/Dev Output Board/Rev 1.0/Dev Output Board.step",
+      "step": "../../../Assets/PCB Models/DEV Output Board/Rev 1.0/DEV Output Board.step",
       "svg": "",
       "vrml": ""
     },
@@ -662,7 +662,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "../../../Schematics/Dev Output Board/Rev 1.0/",
+    "plot_directory": "../../../Schematics/DEV Output Board/Rev 1.0/",
     "reuse_designators": true,
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
@@ -675,8 +675,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "Dev Output Board.kicad_sch",
-        "name": "Dev Output Board",
+        "filename": "DEV Output Board.kicad_sch",
+        "name": "DEV Output Board",
         "uuid": "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
       }
     ],
@@ -686,7 +686,7 @@
   "sheets": [
     [
       "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7",
-      "Dev Output Board"
+      "DEV Output Board"
     ]
   ],
   "text_variables": {},

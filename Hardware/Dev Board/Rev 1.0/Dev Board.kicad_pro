@@ -497,7 +497,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Dev Board.kicad_pro",
+    "filename": "DEV Board.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -569,7 +569,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/Dev Board/Rev 1.0/Dev Board.step",
+      "step": "../../../Assets/PCB Models/DEV Board/Rev 1.0/DEV Board.step",
       "svg": "",
       "vrml": ""
     },
@@ -671,7 +671,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "../../../Schematics/Dev Board/Rev 1.0/",
+    "plot_directory": "../../../Schematics/DEV Board/Rev 1.0/",
     "reuse_designators": true,
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
@@ -684,8 +684,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "Dev Board.kicad_sch",
-        "name": "Dev Board",
+        "filename": "DEV Board.kicad_sch",
+        "name": "DEV Board",
         "uuid": "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
       }
     ],
@@ -695,7 +695,7 @@
   "sheets": [
     [
       "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7",
-      "Dev Board"
+      "DEV Board"
     ]
   ],
   "text_variables": {},

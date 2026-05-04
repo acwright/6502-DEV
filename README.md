@@ -31,15 +31,15 @@ All AC6502 computers share:
 
 This repository contains KiCad 7.0+ PCB designs for the two boards that make up the DEV system.
 
-### Dev Board
-`Hardware/Dev Board/`
+### DEV Board
+`Hardware/DEV Board/`
 
 The main board hosting the Teensy 4.1. Provides 65C02 bus emulation, SD card storage, Ethernet, USB keyboard/joystick input, and hardware control buttons (Run/Stop, Step, Reset, Frequency). Includes a bus connector and card slot with level shifters for optional real hardware expansion.
 
-### Dev Output Board
-`Hardware/Dev Output Board/`
+### DEV Output Board
+`Hardware/DEV Output Board/`
 
-The AV output board hosting a Teensy 4.0 and a 2.4" ILI9341 TFT LCD. Emulates a TMS9918A Video Display Processor and a MOS 6581 SID audio synthesizer, driven in real time via high-speed serial from the Dev Board.
+The AV output board hosting a Teensy 4.0 and a 2.4" ILI9341 TFT LCD. Emulates a TMS9918A Video Display Processor and a MOS 6581 SID audio synthesizer, driven in real time via high-speed serial from the DEV Board.
 
 ---
 
@@ -50,7 +50,7 @@ This repository contains [PlatformIO](https://platformio.org/)-based firmware fo
 ### DB Emulator
 `Firmware/DB Emulator/`
 
-Firmware for the Teensy 4.1 on the Dev Board. Provides:
+Firmware for the Teensy 4.1 on the DEV Board. Provides:
 
 - Cycle-accurate 65C02 emulation
 - SD card ROM/cartridge/program loading and memory snapshots
@@ -65,7 +65,7 @@ See [Firmware/DB Emulator/README.md](./Firmware/DB%20Emulator/README.md) for set
 ### DOB Display
 `Firmware/DOB Display/`
 
-Firmware for the Teensy 4.0 on the Dev Output Board. Provides:
+Firmware for the Teensy 4.0 on the DEV Output Board. Provides:
 
 - TMS9918A VDP emulation (all four display modes, 256×192 active area)
 - MOS 6581 SID audio emulation (3 voices, ADSR envelopes, PWM audio output)

@@ -5,7 +5,7 @@
 	(uuid "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7")
 	(paper "USLetter")
 	(title_block
-		(title "6502 Dev Output Board")
+		(title "6502 DEV Output Board")
 		(date "2025-12-06")
 		(rev "1.0")
 		(company "A.C. Wright Design")
@@ -3506,7 +3506,7 @@
 			(uuid "0655ed41-a827-449a-ad6b-eee58a249417")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J1")
 					(unit 1)
@@ -3605,7 +3605,7 @@
 			(uuid "392b224e-7d0a-48db-b613-815c6a679c9a")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U1")
 					(unit 1)
@@ -3693,7 +3693,7 @@
 			(uuid "37b9f3ea-8bf6-4861-a1c7-bf874a966dd3")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J2")
 					(unit 1)
@@ -3773,7 +3773,7 @@
 			(uuid "3f788076-e3a6-4954-87ec-a38d148d225c")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR04")
 					(unit 1)
@@ -3852,7 +3852,7 @@
 			(uuid "0d46715d-ee47-4503-8750-866e194f8c25")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C1")
 					(unit 1)
@@ -3932,7 +3932,7 @@
 			(uuid "bfb8c657-5d94-47cd-bded-bc7a5834c60b")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R6")
 					(unit 1)
@@ -4012,7 +4012,7 @@
 			(uuid "55d68535-870a-4a40-90cc-d51aee15b6b8")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR010")
 					(unit 1)
@@ -4248,7 +4248,7 @@
 			(uuid "5e15d80d-3a87-426c-b0f0-20c870f92411")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U2")
 					(unit 1)
@@ -4328,7 +4328,7 @@
 			(uuid "46265afd-bda5-4566-a125-cdc5bc97786b")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR03")
 					(unit 1)
@@ -4406,7 +4406,7 @@
 			(uuid "3e17ee9e-e98e-4bcd-aa2b-a79bf18722a3")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR06")
 					(unit 1)
@@ -4505,7 +4505,7 @@
 			(uuid "dbd3af06-1527-4a54-927b-ea8ac65f41e3")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U3")
 					(unit 1)
@@ -4585,7 +4585,7 @@
 			(uuid "c30690ab-5b35-4c5e-9fba-d7f32ce4afbc")
 		)
 		(instances
-			(project "Dev Output Board"
+			(project "DEV Output Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR02")
 					(unit 1)

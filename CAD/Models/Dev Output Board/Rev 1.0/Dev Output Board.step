@@ -1,7 +1,7 @@
 ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('KiCad electronic assembly'),'2;1');
-FILE_NAME('Dev Output Board.step','2026-05-04T14:16:55',('Pcbnew'),(
+FILE_NAME('DEV Output Board.step','2026-05-04T14:16:55',('Pcbnew'),(
     'Kicad'),'Open CASCADE STEP processor 7.9','KiCad to STEP converter'
   ,'Unknown');
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
@@ -15,7 +15,7 @@ DATA;
 #4 = PRODUCT_DEFINITION_SHAPE('','',#5);
 #5 = PRODUCT_DEFINITION('design','',#6,#9);
 #6 = PRODUCT_DEFINITION_FORMATION('','',#7);
-#7 = PRODUCT('Dev Output Board 1','Dev Output Board 1','',(#8));
+#7 = PRODUCT('DEV Output Board 1','DEV Output Board 1','',(#8));
 #8 = PRODUCT_CONTEXT('',#2,'mechanical');
 #9 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #10 = SHAPE_REPRESENTATION('',(#11,#15,#19,#23,#27,#31,#35,#39,#43,#47,
@@ -61322,7 +61322,7 @@ SHAPE_REPRESENTATION_RELATIONSHIP() );
 #59296 = PRODUCT_DEFINITION_SHAPE('','',#59297);
 #59297 = PRODUCT_DEFINITION('design','',#59298,#59301);
 #59298 = PRODUCT_DEFINITION_FORMATION('','',#59299);
-#59299 = PRODUCT('Dev Output Board_PCB','Dev Output Board_PCB','',(
+#59299 = PRODUCT('DEV Output Board_PCB','DEV Output Board_PCB','',(
     #59300));
 #59300 = PRODUCT_CONTEXT('',#2,'mechanical');
 #59301 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');

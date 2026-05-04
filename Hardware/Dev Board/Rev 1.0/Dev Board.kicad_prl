@@ -61,7 +61,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Dev Board.kicad_prl",
+    "filename": "DEV Board.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {

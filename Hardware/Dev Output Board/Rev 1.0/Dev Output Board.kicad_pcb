@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Dev Output Board")
+		(title "6502 DEV Output Board")
 		(date "2025-12-06")
 		(rev "1.0")
 		(company "A.C. Wright Design")
@@ -147,7 +147,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -239,7 +239,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -331,7 +331,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -423,7 +423,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -512,7 +512,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/3e492b10-83fa-46dc-8781-5d22953f1776")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -912,7 +912,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Logos:6502 Dev Output Board Logo 4mm"
+	(footprint "6502 Logos:6502 DEV Output Board Logo 4mm"
 		(layer "F.Cu")
 		(uuid "08c4777b-287a-434b-8251-d15b901466ba")
 		(at 161.888339 56.049876 180)
@@ -1984,7 +1984,7 @@
 		)
 		(path "/e01c54ca-b035-48c9-ab57-79333a78ca3a")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2214,7 +2214,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/99c3586b-33f7-4d07-8a5e-91ef044648d4")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2378,7 +2378,7 @@
 		)
 		(path "/362c191c-8871-4dc2-852f-a23ce4b23034")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2695,7 +2695,7 @@
 		)
 		(path "/b1bb93bf-2b41-4634-9073-3164633a0a63")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3632,7 +3632,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/36536419-b623-4fe9-bd31-eb741337c7bf")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3908,7 +3908,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/106b1c9b-a11d-40d4-bb90-6dc8acb804e2")
 		(sheetname "/")
-		(sheetfile "Dev Output Board.kicad_sch")
+		(sheetfile "DEV Output Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line

@@ -5,7 +5,7 @@
 	(uuid "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7")
 	(paper "USLedger")
 	(title_block
-		(title "6502 Dev Board")
+		(title "6502 DEV Board")
 		(date "2025-09-26")
 		(rev "1.0")
 		(company "A.C. Wright Design")
@@ -19392,7 +19392,7 @@
 			(uuid "2bb07de0-68bd-4abe-bd29-5250b7e7d37f")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J5")
 					(unit 1)
@@ -19482,7 +19482,7 @@
 			(uuid "3396354b-ca0f-45ef-b4c1-eb351343d69c")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C6")
 					(unit 1)
@@ -19572,7 +19572,7 @@
 			(uuid "30d854ca-21ba-41c0-8db4-6c92112fe619")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C7")
 					(unit 1)
@@ -19847,7 +19847,7 @@
 			(uuid "452350cf-abce-4ce6-96f0-634406c52eae")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U4")
 					(unit 1)
@@ -19937,7 +19937,7 @@
 			(uuid "f9608486-88fd-48c8-908a-98090648f97a")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C8")
 					(unit 1)
@@ -20029,7 +20029,7 @@
 			(uuid "4a623b89-efe9-47f8-8388-9091f14ded41")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R9")
 					(unit 1)
@@ -20119,7 +20119,7 @@
 			(uuid "216c336b-18a7-4ea9-b189-34c2f64997cd")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R4")
 					(unit 1)
@@ -20316,7 +20316,7 @@
 			(uuid "d3f59774-bf87-4f74-867b-30da701cd64f")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U5")
 					(unit 1)
@@ -20408,7 +20408,7 @@
 			(uuid "aeaced44-b292-4790-9145-30fe9d310cb7")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J9")
 					(unit 1)
@@ -20498,7 +20498,7 @@
 			(uuid "089f3952-12b3-4bae-9a56-fad67d5ebcdd")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C1")
 					(unit 1)
@@ -20577,7 +20577,7 @@
 			(uuid "ae6db279-3a57-4ad5-b131-710dea03b20e")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR07")
 					(unit 1)
@@ -20667,7 +20667,7 @@
 			(uuid "26407f7f-9ce0-4e32-8244-07e9d421e4a0")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R8")
 					(unit 1)
@@ -20765,7 +20765,7 @@
 			(uuid "37b9f3ea-8bf6-4861-a1c7-bf874a966dd3")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J2")
 					(unit 1)
@@ -20892,7 +20892,7 @@
 			(uuid "993de56a-d5e6-40ad-a2f2-4188231a2466")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J8")
 					(unit 1)
@@ -21089,7 +21089,7 @@
 			(uuid "5207bc43-642b-4e26-a001-b5f9ba5ae76c")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U1")
 					(unit 1)
@@ -21178,7 +21178,7 @@
 			(uuid "26fa8c84-26c4-4633-8417-66983d23e1c1")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J7")
 					(unit 1)
@@ -21256,7 +21256,7 @@
 			(uuid "1e863339-15aa-40ac-b207-06bfc1f44020")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR013")
 					(unit 1)
@@ -21334,7 +21334,7 @@
 			(uuid "e0aaf69e-68e5-4a4b-9287-ddaa6dd5f265")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#FLG02")
 					(unit 1)
@@ -21414,7 +21414,7 @@
 			(uuid "dee7f7fa-6cc9-41af-855c-070bc3ab2adb")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR011")
 					(unit 1)
@@ -21506,7 +21506,7 @@
 			(uuid "f9bc91fa-a692-4ef9-aec1-3a4450700f29")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "SW3")
 					(unit 1)
@@ -21585,7 +21585,7 @@
 			(uuid "5abb95d1-34d1-4197-ace1-b08acebd17ac")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR02")
 					(unit 1)
@@ -21663,7 +21663,7 @@
 			(uuid "c9715a7e-0df9-4582-977c-b68fd9bb237f")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#FLG03")
 					(unit 1)
@@ -21755,7 +21755,7 @@
 			(uuid "9ec9e499-aef7-4121-a52b-592965105911")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "SW4")
 					(unit 1)
@@ -21854,7 +21854,7 @@
 			(uuid "b20424ae-4532-47dc-8be2-b29085352041")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J3")
 					(unit 1)
@@ -21934,7 +21934,7 @@
 			(uuid "e38f1c08-cc1b-4690-a6b7-d3d47f993d79")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J1")
 					(unit 1)
@@ -22024,7 +22024,7 @@
 			(uuid "491ed312-d5e6-4984-a923-dfa85a99fbb2")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R6")
 					(unit 1)
@@ -22103,7 +22103,7 @@
 			(uuid "5945d2d7-4d12-4a40-bfa4-cda7323b0c1d")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR01")
 					(unit 1)
@@ -22193,7 +22193,7 @@
 			(uuid "c5052ce4-a4da-417b-b6d3-d382af464dfc")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R3")
 					(unit 1)
@@ -22272,7 +22272,7 @@
 			(uuid "6c2d4fd8-025e-48b6-9242-61b2399d676a")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR04")
 					(unit 1)
@@ -22362,7 +22362,7 @@
 			(uuid "a4737fe9-6e99-4e2f-ab6e-fc29c48f8954")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R11")
 					(unit 1)
@@ -22441,7 +22441,7 @@
 			(uuid "7a26db00-b9fc-4d46-950f-79a93fb6204e")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR012")
 					(unit 1)
@@ -22531,7 +22531,7 @@
 			(uuid "7617f712-e5e7-4701-9692-a17e99715634")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R2")
 					(unit 1)
@@ -22610,7 +22610,7 @@
 			(uuid "ebc741b5-2e2e-4faa-95e8-b67105265597")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR08")
 					(unit 1)
@@ -22702,7 +22702,7 @@
 			(uuid "a56649da-93dd-4608-bd73-d82b239d469a")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "SW2")
 					(unit 1)
@@ -22781,7 +22781,7 @@
 			(uuid "4bf3075f-c13e-4f2e-87ea-e053b29d94b7")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR06")
 					(unit 1)
@@ -22859,7 +22859,7 @@
 			(uuid "db7bd0be-bf84-4549-932d-91ef574c1419")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR018")
 					(unit 1)
@@ -22951,7 +22951,7 @@
 			(uuid "005a84fa-2adf-46fe-bce8-8e41eefe5dff")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "SW1")
 					(unit 1)
@@ -23029,7 +23029,7 @@
 			(uuid "d4a8597e-8543-48b8-bac4-8a9b569e7700")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#FLG04")
 					(unit 1)
@@ -23119,7 +23119,7 @@
 			(uuid "112e3ac5-7c10-4c2a-8815-40a147bce44c")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R5")
 					(unit 1)
@@ -23211,7 +23211,7 @@
 			(uuid "bd035e29-5f8f-4ff1-8d3c-3d957d9a7b63")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R10")
 					(unit 1)
@@ -23301,7 +23301,7 @@
 			(uuid "9d1feee9-706a-4936-b651-17ccc8e01fba")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R7")
 					(unit 1)
@@ -23391,7 +23391,7 @@
 			(uuid "e1b8ed3f-151e-48af-b9fb-a83a169f8882")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C5")
 					(unit 1)
@@ -23588,7 +23588,7 @@
 			(uuid "69b20195-b18c-4c0a-af41-d1263a0d5e05")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U2")
 					(unit 1)
@@ -23668,7 +23668,7 @@
 			(uuid "55d68535-870a-4a40-90cc-d51aee15b6b8")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR010")
 					(unit 1)
@@ -23747,7 +23747,7 @@
 			(uuid "2f890dd1-c265-4798-8338-3035f790f206")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR016")
 					(unit 1)
@@ -23944,7 +23944,7 @@
 			(uuid "6713fb82-7115-4d6d-a2de-c79e6ecd19fc")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U6")
 					(unit 1)
@@ -24023,7 +24023,7 @@
 			(uuid "5a0952f2-9412-42d2-a01b-1e80007ba295")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR03")
 					(unit 1)
@@ -24102,7 +24102,7 @@
 			(uuid "90dd98f9-9d05-410f-8e44-fdfa9ad39bc7")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR017")
 					(unit 1)
@@ -24180,7 +24180,7 @@
 			(uuid "8e115edb-b560-4af1-aad7-7944e2202ee0")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#FLG01")
 					(unit 1)
@@ -24270,7 +24270,7 @@
 			(uuid "77eea3da-b93d-491d-b8b9-1dab38b6ff50")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C3")
 					(unit 1)
@@ -24360,7 +24360,7 @@
 			(uuid "e2f885c1-0df3-438f-b831-6864d4889890")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "R1")
 					(unit 1)
@@ -24450,7 +24450,7 @@
 			(uuid "2174e42d-bfec-4c6d-a633-8c852e31b1c3")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C4")
 					(unit 1)
@@ -24643,7 +24643,7 @@
 			(uuid "46bc00d6-738b-4f70-9434-fbd9bceb52e2")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J4")
 					(unit 1)
@@ -24722,7 +24722,7 @@
 			(uuid "0b9557a3-f397-4b3b-90e7-ce4115832dc0")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR014")
 					(unit 1)
@@ -24801,7 +24801,7 @@
 			(uuid "b3139608-a099-40cd-a67b-2881582657c9")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR09")
 					(unit 1)
@@ -24891,7 +24891,7 @@
 			(uuid "f27ee861-3140-4616-836e-11f7e5afbae3")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "C2")
 					(unit 1)
@@ -25080,7 +25080,7 @@
 			(uuid "0db70806-379b-4b79-9ec6-57af8fbc94c8")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "BT1")
 					(unit 1)
@@ -25277,7 +25277,7 @@
 			(uuid "319042d7-6532-4c37-81dc-58d07982bb1a")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "U3")
 					(unit 1)
@@ -25357,7 +25357,7 @@
 			(uuid "cb41ce73-fd50-40f3-8f8a-29ed39604f3b")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR015")
 					(unit 1)
@@ -25436,7 +25436,7 @@
 			(uuid "474f551f-4496-44f2-9966-92174f2f03fa")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "#PWR05")
 					(unit 1)
@@ -25571,7 +25571,7 @@
 			(uuid "e3f318ea-44a6-4f3b-8217-82184be08ab7")
 		)
 		(instances
-			(project "Dev Board"
+			(project "DEV Board"
 				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
 					(reference "J6")
 					(unit 1)

@@ -1,6 +1,6 @@
 # DOB Display
 
-DOB Display is the AV output firmware for the DOB (Dev Output Board). It emulates a TMS9918A Video Display Processor and a MOS 6581 SID audio synthesizer, driven in real time by AV packets from the DB Emulator over high-speed hardware serial.
+DOB Display is the AV output firmware for the DOB (DEV Output Board). It emulates a TMS9918A Video Display Processor and a MOS 6581 SID audio synthesizer, driven in real time by AV packets from the DB Emulator over high-speed hardware serial.
 
 ## Features
 

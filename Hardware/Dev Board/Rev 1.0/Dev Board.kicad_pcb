@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Dev Board")
+		(title "6502 DEV Board")
 		(date "2025-09-26")
 		(rev "1.0")
 		(company "A.C. Wright Design")
@@ -147,7 +147,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -239,7 +239,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -331,7 +331,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -423,7 +423,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -514,7 +514,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/44060a18-6f0f-4122-be97-5e1f45b52740")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -823,7 +823,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/a3272af2-99a7-469a-bb63-e670aaa73144")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1032,7 +1032,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/00000000-0000-0000-0000-000060603b6e")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1911,7 +1911,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Logos:6502 Dev Board Logo 4mm"
+	(footprint "6502 Logos:6502 DEV Board Logo 4mm"
 		(layer "F.Cu")
 		(uuid "08c4777b-287a-434b-8251-d15b901466ba")
 		(at 166.719057 56.139968 180)
@@ -2764,7 +2764,7 @@
 		)
 		(path "/0060d9c6-095d-4a03-a092-77aa63c5a573")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4221,7 +4221,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/1702f4c0-5d80-420a-ab2b-4294cfa523cf")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4427,7 +4427,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/575571df-88af-4516-b313-7ade8335c58a")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4825,7 +4825,7 @@
 		)
 		(path "/ab1e372b-35a7-4074-92e8-87f701ce5363")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5353,7 +5353,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/79badcf0-d16c-498c-a660-cf0dab03d949")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5575,7 +5575,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-0000606842ac")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5793,7 +5793,7 @@
 		)
 		(path "/56ec4c78-85da-4ec6-843b-a37034ab90bc")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -6192,7 +6192,7 @@
 		)
 		(path "/85347f3c-bed3-4d3d-aa58-53f66ec0b661")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -6591,7 +6591,7 @@
 		)
 		(path "/4b913650-5e12-4e6e-b968-17d75045eb9c")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -6994,7 +6994,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/64a16f23-a601-416f-9dfc-37a8110c45d1")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7202,7 +7202,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/19f1b393-fe30-4de0-9db6-0c0178e0c5e0")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7530,7 +7530,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/d067c587-e407-415a-ad38-5b76abb2f204")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7750,7 +7750,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/cd594b2a-8990-468d-aa10-d0a3c5454f09")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -8073,7 +8073,7 @@
 		)
 		(path "/e245f5da-0092-445d-8823-b7de300d4978")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8397,7 +8397,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/d7f82e62-a676-42ee-9457-a1185b009483")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9070,7 +9070,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/5cb8ce45-1ab3-4875-ad2f-59c8f72c7c01")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -9344,7 +9344,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/7cf3bbbc-5cc4-4882-85c0-1078deb78066")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -9602,7 +9602,7 @@
 		)
 		(path "/e6a80ad0-f3a6-40ba-8692-c86f39de25fb")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -10168,7 +10168,7 @@
 		)
 		(path "/43503029-be07-484c-8207-f0e9f692c764")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -10682,7 +10682,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/36536419-b623-4fe9-bd31-eb741337c7bf")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11042,7 +11042,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/d4a97bbf-9b33-4fad-b6cf-55ae59efdc89")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11262,7 +11262,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/10f63986-68bb-4c3d-b71b-d9c0cbba5dad")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11483,7 +11483,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/2d78b4c6-98b6-4b33-b268-75590d4f272a")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11703,7 +11703,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/731f9341-a868-4cb6-8751-408f51d23be7")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11924,7 +11924,7 @@
 		(property ki_fp_filters "USB*C*Receptacle*")
 		(path "/f554c427-1180-4303-98e6-ecf47075dab5")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -12360,7 +12360,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/e227d3b8-a1eb-47b8-a26e-a30dd2574ba4")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12580,7 +12580,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/a8382ffb-c034-4a4f-8831-5e32a4927d27")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12802,7 +12802,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/a2199ab3-122c-45f0-a7c2-b4bd6fa39070")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -13020,7 +13020,7 @@
 		)
 		(path "/9a7511a3-9d82-4732-b6e3-55cd545f5de0")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -13422,7 +13422,7 @@
 		(property ki_fp_filters "8P8C* RJ45*")
 		(path "/41ccabb0-9c59-4740-8dce-5d33dabf2f1e")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -13895,7 +13895,7 @@
 		)
 		(path "/c087eba8-ac09-48b4-b890-c5e955655af3")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14425,7 +14425,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/2ba0c22b-1919-4365-b2ff-ab3e188ef349")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14647,7 +14647,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/a2b7b5f7-2462-4867-9026-550522c5115b")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14867,7 +14867,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/1807507c-68eb-4c7a-b499-0ccb94077789")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15531,7 +15531,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-000060687e76")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15789,7 +15789,7 @@
 		)
 		(path "/1845fa0a-8158-4611-bb72-906acaff19b4")
 		(sheetname "/")
-		(sheetfile "Dev Board.kicad_sch")
+		(sheetfile "DEV Board.kicad_sch")
 		(units
 			(unit
 				(name "A")
