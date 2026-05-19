@@ -19293,6 +19293,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 78.74 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9516da89-f8f1-45dc-a5da-9f716ca6309b")
 		)
@@ -19519,6 +19530,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 346.71 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "dab8a799-3eba-413f-b097-f42642351542")
 		)
@@ -19631,6 +19653,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 358.14 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cbeb7dfe-f5d1-497e-97f7-447e4b4daf06")
 		)
@@ -19723,6 +19756,17 @@
 			)
 		)
 		(property "Other" "https://www.pjrc.com/store/teensy41.html"
+			(at 322.58 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 322.58 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -20040,6 +20084,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 369.57 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ca540e1b-5572-4c10-9720-4e6fcd2ff316")
 		)
@@ -20144,6 +20199,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 156.21 203.2 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 156.21 203.2 90)
 			(hide yes)
 			(show_name no)
@@ -20266,6 +20332,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 129.54 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e41fff92-7afe-47f3-a40f-d5634a4c2456")
 		)
@@ -20373,6 +20450,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 57.15 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 57.15 127 0)
 			(hide yes)
 			(show_name no)
@@ -20540,7 +20628,18 @@
 				)
 			)
 		)
-		(property "Other" ""
+		(property "Other" "https://www.amazon.com/uxcell-2-0mm-Pitch-Double-Headers/dp/B00899WM00"
+			(at 255.27 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 255.27 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -20665,6 +20764,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 214.63 198.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 214.63 198.12 90)
 			(hide yes)
 			(show_name no)
@@ -20866,6 +20976,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 325.12 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9e822e36-2aa3-4f96-bfb7-5bb94518ce24")
 		)
@@ -20957,7 +21078,18 @@
 				)
 			)
 		)
-		(property "Other" ""
+		(property "Other" "https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472"
+			(at 370.84 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 370.84 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -21092,6 +21224,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 223.52 220.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 223.52 220.98 90)
 			(hide yes)
 			(show_name no)
@@ -21242,6 +21385,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 55.88 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 55.88 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -21409,7 +21563,18 @@
 				)
 			)
 		)
-		(property "Other" ""
+		(property "Other" "https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
+			(at 173.99 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 173.99 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -21779,6 +21944,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 309.88 173.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "574d6fea-57cb-4f52-92c0-8337f30e8dac")
 		)
@@ -22050,6 +22226,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 325.12 173.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d90c107d-cb13-453c-ac7c-100ea7f76aca")
 		)
@@ -22142,7 +22329,18 @@
 				)
 			)
 		)
-		(property "Other" ""
+		(property "Other" "https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472"
+			(at 370.84 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 370.84 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -22262,7 +22460,18 @@
 				)
 			)
 		)
-		(property "Other" ""
+		(property "Other" "https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
+			(at 298.45 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 298.45 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -22375,6 +22584,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 294.64 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 294.64 161.29 90)
 			(hide yes)
 			(show_name no)
@@ -22576,6 +22796,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 129.54 130.81 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "57fa38fa-d493-4ecb-bbe3-d090aac85456")
 		)
@@ -22757,6 +22988,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 231.14 237.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 231.14 237.49 90)
 			(hide yes)
 			(show_name no)
@@ -22958,6 +23200,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 129.54 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e2ae8d60-39f2-4b89-9de6-948988f4a62a")
 		)
@@ -23141,6 +23394,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 294.64 173.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 294.64 173.99 90)
 			(hide yes)
 			(show_name no)
@@ -23422,6 +23686,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 279.4 173.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ad2946d9-d43f-4f96-9188-01dfdadd699e")
 		)
@@ -23612,6 +23887,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 279.4 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5358b32a-7182-469a-aabd-0369b6ad4bba")
 		)
@@ -23716,6 +24002,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 156.21 205.74 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 156.21 205.74 90)
 			(hide yes)
 			(show_name no)
@@ -23838,6 +24135,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 309.88 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9e585029-f16c-4a33-a71d-1b2cdcec09d1")
 		)
@@ -23940,6 +24248,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 335.28 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 335.28 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -24057,6 +24376,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 128.27 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 128.27 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -24399,6 +24729,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 203.2 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 203.2 127 0)
 			(hide yes)
 			(show_name no)
@@ -24823,6 +25164,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 312.42 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2a917a1f-1a32-4996-9e1f-53893d565908")
 		)
@@ -24925,6 +25277,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 129.54 115.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 129.54 115.57 90)
 			(hide yes)
 			(show_name no)
@@ -25047,6 +25410,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 323.85 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6d1e205a-5bde-4fda-b51f-cf748dc69c55")
 		)
@@ -25138,6 +25512,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 39.37 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" "571-5-5530843-4"
 			(at 39.37 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -25532,6 +25917,17 @@
 				)
 			)
 		)
+		(property "Mouser" ""
+			(at 300.99 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "286dd9a8-1434-4a3b-ba3c-52607aa433ad")
 		)
@@ -25625,6 +26021,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 316.23 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" "712-BAT-HLD-001-THM"
 			(at 316.23 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -25742,6 +26149,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 203.2 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 203.2 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -26079,6 +26497,17 @@
 			)
 		)
 		(property "Other" ""
+			(at 134.62 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser" ""
 			(at 134.62 213.36 0)
 			(hide yes)
 			(show_name no)

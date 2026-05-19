@@ -7,6 +7,29 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Systems](#systems)
+- [Software](#software)
+- [Hardware](#hardware)
+  - [DEV Board](#dev-board)
+  - [DEV Output Board](#dev-output-board)
+- [Firmware](#firmware)
+  - [DB Emulator](#db-emulator)
+  - [DOB Display](#dob-display)
+- [CAD](#cad)
+- [Production](#production)
+- [Schematics](#schematics)
+- [Libraries](#libraries)
+- [Bill of Materials](#bill-of-materials)
+  - [DEV Board](#dev-board-1)
+  - [DEV Output Board](#dev-output-board-1)
+- [License](#license)
+
+---
+
 ## Overview
 
 The AC6502 ecosystem is a family of open-source, 65C02-based computers sharing a common architecture, memory map, and [BIOS](https://github.com/acwright/6502-BIOS). Each computer in the family is purpose-built for a different use case but runs the same software and firmware.
@@ -105,6 +128,45 @@ PDF schematics for each board.
 `Libraries/`
 
 Shared KiCad symbol and footprint libraries used across all AC6502 hardware projects.
+
+## Bill of Materials
+
+### DEV Board
+
+| Reference | Qty | Value | Description | LCSC | DigiKey | Mouser | Other |
+|-----------|-----|-------|-------------|------|---------|--------|-------|
+| BT1 | 1 | CR2032 | Battery Holder | | [BAT-HLD-001-THM-ND](https://www.digikey.com/en/products/filter?keywords=BAT-HLD-001-THM-ND) | [712-BAT-HLD-001-THM](https://www.mouser.com/ProductDetail/712-BAT-HLD-001-THM) | |
+| C1–C8 | 8 | 100nF | SMD Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | | |
+| J1 | 1 | VBAT | Pin Header 1×2 2.54mm | | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
+| J2 | 1 | SPI | Pin Header 2×4 2.54mm | | | | [AMAZON](https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472) |
+| J3 | 1 | PANEL | Pin Header 2×4 2.54mm | | | | [AMAZON](https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472) |
+| J4 | 1 | 6502 Card Connector | Card Edge 2×20 2.54mm | | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) | |
+| J5 | 1 | 6502 Bus | Pin Socket 2×20 2.54mm | | | | [AMAZON](https://www.amazon.com/Female-Headers-Connector-Header-Raspberry/dp/B07DNHS2SJ) |
+| J6 | 1 | USB Host | USB Type-C Receptacle | [C2988369](https://www.lcsc.com/search?q=C2988369) | | | |
+| J7 | 1 | USB HOST | Pin Header 1×5 2.54mm | | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
+| J8 | 1 | RJ45 w/ LEDs | RJ45 8P8C Shielded | | [1278-1052-ND](https://www.digikey.com/en/products/filter?keywords=1278-1052-ND) | | |
+| J9 | 1 | ETHERNET | Pin Header 2×3 2.00mm | | | | [AMAZON](https://www.amazon.com/uxcell-2-0mm-Pitch-Double-Headers/dp/B00899WM00) |
+| R1–R8 | 8 | 1kΩ | SMD Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | | | |
+| R9, R10 | 2 | 56kΩ | SMD Resistor | [C169923](https://www.lcsc.com/search?q=C169923) | | | |
+| R11 | 1 | 150Ω | SMD Resistor | [C17471](https://www.lcsc.com/search?q=C17471) | | | |
+| SW1 | 1 | Run/Stop | Tact Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | | |
+| SW2 | 1 | Step | Tact Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | | |
+| SW3 | 1 | Clock | Tact Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | | |
+| SW4 | 1 | Reset | Tact Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | | |
+| U1–U3, U5, U6 | 5 | SN74LVC4245APWR | Octal Bus Transceiver | [C7859](https://www.lcsc.com/search?q=C7859) | | | |
+| U4 | 1 | Teensy 4.1 | Microcontroller | | | | [PJRC](https://www.pjrc.com/store/teensy41.html) |
+
+### DEV Output Board
+
+| Reference | Qty | Value | Description | DigiKey | Mouser | Other |
+|-----------|-----|-------|-------------|---------|--------|-------|
+| C1 | 1 | 3.3nF | Disc Capacitor | | | [AMAZON](https://www.amazon.com/PANMILED-Multilayer-Monolithic-Capacitors-Assortment/dp/B0CYQ1Z4G5) |
+| J1 | 1 | SPEAKER | JST XH 1×2 2.50mm | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | | |
+| J2 | 1 | SERIAL | Pin Header 1×4 2.54mm | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
+| R6 | 1 | 1kΩ | Axial Resistor | [RNF18FTD1K00CT-ND](https://www.digikey.com/en/products/filter?keywords=RNF18FTD1K00CT-ND) | | [AMAZON](https://www.amazon.com/ALLECIN-8W-Metal-Film-Resistor/dp/B0C77TM3NR) |
+| U1 | 1 | Waveshare LCD Header | Pin Header 1×8 2.54mm | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
+| U2 | 1 | Teensy 4.0 | Microcontroller | | | [PJRC](https://www.pjrc.com/store/teensy40.html) |
+| U3 | 1 | Waveshare 2.4in LCD | 2.4" ILI9341 TFT LCD | | | [AMAZON](https://www.amazon.com/dp/B08H24H7KX) |
 
 ## License
 
