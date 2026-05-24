@@ -3455,7 +3455,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SPEAKER"
+		(property "Value" "AUDIO"
 			(at 212.09 129.5399 0)
 			(show_name no)
 			(do_not_autoplace no)
