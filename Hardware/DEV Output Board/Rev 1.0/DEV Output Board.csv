@@ -1,8 +1,0 @@
-"Reference","Value","Qty","Description","Footprint","Digikey","Mouser","Other"
-"C1","3.3nF","1","","Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm","","","https://www.amazon.com/PANMILED-Multilayer-Monolithic-Capacitors-Assortment/dp/B0CYQ1Z4G5"
-"J1","SPEAKER","1","Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)","Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical","455-2247-ND","",""
-"J2","SERIAL","1","Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","","","https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
-"R6","1K","1","Resistor","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal","RNF18FTD1K00CT-ND","","https://www.amazon.com/ALLECIN-8W-Metal-Film-Resistor/dp/B0C77TM3NR"
-"U1","Waveshare 2.4in LCD Header","1","","Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical","","","https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
-"U2","Teensy4.0","1","","6502 Parts:Teensy40","","","https://www.pjrc.com/store/teensy40.html"
-"U3","Waveshare 2.4in LCD","1","","6502 Parts:Waveshare 2.4in LCD","","","https://www.amazon.com/dp/B08H24H7KX"
