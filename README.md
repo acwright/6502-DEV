@@ -146,8 +146,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | J7 | 1 | USB HOST | Pin Header 1×5 2.54mm | | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
 | J8 | 1 | RJ45 w/ LEDs | RJ45 8P8C Shielded | | [1278-1052-ND](https://www.digikey.com/en/products/filter?keywords=1278-1052-ND) | | |
 | J9 | 1 | ETHERNET | Pin Header 2×3 2.00mm | | | | [AMAZON](https://www.amazon.com/uxcell-2-0mm-Pitch-Double-Headers/dp/B00899WM00) |
-| R1–R4 | 4 | 10kΩ | SMD Resistor | [C2930231](https://www.lcsc.com/search?q=C2930231) | | | |
-| R5–R8 | 4 | 1kΩ | SMD Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | | | |
+| R1–R8 | 8 | 1kΩ | SMD Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | | | |
 | R9, R10 | 2 | 56kΩ | SMD Resistor | [C169923](https://www.lcsc.com/search?q=C169923) | | | |
 | R11 | 1 | 150Ω | SMD Resistor | [C17471](https://www.lcsc.com/search?q=C17471) | | | |
 | SW1 | 1 | Run/Stop | Tact Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | | |
