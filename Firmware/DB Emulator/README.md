@@ -4,7 +4,7 @@ A 65C02 CPU emulator firmware for the Teensy 4.1 microcontroller. This project p
 
 ## Overview
 
-DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulator. It emulates the complete 65C02 CPU instruction set, memory management, and provides hardware interfaces for keyboards, joysticks, and network connectivity. The emulator can be controlled via serial terminal or through the embedded [web interface](html/README.md). Audio (SID) and video (TMS9918A) are streamed over USB to the browser for real-time rendering.
+DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulator. It emulates the complete 65C02 CPU instruction set, memory management, and provides hardware interfaces for keyboards, joysticks, and network connectivity. The emulator can be controlled via serial terminal or through the embedded [web interface](html/README.md). Audio (SID) and video (TMS9918A) register writes are streamed simultaneously to two destinations: over USB (`SerialUSB2`) to the browser, and over the hardware UART (`Serial7` at 6 Mbps) to the DOB Display board for rendering on the ILI9341 TFT and PWM audio output.
 
 ### Features
 
@@ -12,13 +12,18 @@ DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulat
 - **Memory Management**: 
   - Base RAM: up to 32KB (configurable)
   - Banked RAM: 32KB (default), up to 512KB with PSRAM installed
-  - ROM support (up to 24KB)
+  - ROM support (full 32KB `BIOS.bin` image; 24KB visible at `$A000-$FFFF` once I/O overlays `$8000-$9FFF`)
   - Cartridge loading (16KB)
 - **I/O Support**:
   - USB Keyboard input
   - USB Joystick support (Xbox 360/One controllers)
-  - Sound Card (SID — MOS 6581 emulation, streamed to web interface)
-  - Video Card (TMS9918A emulation, streamed to web interface)
+  - RAM Card (I/O 1 and I/O 2, banked RAM)
+  - RTC Card (I/O 3, DS1511Y real-time clock)
+  - Storage Card (I/O 4, emulated 256MB CompactFlash backed by `Storage.bin` on SD)
+  - Serial Card (I/O 5, bound to `SerialUSB1` — the BIOS serial console)
+  - GPIO Card (I/O 6, 65C22 VIA with keyboard/joystick attachments)
+  - Sound Card (I/O 7, SID — MOS 6581 emulation, streamed to web interface and DOB Display)
+  - Video Card (I/O 8, TMS9918A emulation, streamed to web interface and DOB Display)
 - **Storage**:
   - SD card support for loading ROMs, cartridges, and programs
   - Memory snapshot functionality
@@ -27,10 +32,9 @@ DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulat
   - mDNS discovery (hostname: `6502.local`)
   - Embedded web server with REST API
   - Embedded web control interface (served from SD card)
-- **Audio/Video Streaming**:
-  - SID register writes streamed over USB to browser for Web Audio API synthesis
-  - TMS9918A register writes streamed over USB to browser for canvas rendering
-  - Real-time AV via Web Serial API (Chrome or Edge required)
+- **Audio/Video Streaming**: every AV packet is sent to both destinations at once
+  - Over USB (`SerialUSB2`) to the browser — SID register writes for Web Audio API synthesis, TMS9918A register writes for canvas rendering, via the Web Serial API (Chrome or Edge required)
+  - Over the hardware UART (`Serial7` at 6 Mbps) to the DOB Display board, which renders the same register writes on an ILI9341 TFT with PWM audio output
 - **Browser Keyboard Input**: Forwards keyboard events from the web interface to the emulator via REST API
 - **Control Options**:
   - Serial terminal interface (115200 baud)
@@ -261,7 +265,9 @@ Once connected, you'll see the emulator banner and status. Available commands:
 
 #### Audio/Video Streaming
 
-The Teensy streams SID and TMS9918A register writes over USB (SerialUSB2) to the browser for real-time audio synthesis and video rendering.
+Every SID and TMS9918A register write is emitted as a 4-byte AV packet, and `avSend()` in `lib/6502/IO/AVStream.h` writes each packet to **both** outputs on every call. The two paths are simultaneous, not alternatives — neither has to be connected for the other to work.
+
+**Browser rendering (USB, `SerialUSB2`)**
 
 - The Teensy must be USB-connected to the same machine running the browser
 - Click **Connect AV** in the VIDEO panel to open the USB serial link
@@ -269,9 +275,9 @@ The Teensy streams SID and TMS9918A register writes over USB (SerialUSB2) to the
 - Audio and video are rendered entirely in the browser; the Teensy streams register writes only
 - Click **Mute** to toggle audio output
 
-**Alternative: External Hardware Rendering**
+**Hardware rendering (`HWSERIAL` / `Serial7` at 6 Mbps)**
 
-In addition to browser-based AV streaming via USB, the emulator supports streaming AV data to external hardware devices via the **HWSERIAL** interface. This allows connecting dedicated hardware (such as external sound synthesizers or video display units) for rendering audio and video output. The HWSERIAL port uses the same AV streaming protocol as SerialUSB2, enabling hardware devices to receive SID and TMS9918A register writes for real-time rendering.
+The same packets go out the hardware UART to the DEV Output Board, whose [DOB Display](../DOB%20Display/README.md) firmware opens `Serial1` at the same 6000000 baud and parses the identical 4-byte format. It renders the TMS9918A output on the 2.4" ILI9341 TFT and the SID output as PWM audio. Any other device speaking the same protocol can be attached instead.
 
 ### Physical Controls
 
@@ -318,10 +324,12 @@ Returns system information and CPU state in JSON format:
 ```
 
 ### GET /memory?target={ram|rom}&page={n}
-Returns memory dump (1024 bytes per page):
-- `target`: `ram` or `rom`
-- `page`: Page number (0-31 for RAM, 0-23 for ROM)
-- Optional: `formatted=true` for hex-formatted output
+Returns a memory dump, one 256-byte page per request:
+- `target`: `ram` or `rom` (required; returns 400 if missing or any other value)
+- `page`: Page number, `0`-`127` for both targets (required; returns 400 if missing or out of range)
+  - RAM page `n` covers `$0000 + (n * $100)`, so page 0 is `$0000` and page 127 is `$7F00`
+  - ROM page `n` is an offset from `ROM_START`, covering `$8000 + (n * $100)` — the visible ROM window at `$A000` begins at page 32
+- Optional: `formatted=true` returns `text/plain` as space-separated hex bytes; omitted, the response is raw `application/octet-stream`
 
 ### GET /storage?target={rom|cart|program}&page={n}
 Lists files in storage:
@@ -345,7 +353,7 @@ Forwards browser keyboard events to the emulator:
 - `keycode`: 1–2 character hex string representing a USB HID keycode (e.g. `04` for 'a') (required; returns 400 if missing)
 - Returns 200 on success
 
-**Note:** Audio/video data flows via Web Serial API (USB SerialUSB2), not REST. See the Audio/Video Streaming section above.
+**Note:** Audio/video data does not flow over REST. It streams over USB (`SerialUSB2`, Web Serial API) and over the hardware UART (`Serial7`) to the DOB Display, simultaneously. See the Audio/Video Streaming section above.
 
 ## Troubleshooting
 
@@ -468,7 +476,7 @@ DB Emulator/
 │       ├── ROM/              # ROM emulation
 │       ├── Cart/             # Cartridge support
 │       └── IO/               # I/O device emulation
-│           ├── AVStream.h    # AV streaming protocol (SerialUSB2)
+│           ├── AVStream.h    # AV streaming protocol (SerialUSB2 + HWSERIAL)
 │           ├── SoundCard.*   # SID (MOS 6581) emulation
 │           └── VideoCard.*   # TMS9918A emulation
 ├── src/
@@ -495,14 +503,14 @@ $0200 - $02FF : Input Buffer
 $0300 - $03FF : Kernal Variables
 $0400 - $07FF : User Variables
 $0800 - $7FFF : Program RAM (30KB)
-$8000 - $83FF : I/O Slot 0 (1KB) - RAM Card
-$8400 - $87FF : I/O Slot 1 (1KB) - RAM Card
-$8800 - $8BFF : I/O Slot 2 (1KB) - RTC Card
-$8C00 - $8FFF : I/O Slot 3 (1KB) - Storage Card
-$9000 - $93FF : I/O Slot 4 (1KB) - Serial Card
-$9400 - $97FF : I/O Slot 5 (1KB) - GPIO Card
-$9800 - $9BFF : I/O Slot 6 (1KB) - Sound Card (SID)
-$9C00 - $9FFF : I/O Slot 7 (1KB) - Video Card (TMS9918A)
+$8000 - $83FF : I/O Slot 1 (1KB) - RAM Card
+$8400 - $87FF : I/O Slot 2 (1KB) - RAM Card
+$8800 - $8BFF : I/O Slot 3 (1KB) - RTC Card
+$8C00 - $8FFF : I/O Slot 4 (1KB) - Storage Card
+$9000 - $93FF : I/O Slot 5 (1KB) - Serial Card
+$9400 - $97FF : I/O Slot 6 (1KB) - GPIO Card
+$9800 - $9BFF : I/O Slot 7 (1KB) - Sound Card (SID)
+$9C00 - $9FFF : I/O Slot 8 (1KB) - Video Card (TMS9918A)
 $A000 - $BFFF : ROM (8KB)
 $C000 - $FFFF : ROM/Cartridge (16KB)
 ```

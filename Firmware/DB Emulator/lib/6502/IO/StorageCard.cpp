@@ -7,9 +7,13 @@ StorageCard::StorageCard() {
 void StorageCard::begin() {
   if (!SD.exists(ST_STORAGE_FILE_NAME)) {
     File file = SD.open(ST_STORAGE_FILE_NAME, FILE_WRITE);
-    
-    for (int i = 0; i < ST_STORAGE_SIZE; i++) {
-      file.write(0x00);
+    uint8_t block[ST_INIT_BLOCK];
+
+    // Written a block at a time - a byte at a time takes hours over 256MB
+    memset(block, 0x00, ST_INIT_BLOCK);
+
+    for (uint32_t i = 0; i < (ST_STORAGE_SIZE / ST_INIT_BLOCK); i++) {
+      file.write(block, ST_INIT_BLOCK);
     }
 
     file.close();
@@ -292,8 +296,9 @@ bool StorageCard::sectorValid() {
 }
 
 void StorageCard::generateIdentity(uint8_t *identity) {
-  // Generate emulated 128MB CF card identity
+  // Generate emulated 256MB CF card identity
   // Some data taken from real Promaster 128MB CF card
+  // Geometry is 2048 cylinders x 8 heads x 32 sectors = 524288 sectors (256MB)
 
   // Fill with zeros first
   memset(identity, 0, ST_SECTOR_SIZE);
@@ -301,7 +306,7 @@ void StorageCard::generateIdentity(uint8_t *identity) {
   identity[0]   = 0x84;
   identity[1]   = 0x8A; // Removable Disk
   identity[2]   = 0x00;
-  identity[3]   = 0x04; // # of cylinders
+  identity[3]   = 0x08; // # of cylinders
   identity[4]   = 0x00;
   identity[5]   = 0x00; // Reserved
   identity[6]   = 0x08;
@@ -312,7 +317,7 @@ void StorageCard::generateIdentity(uint8_t *identity) {
   identity[11]  = 0x02; // # of unformatted bytes per sector
   identity[12]  = 0x20;
   identity[13]  = 0x00; // # of sectors per track
-  identity[14]  = 0x04;
+  identity[14]  = 0x08;
   identity[15]  = 0x00;
   identity[16]  = 0x00;
   identity[17]  = 0x00; // # of sectors per card
@@ -412,20 +417,20 @@ void StorageCard::generateIdentity(uint8_t *identity) {
   identity[106] = 0x01;
   identity[107] = 0x00; // Field validity
   identity[108] = 0x00;
-  identity[109] = 0x04; // Current # of cylinders
+  identity[109] = 0x08; // Current # of cylinders
   identity[110] = 0x08;
   identity[111] = 0x00; // Current # of heads
   identity[112] = 0x20;
   identity[113] = 0x00; // Current sectors per track
   identity[114] = 0x00;
   identity[115] = 0x00;
-  identity[116] = 0x04;
+  identity[116] = 0x08;
   identity[117] = 0x00; // Current capacity in sectors (LBAs)
   identity[118] = 0x01;
   identity[119] = 0x01; // Multiple sector setting
   identity[120] = 0x00;
   identity[121] = 0x00;
-  identity[122] = 0x04;
+  identity[122] = 0x08;
   identity[123] = 0x00; // Total # of sectors in LBA mode
   
   // All zeros from here on out

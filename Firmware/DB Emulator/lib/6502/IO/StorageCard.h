@@ -77,10 +77,11 @@
 #define ST_STATUS_RDY     0b01000000
 #define ST_STATUS_BSY     0b10000000
 
-#define ST_STORAGE_SIZE   0x8000000     // 128MB (134217728 bytes)
+#define ST_STORAGE_SIZE   0x10000000    // 256MB (268435456 bytes) - 256 BIOS disk banks
 #define ST_SECTOR_SIZE    0x200         // 512 bytes
-#define ST_SECTOR_COUNT   0x40000       // 262144 512 byte sectors
-#define ST_IDENTITY_SIZE  0x100         // 256 bytes 
+#define ST_SECTOR_COUNT   0x80000       // 524288 512 byte sectors
+#define ST_IDENTITY_SIZE  0x100         // 256 bytes
+#define ST_INIT_BLOCK     0x1000        // 4096 byte block used to initialise the backing file
 
 #define ST_STORAGE_FILE_NAME    "Storage.bin"
 #define ST_IDENTITY_FILE_NAME   "Identity.bin"

@@ -84,7 +84,7 @@ The main board hosting the Teensy 4.1. Provides 65C02 bus emulation, SD card sto
 ### DEV Output Board
 `Hardware/DEV Output Board/`
 
-The AV output board hosting a Teensy 4.0 and a 2.4" ILI9341 TFT LCD. Emulates a TMS9918A Video Display Processor and a MOS 6581 SID audio synthesizer, driven in real time via high-speed serial from the DEV Board.
+The AV output board hosting a Teensy 4.0 and a 2.4" ILI9341 TFT LCD. Emulates a TMS9918A Video Display Processor and a MOS 6581 SID audio synthesizer, driven in real time via high-speed serial from the DEV Board. The DEV Board sends the same AV packets over USB at the same time, so a browser can render the output in parallel with this board — the two paths are simultaneous, not alternatives.
 
 ## Firmware
 
@@ -99,6 +99,7 @@ Firmware for the Teensy 4.1 on the DEV Board. Provides:
 - SD card ROM/cartridge/program loading and memory snapshots
 - Ethernet with mDNS (`6502.local`) and an embedded web control interface
 - USB keyboard and joystick support (Xbox 360/One)
+- AV packet output to both destinations at once — over USB to the browser (Web Serial API) and over hardware UART at 6 Mbps to the DOB Display
 - Serial terminal interface (115200 baud)
 - Hardware button control (Run/Stop, Step, Reset, Frequency)
 - Variable CPU clock speed
@@ -112,7 +113,7 @@ Firmware for the Teensy 4.0 on the DEV Output Board. Provides:
 
 - TMS9918A VDP emulation (all four display modes, 256×192 active area)
 - MOS 6581 SID audio emulation (3 voices, ADSR envelopes, PWM audio output)
-- AV packet stream input at 6 Mbps over hardware UART from the DB Emulator
+- AV packet stream input at 6 Mbps over hardware UART from the DB Emulator (which also streams the same packets over USB to the browser)
 
 See [Firmware/DOB Display/README.md](./Firmware/DOB%20Display/README.md) for setup and usage instructions.
 
