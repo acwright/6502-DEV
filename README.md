@@ -5,6 +5,9 @@
 
 An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 
+> 📖 **Guide:** [AC6502 Documentation](https://acwright.github.io/6502-DOCS/) — the user's and programmer's guide for the whole family.
+> See [DEV's page in the family appendix](https://acwright.github.io/6502-DOCS/family/dev).
+
 ---
 
 ## Table of Contents
@@ -67,7 +70,7 @@ All AC6502 computers share:
 | [6502-BAS](https://github.com/acwright/6502-BAS) | BASIC program listings |
 | [6502-WOZMON](https://github.com/acwright/6502-WOZMON) | Wozmon as a standalone ROM |
 | [6502-NOP](https://github.com/acwright/6502-NOP) | An all-NOP ROM, for probing a board during bring-up |
-| [6502-ASSETS](https://github.com/acwright/6502-ASSETS) | Documentation, branding, schematic exports, and label artwork |
+| [6502-DOCS](https://github.com/acwright/6502-DOCS) | The documentation site — the guide, the printable reference cards, branding and label artwork |
 | [cffs](https://github.com/acwright/cffs) | Builds CompactFlash disk images for the BIOS filesystem |
 | [bastok](https://github.com/acwright/bastok) | Tokenizes BASIC listings into `.prg` images, and back |
 | [bin2woz](https://github.com/acwright/bin2woz) | Converts a binary into a Wozmon serial upload |
@@ -169,7 +172,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | Reference | Qty | Value | Description | DigiKey | Mouser | Other |
 |-----------|-----|-------|-------------|---------|--------|-------|
 | C1 | 1 | 3.3nF | Disc Capacitor | | | [AMAZON](https://www.amazon.com/PANMILED-Multilayer-Monolithic-Capacitors-Assortment/dp/B0CYQ1Z4G5) |
-| J1 | 1 | SPEAKER | JST XH 1×2 2.50mm | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | | |
+| J1 | 1 | AUDIO | JST XH 1×2 2.50mm | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | | |
 | J2 | 1 | SERIAL | Pin Header 1×4 2.54mm | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
 | R6 | 1 | 1kΩ | Axial Resistor | [RNF18FTD1K00CT-ND](https://www.digikey.com/en/products/filter?keywords=RNF18FTD1K00CT-ND) | | [AMAZON](https://www.amazon.com/ALLECIN-8W-Metal-Film-Resistor/dp/B0C77TM3NR) |
 | U1 | 1 | Waveshare LCD Header | Pin Header 1×8 2.54mm | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
