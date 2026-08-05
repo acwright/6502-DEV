@@ -171,20 +171,23 @@ build_flags =
 ### Using PlatformIO Core (Command Line)
 
 ```bash
-# Build for DevBoard 1
-platformio run -e devboard
+# Build for DevBoard 1 (Rev 1.0 and newer)
+platformio run -e devboard_1
+
+# Build for DevBoard 0 (Rev 0.0 legacy board)
+platformio run -e devboard_0
 
 # Upload to Teensy
-platformio run -e devboard --target upload
+platformio run -e devboard_1 --target upload
 
 # Build and upload
-platformio run -e devboard -t upload
+platformio run -e devboard_1 -t upload
 
 # Open serial monitor
 platformio device monitor -b 115200
 
 # Build, upload, and monitor
-platformio run -e devboard -t upload && platformio device monitor -b 115200
+platformio run -e devboard_1 -t upload && platformio device monitor -b 115200
 ```
 
 ### Manual Upload with Teensy Loader

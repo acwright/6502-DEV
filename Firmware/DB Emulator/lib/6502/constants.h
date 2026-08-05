@@ -30,7 +30,13 @@
 /* |                  | */
 /* -------------------- */
 
+#ifdef DEVBOARD_0
+#define VERSION         "0.0"
+#elif DEVBOARD_1
 #define VERSION         "1.0"
+#else
+#define VERSION         "Unknown"
+#endif
 
 #define RAM_START       0x0000
 #define RAM_END         0x7FFF
