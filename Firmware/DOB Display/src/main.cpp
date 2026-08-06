@@ -492,13 +492,18 @@ FASTRUN void sidISR() {
 
     // ---- ADSR envelope ----
     switch (sv.envState) {
-      case 1:  // Attack: ramp up to 255
-        sv.envAccum += sv.envAttackRate;
-        if (sv.envAccum >= 0xFF000000u) {
+      case 1: {  // Attack: ramp up to 255
+        // The fastest attacks step far enough that the sum can pass UINT32_MAX
+        // and wrap below full scale, so treat a wrap as having reached the top.
+        uint32_t next = sv.envAccum + sv.envAttackRate;
+        if (next < sv.envAccum || next >= 0xFF000000u) {
           sv.envAccum = 0xFF000000u;
           sv.envState = (sv.envSustain < 255) ? 2 : 3;
+        } else {
+          sv.envAccum = next;
         }
         break;
+      }
       case 2:  // Decay: ramp down to sustain level
         if (sv.envAccum <= sv.envDecayRate || (sv.envAccum >> 24) <= sv.envSustain) {
           sv.envAccum = (uint32_t)sv.envSustain << 24;
