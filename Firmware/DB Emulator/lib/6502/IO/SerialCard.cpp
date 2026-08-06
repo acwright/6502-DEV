@@ -12,10 +12,16 @@ uint8_t SerialCard::read(uint16_t address) {
     case 0x00: // Receive Data Register
       this->status &= ~SC_STATUS_IRQ; // Clear interrupt
       this->status &= ~SC_STATUS_RX_REG_FULL;
+      this->status &= ~SC_STATUS_OVERRUN; // A data read clears overrun
       return this->rx;
     case 0x01: // Status Register
       _status = this->status;
-      this->status &= ~SC_STATUS_IRQ; // Clear interrupt
+      // A status read clears the interrupt and the receive error flags, so an
+      // overrun is reported once rather than for the rest of the session
+      this->status &= ~(SC_STATUS_IRQ |
+                        SC_STATUS_PARITY_ERROR |
+                        SC_STATUS_FRAMING_ERROR |
+                        SC_STATUS_OVERRUN);
       return _status;
     case 0x02: // Command Register
       return this->cmd;
@@ -35,7 +41,10 @@ void SerialCard::write(uint16_t address, uint8_t value) {
       break;
     case 0x01: // Programmed Reset
       this->cmd &= 0b11100000;
-      this->status &= ~SC_STATUS_OVERRUN;
+      this->status &= ~(SC_STATUS_IRQ |
+                        SC_STATUS_PARITY_ERROR |
+                        SC_STATUS_FRAMING_ERROR |
+                        SC_STATUS_OVERRUN);
       break;
     case 0x02: // Command Register
       this->cmd = value;
@@ -98,8 +107,11 @@ void SerialCard::reset() {
   this->rx = 0x00;
   this->cmd = 0x00;
   this->ctrl = 0x00;
-  this->status = 0x00 | SC_STATUS_TX_REG_EMPTY;
-  
+  // There is no modem on either end of the link, so the peer is reported as
+  // permanently connected (DCD clear) and permanently ready (DSR set). Neither
+  // bit is ever driven from anywhere else.
+  this->status = SC_STATUS_TX_REG_EMPTY | SC_STATUS_DSR;
+
   this->txPending = false;
   this->rxPollCounter = 0;
 }

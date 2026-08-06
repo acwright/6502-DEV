@@ -15,9 +15,10 @@ uint8_t VideoCard::read(uint16_t address) {
       return val;
     }
     case 0x01: {
-      // Status register read: return status and clear frame flag
+      // Status register read: return status and clear it — a read takes the
+      // fifth-sprite and collision bits with the frame flag
       uint8_t s = this->status;
-      this->status &= ~0x80;
+      this->status = 0x00;
       this->firstByte = true;
       return s;
     }
@@ -29,7 +30,10 @@ uint8_t VideoCard::read(uint16_t address) {
 void VideoCard::write(uint16_t address, uint8_t value) {
   switch (address & 0x01) {
     case 0x00:
-      // Data port write: write to VRAM and auto-increment
+      // Data port write: write to VRAM and auto-increment. The write also
+      // loads the read-ahead buffer, so a read taken straight after a write
+      // returns the byte just written rather than a stale prefetch.
+      this->readBuf = value;
       this->vram[this->addr & 0x3FFF] = value;
       avSend(AV_TYPE_VIDEO_DATA, 0x00, value);
       this->addr = (this->addr + 1) & 0x3FFF;
@@ -72,12 +76,19 @@ uint8_t VideoCard::tick(uint32_t cpuFrequency) {
 
   if (this->cyclesPerFrame > 0 && this->cycleCount >= this->cyclesPerFrame) {
     this->cycleCount = 0;
-    this->status |= 0x80;  // Set frame interrupt flag
 
-    // Generate IRQ if interrupt enable bit (R1 bit 5) is set
-    if (this->registers[1] & 0x20) {
-      return 0x80;  // IRQ
-    }
+    // F is set every frame regardless of R1 bit 5 — that is what makes polling
+    // VC_STATUS for bit 7 the standard vblank sync with interrupts off
+    this->status |= 0x80;
+  }
+
+  // Hold the line for as long as the flag stands, gated on the interrupt
+  // enable bit (R1 bit 5) which on real silicon gates only the INT* pin. The
+  // CPU samples the interrupt pin between instructions, so a one-tick pulse
+  // is missed on every frame whose boundary does not land on an instruction
+  // boundary; the line stays asserted until the CPU reads the status register.
+  if ((this->status & 0x80) && (this->registers[1] & 0x20)) {
+    return 0x80;  // IRQ
   }
 
   return 0x00;

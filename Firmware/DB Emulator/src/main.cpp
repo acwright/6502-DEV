@@ -629,6 +629,18 @@ void reset() {
   }
 
   cpu.reset();
+
+  // Every slot gets reset, not just the ones with visible state — an ACIA with
+  // stuck status flags, a VIA holding the encoder-enable low or a storage card
+  // stopped mid-transfer all survive a reset otherwise.
+  // RAMCard::reset() is deliberately a no-op: a reset does not wipe memory, so
+  // the banked RAM only clears on a power cycle (its constructor).
+  ramCard1.reset();
+  ramCard2.reset();
+  rtcCard.reset();
+  storageCard.reset();
+  serialCard.reset();
+  gpioCard.reset();
   soundCard.reset();
   videoCard.reset();
 

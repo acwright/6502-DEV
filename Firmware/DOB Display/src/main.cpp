@@ -164,13 +164,18 @@ void render() {
   uint8_t m2 = (registers[1] >> 3) & 1;
   uint8_t m3 = (registers[0] >> 1) & 1;
   uint8_t backdrop = registers[7] & 0x0F;
+  uint8_t displayEnabled = (registers[1] >> 6) & 1;
 
   memset(framebuffer, backdrop, sizeof(framebuffer));
 
-  if      (m1 == 0 && m2 == 0 && m3 == 0) { renderGraphicsI();   renderSprites(); }
-  else if (m1 == 0 && m2 == 0 && m3 == 1) { renderGraphicsII();  renderSprites(); }
-  else if (m1 == 1 && m2 == 0 && m3 == 0) { renderText(); }
-  else if (m1 == 0 && m2 == 1 && m3 == 0) { renderMulticolor();  renderSprites(); }
+  // R1 bit 6 clear blanks the active area to the backdrop without disturbing
+  // VRAM — the usual way to hide a screen while it is being redrawn
+  if (displayEnabled) {
+    if      (m1 == 0 && m2 == 0 && m3 == 0) { renderGraphicsI();   renderSprites(); }
+    else if (m1 == 0 && m2 == 0 && m3 == 1) { renderGraphicsII();  renderSprites(); }
+    else if (m1 == 1 && m2 == 0 && m3 == 0) { renderText(); }
+    else if (m1 == 0 && m2 == 1 && m3 == 0) { renderMulticolor();  renderSprites(); }
+  }
 
   tft.writeRect8BPP(0, 0, CANVAS_W, CANVAS_H, framebuffer, palette);
 }
@@ -215,19 +220,26 @@ void renderGraphicsI() {
 
 void renderGraphicsII() {
   uint16_t nameTable    = (registers[2] & 0x0F) << 10;
-  uint16_t colorTable   = (registers[3] & 0x80) << 6;
-  uint16_t patternTable = (registers[4] & 0x04) << 11;
+  uint16_t colorBase    = (registers[3] & 0x80) << 6;
+  uint16_t patternBase  = (registers[4] & 0x04) << 11;
+
+  // R3 and R4 do double duty in Graphics II: R3's low seven bits mask the
+  // name-table byte, and R4's low two bits select which of the three thirds of
+  // the screen get their own pattern and colour page. A program that clears
+  // them expects a single page repeated down the screen, not three.
+  uint16_t nameMask = ((registers[3] & 0x7F) << 3) | 0x07;
 
   for (uint8_t tileY = 0; tileY < 24; tileY++) {
-    for (uint8_t tileX = 0; tileX < 32; tileX++) {
-      uint8_t charCode = vram[(nameTable + tileY * 32 + tileX) & 0x3FFF];
+    uint16_t pageOffset   = (uint16_t)(((tileY & 0x18) >> 3) & (registers[4] & 0x03)) << 11;
+    uint16_t patternTable = patternBase + pageOffset;
+    uint16_t colorTable   = colorBase + (pageOffset & ((registers[3] & 0x60) << 6));
 
-      uint8_t section = tileY / 8;
-      uint16_t sectionOffset = section * 2048;
+    for (uint8_t tileX = 0; tileX < 32; tileX++) {
+      uint16_t charCode = vram[(nameTable + tileY * 32 + tileX) & 0x3FFF] & nameMask;
 
       for (uint8_t row = 0; row < 8; row++) {
-        uint8_t patByte   = vram[(patternTable + sectionOffset + charCode * 8 + row) & 0x3FFF];
-        uint8_t colorByte = vram[(colorTable   + sectionOffset + charCode * 8 + row) & 0x3FFF];
+        uint8_t patByte   = vram[(patternTable + charCode * 8 + row) & 0x3FFF];
+        uint8_t colorByte = vram[(colorTable   + charCode * 8 + row) & 0x3FFF];
         uint8_t fg = (colorByte >> 4) & 0x0F;
         uint8_t bg = colorByte & 0x0F;
 
@@ -278,14 +290,24 @@ void renderMulticolor() {
     for (uint8_t tileX = 0; tileX < 32; tileX++) {
       uint8_t charCode = vram[(nameTable + tileY * 32 + tileX) & 0x3FFF];
 
-      for (uint8_t row = 0; row < 8; row++) {
-        uint8_t patByte    = vram[(patternTable + charCode * 8 + row) & 0x3FFF];
+      // One pattern byte covers a whole 8x4 half-tile — high nibble the left
+      // 4x4 block, low nibble the right. Which of the character's eight bytes
+      // a group of scanlines uses steps once every four lines and is offset by
+      // the tile row's position within a group of four, which is what lets the
+      // same 32 name-table entries paint four different sets of blocks down
+      // the screen.
+      for (uint8_t half = 0; half < 2; half++) {
+        uint8_t byteIndex  = (tileY & 0x03) * 2 + half;
+        uint8_t patByte    = vram[(patternTable + charCode * 8 + byteIndex) & 0x3FFF];
         uint8_t leftColor  = (patByte >> 4) & 0x0F;
         uint8_t rightColor = patByte & 0x0F;
 
-        for (uint8_t dx = 0; dx < 4; dx++) {
-          setPixel(tileX * 8 + dx,     tileY * 8 + row, leftColor);
-          setPixel(tileX * 8 + 4 + dx, tileY * 8 + row, rightColor);
+        for (uint8_t dy = 0; dy < 4; dy++) {
+          uint16_t y = tileY * 8 + half * 4 + dy;
+          for (uint8_t dx = 0; dx < 4; dx++) {
+            setPixel(tileX * 8 + dx,     y, leftColor);
+            setPixel(tileX * 8 + 4 + dx, y, rightColor);
+          }
         }
       }
     }
@@ -296,89 +318,77 @@ void renderMulticolor() {
 // SPRITE RENDERING - up to 32 sprites, max 4 visible per scanline
 //
 
-struct Sprite {
-  int16_t x;
-  int16_t y;
-  uint8_t pattern;
-  uint8_t color;
-};
-
 void renderSprites() {
   uint16_t spriteAttrTable    = (registers[5] & 0x7F) << 7;
   uint16_t spritePatternTable = (registers[6] & 0x07) << 11;
-  uint8_t size16  = (registers[1] >> 1) & 1;
-  uint8_t magnify = registers[1] & 1;
-  uint8_t spriteSize = size16 ? 16 : 8;
-  uint8_t pixelSize  = magnify ? 2 : 1;
+  uint8_t  size16  = (registers[1] >> 1) & 1;
+  uint8_t  magnify = registers[1] & 1;
+  uint8_t  spriteSize   = size16 ? 16 : 8;
+  uint8_t  pixelSize    = magnify ? 2 : 1;
+  uint8_t  spriteSizePx = spriteSize * pixelSize;
 
-  // Collect active sprites (stop at Y == 0xD0)
-  Sprite sprites[32];
-  uint8_t spriteCount = 0;
+  // Which sprite has claimed each pixel of the scanline being built: 0 is
+  // free, anything else is colour + 1. A transparent sprite still claims its
+  // pixels against lower-priority sprites, which is why this holds colour + 1
+  // rather than a plain flag.
+  uint8_t rowSpriteBits[ACTIVE_W];
 
-  for (uint8_t i = 0; i < 32; i++) {
-    uint16_t attrAddr = spriteAttrTable + i * 4;
-    uint8_t rawY = vram[attrAddr & 0x3FFF];
-    if (rawY == 0xD0) break;
+  // Scanline-major, sprites visited in index order, as the real part scans
+  // them. Both rules fall out of that: a pixel already claimed by a
+  // lower-numbered sprite is not overwritten, and once four sprites have been
+  // found on a line the fifth and everything after it is dropped from it.
+  for (int16_t y = 0; y < ACTIVE_H; y++) {
+    uint8_t spritesShown = 0;
 
-    uint8_t rawX      = vram[(attrAddr + 1) & 0x3FFF];
-    uint8_t pattern   = vram[(attrAddr + 2) & 0x3FFF];
-    uint8_t colorByte = vram[(attrAddr + 3) & 0x3FFF];
+    for (uint8_t i = 0; i < 32; i++) {
+      uint16_t attrAddr = spriteAttrTable + i * 4;
+      int16_t  yPos     = vram[attrAddr & 0x3FFF];
 
-    sprites[spriteCount].y       = (rawY + 1) & 0xFF;
-    sprites[spriteCount].x       = (colorByte & 0x80) ? (int16_t)rawX - 32 : rawX;
-    sprites[spriteCount].pattern = pattern;
-    sprites[spriteCount].color   = colorByte & 0x0F;
-    spriteCount++;
-  }
+      if (yPos == 0xD0) break;  // sentinel: no sprites past this one
 
-  // Render in reverse order (higher index = lower priority, drawn first)
-  uint8_t scanlineCount[ACTIVE_H];
-  memset(scanlineCount, 0, sizeof(scanlineCount));
+      // A Y above 0xE0 is negative — a sprite entering from above the screen
+      if (yPos > 0xE0) yPos -= 256;
+      yPos += 1;  // first visible row is Y + 1
 
-  for (int8_t si = spriteCount - 1; si >= 0; si--) {
-    Sprite &sp = sprites[si];
+      int16_t patRow = y - yPos;
+      if (magnify) patRow >>= 1;
+      if (patRow < 0 || patRow >= spriteSize) continue;
 
-    for (uint8_t row = 0; row < spriteSize; row++) {
-      uint8_t patBytes[2];
-      uint8_t patByteCount;
+      if (spritesShown == 0) memset(rowSpriteBits, 0, sizeof(rowSpriteBits));
 
-      if (size16) {
-        uint8_t patIdx = sp.pattern & 0xFC;
-        if (row < 8) {
-          patBytes[0] = vram[(spritePatternTable + patIdx * 8 + row) & 0x3FFF];
-          patBytes[1] = vram[(spritePatternTable + (patIdx + 2) * 8 + row) & 0x3FFF];
-        } else {
-          patBytes[0] = vram[(spritePatternTable + (patIdx + 1) * 8 + (row - 8)) & 0x3FFF];
-          patBytes[1] = vram[(spritePatternTable + (patIdx + 3) * 8 + (row - 8)) & 0x3FFF];
+      spritesShown++;
+      if (spritesShown > 4) break;
+
+      uint8_t colorByte = vram[(attrAddr + 3) & 0x3FFF];
+      uint8_t color     = colorByte & 0x0F;
+      uint8_t patIdx    = vram[(attrAddr + 2) & 0x3FFF];
+      if (size16) patIdx &= 0xFC;
+
+      // Rows 8-15 of a 16x16 sprite fall into quadrant B naturally; the jump
+      // to +16 bytes below moves from the left half (A/B) to the right (C/D)
+      uint16_t patOffset = spritePatternTable + patIdx * 8 + patRow;
+      uint8_t  patByte   = vram[patOffset & 0x3FFF];
+      uint8_t  patBit    = 0;
+
+      int16_t xPos = vram[(attrAddr + 1) & 0x3FFF];
+      if (colorByte & 0x80) xPos -= 32;  // early clock
+
+      int16_t endX = xPos + spriteSizePx;
+      if (endX > ACTIVE_W) endX = ACTIVE_W;
+
+      for (int16_t x = xPos, screenBit = 0; x < endX; x++, screenBit++) {
+        if (x >= 0 && (patByte & 0x80)) {
+          if (color != 0 && rowSpriteBits[x] < 2) setPixel(x, y, color);
+          if (rowSpriteBits[x] == 0) rowSpriteBits[x] = color + 1;
         }
-        patByteCount = 2;
-      } else {
-        patBytes[0] = vram[(spritePatternTable + sp.pattern * 8 + row) & 0x3FFF];
-        patByteCount = 1;
-      }
 
-      for (uint8_t py = 0; py < pixelSize; py++) {
-        int16_t screenY = sp.y + row * pixelSize + py;
-        if (screenY < 0 || screenY >= ACTIVE_H) continue;
-        if (scanlineCount[screenY] >= 4) continue;
-
-        bool counted = false;
-        uint8_t colOffset = 0;
-
-        for (uint8_t bi = 0; bi < patByteCount; bi++) {
-          uint8_t pat = patBytes[bi];
-          for (uint8_t col = 0; col < 8; col++) {
-            if ((pat >> (7 - col)) & 1) {
-              for (uint8_t px = 0; px < pixelSize; px++) {
-                setPixel(sp.x + (colOffset + col) * pixelSize + px, screenY, sp.color);
-              }
-              counted = true;
-            }
+        if (!magnify || (screenBit & 1)) {
+          patByte = (patByte << 1) & 0xFF;
+          if (++patBit == 8) {
+            patBit = 0;
+            if (size16) patByte = vram[(patOffset + 16) & 0x3FFF];
           }
-          colOffset += 8;
         }
-
-        if (counted) scanlineCount[screenY]++;
       }
     }
   }

@@ -2,6 +2,16 @@
 #include "GPIOAttachments/GPIOAttachment.h"
 
 GPIOCard::GPIOCard() {
+  // Clear the attachment registrations here rather than in reset() — they
+  // represent physical wiring, so they are established by constructing the
+  // board and survive every reset.
+  portA_attachmentCount = 0;
+  portB_attachmentCount = 0;
+  for (int i = 0; i < MAX_ATTACHMENTS_PER_PORT; i++) {
+    portA_attachments[i] = nullptr;
+    portB_attachments[i] = nullptr;
+  }
+
   this->reset();
 }
 
@@ -33,15 +43,7 @@ void GPIOCard::reset() {
   T1_IRQ_enabled = false;
   T2_IRQ_enabled = false;
   
-  // Initialize attachment arrays
-  portA_attachmentCount = 0;
-  portB_attachmentCount = 0;
-  for (int i = 0; i < MAX_ATTACHMENTS_PER_PORT; i++) {
-    portA_attachments[i] = nullptr;
-    portB_attachments[i] = nullptr;
-  }
-  
-  // Reset all attachments
+  // Reset all attachments (keep registrations — they represent physical wiring)
   for (uint8_t i = 0; i < portA_attachmentCount; i++) {
     if (portA_attachments[i] != nullptr) {
       portA_attachments[i]->reset();

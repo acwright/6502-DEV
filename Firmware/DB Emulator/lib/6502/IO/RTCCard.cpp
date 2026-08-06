@@ -6,7 +6,10 @@ RTCCard::RTCCard() {
   lastCachedFrequency = 0;
   cachedTransferCycles = 0;
   cachedWatchdogCyclesPerCenti = 0;
+
+  // Cold start: initialize with the current time and raise KSF
   initializeWithCurrentTime();
+  setKickstartFlag();
 }
 
 uint8_t RTCCard::read(uint16_t address) {
@@ -193,9 +196,15 @@ uint8_t RTCCard::tick(uint32_t cpuFrequency) {
 }
 
 void RTCCard::reset() {
-  // Cold start: Initialize with current time
-  initializeWithCurrentTime();
-  setKickstartFlag();
+  // Warm start: keep the time, the battery-backed RAM and the configured
+  // control bits — a reset is not a power cycle. Only the interrupt flags and
+  // whatever transfer was in flight are dropped. The cold-start path (loading
+  // the current time and raising KSF) belongs to the constructor.
+  controlA &= 0xF0; // Clear interrupt flags: IRQF, WDF, KSF, TDF
+  watchdogCounterCentis = 0;
+  watchdogCycleCounter = 0;
+  pendingUserToInternal = false;
+  userSyncNeeded = false;
 }
 
 // Private helper methods
