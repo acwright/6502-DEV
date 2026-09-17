@@ -113,4 +113,4 @@ See [LICENSE](LICENSE) for details.
 
 ## Author
 
-Created by A.C. Wright © 2026
+© 2026 A.C. Wright Design

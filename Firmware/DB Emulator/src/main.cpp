@@ -578,7 +578,7 @@ void info() {
   Serial.print(VERSION);
   Serial.println();
   Serial.println("---------------------------------");
-  Serial.println("| Created by A.C. Wright © 2024 |");
+  Serial.println("| © 2024 A.C. Wright Design     |");
   Serial.println("---------------------------------");
   Serial.println();
   Serial.print("RAM: ");

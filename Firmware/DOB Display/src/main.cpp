@@ -560,7 +560,7 @@ void info() {
   Serial.print(VERSION);
   Serial.println();
   Serial.println("--------------------------------------");
-  Serial.println("| Created by A.C. Wright (c) 2026   |");
+  Serial.println("| (c) 2026 A.C. Wright Design        |");
   Serial.println("--------------------------------------");
   Serial.println();
 }

@@ -549,7 +549,7 @@ See LICENSE file in project root.
 
 ## Credits
 
-- Created by A.C. Wright © 2024
+- © 2024 A.C. Wright Design
 - Based on [vrEmu6502](https://github.com/visrealm/vrEmu6502) by Troy Schrapel
 - Uses [QNEthernet](https://github.com/ssilverman/QNEthernet) library by Shawn Silverman
 - Uses [AsyncWebServer_Teensy41](https://github.com/khoih-prog/AsyncWebServer_Teensy41) library by Khoi Hoang
