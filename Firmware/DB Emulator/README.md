@@ -20,7 +20,7 @@ DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulat
   - RAM Card (I/O 1 and I/O 2, banked RAM)
   - RTC Card (I/O 3, DS1511Y real-time clock)
   - Storage Card (I/O 4, emulated 256MB CompactFlash backed by `Storage.bin` on SD)
-  - Serial Card (I/O 5, bound to `SerialUSB1` — the BIOS serial console)
+  - Serial Card (I/O 5, Rockwell R6551 ACIA, bound to `SerialUSB1` — the BIOS serial console). DSR and DCD are active low and both read 0 for the permanently connected, permanently ready peer on the other end, and clearing DTR (command bit 0) turns the receiver, the transmitter and the interrupts off. One thing the real chip does is deliberately left out: a TIC of `00` (command bits 3-2) raises RTS here but does not also stop the transmitter, because this firmware embeds no ROM and cannot check that the image on the SD card is one that survives it — see the comment on `SerialCard::transmitterEnabled`
   - GPIO Card (I/O 6, 65C22 VIA with keyboard/joystick attachments)
   - Sound Card (I/O 7, SID — MOS 6581 emulation, streamed to web interface and DOB Display)
   - Video Card (I/O 8, TMS9918A emulation, streamed to web interface and DOB Display)

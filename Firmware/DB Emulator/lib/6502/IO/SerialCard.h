@@ -40,8 +40,8 @@
 #define SC_STATUS_OVERRUN         0b00000100
 #define SC_STATUS_RX_REG_FULL     0b00001000
 #define SC_STATUS_TX_REG_EMPTY    0b00010000
-#define SC_STATUS_DCD             0b00100000
-#define SC_STATUS_DSR             0b01000000
+#define SC_STATUS_DCD             0b00100000 // Active low: 0 = carrier detected
+#define SC_STATUS_DSR             0b01000000 // Active low: 0 = data set ready
 #define SC_STATUS_IRQ             0b10000000
 
 class SerialCard: public IO {
@@ -56,6 +56,11 @@ class SerialCard: public IO {
     // Pending transmit flag
     bool txPending;
     uint8_t rxPollCounter;
+
+    // The R6551's DTR gate on the receiver and the transmitter; see the
+    // comments on their definitions for what is and is not modelled
+    bool receiverEnabled();
+    bool transmitterEnabled();
 
   public:
     SerialCard();
