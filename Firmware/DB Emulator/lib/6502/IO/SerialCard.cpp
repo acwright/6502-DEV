@@ -1,13 +1,34 @@
 
 #include "SerialCard.h"
 
+// The card modelled is the standard Serial Card with its `CTS EN` jumper at
+// ground, which is how every board has been built (6502-COB `09988ca`). On that
+// card DCDB and DSRB are tied to ground and DTRB is not connected, so all three
+// of the R6551's modem inputs are permanently low — asserted:
+//
+// - CTSB low never gates the transmitter, so there is no CTS here at all. A
+//   variable for a pin soldered to ground would only be dead code to drift.
+// - DCDB low never gates the receiver, so DTR alone does (receiverEnabled()).
+// - DSRB and DCDB read 0 in the status register, and never change, so the
+//   chip's interrupt on a modem-line change can never fire either.
+// - DTRB reaching nothing on the card does not stop command bit 0 gating the
+//   receiver, the transmitter and the interrupts inside the chip; that is
+//   modelled, and is not a mistake.
+//
+// No card picker, no jumpers, and none of the Serial Card Pro's lines: the DEV
+// is one fixed card, and SerialUSB1's own line state is not wired to it. With
+// every line at ground this agrees with the reference model, 6502-EMULATOR's
+// src/core/IO/ACIA.ts and SerialCard.ts, in all but the two places commented
+// below: transmitterEnabled() on TIC 00, and tick() on a byte that arrives
+// while the receiver is off.
+
 SerialCard::SerialCard() {
   this->reset();
 }
 
 // Whether the receiver is running. The R6551 needs DTR (command bit 0) set —
 // "0: disable receiver and all interrupts (DTR high)" — and DCDB low, which it
-// always is here (see read()'s status case).
+// always is on this card (see the top of this file).
 bool SerialCard::receiverEnabled() {
   return (this->cmd & SC_CMD_DTR) != 0x00;
 }
@@ -50,9 +71,8 @@ uint8_t SerialCard::read(uint16_t address) {
       return this->rx;
     case 0x01: // Status Register
       // Bits 6 and 5 are the levels on the DSRB and DCDB pins, and both are
-      // active low: 0 means ready / carrier present. The peer on the other end
-      // of SerialUSB1 is permanently connected and permanently ready, so both
-      // read 0 — the same as a serial card with those pins tied to ground
+      // active low: 0 means ready / carrier present. The standard Serial Card
+      // ties both pins to ground, so both always read 0
       _status = (uint8_t)(this->status & ~(SC_STATUS_DSR | SC_STATUS_DCD));
       // A status read clears the interrupt flag and nothing else; the byte
       // returned is the state from before the clear
@@ -160,9 +180,9 @@ void SerialCard::reset() {
   this->rx = 0x00;
   this->cmd = 0x00;
   this->ctrl = 0x00;
-  // DSR and DCD are active low, so the permanently connected, permanently
-  // ready peer on the other end of SerialUSB1 reads as 0 in both bits. read()
-  // masks them off on the way out; nothing ever sets them here.
+  // DSR and DCD are active low and tied to ground on the standard Serial Card,
+  // so both bits are 0. read() masks them off on the way out; nothing ever
+  // sets them here.
   this->status = SC_STATUS_TX_REG_EMPTY;
 
   this->txPending = false;

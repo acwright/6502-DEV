@@ -44,6 +44,8 @@
 #define SC_STATUS_DSR             0b01000000 // Active low: 0 = data set ready
 #define SC_STATUS_IRQ             0b10000000
 
+// The standard Serial Card, with `CTS EN` at ground: CTSB, DCDB and DSRB all
+// permanently low. See the top of SerialCard.cpp.
 class SerialCard: public IO {
   private:
     // Registers
