@@ -636,6 +636,9 @@ void reset() {
   // the banked RAM only clears on a power cycle (its constructor).
   ramCard1.reset();
   ramCard2.reset();
+  // The bank register's /MR is on RESB, so a warm reset clears it too. A cart
+  // that boots once and not twice is the symptom of leaving this out.
+  cart.reset();
   rtcCard.reset();
   storageCard.reset();
   serialCard.reset();
@@ -1204,9 +1207,12 @@ FASTRUN uint8_t read(uint16_t addr, bool isDbg) {
   data = 0x00;
   readWrite = HIGH;
 
-  // Priority: Cart overrides ROM from $C000-$FFFF when loaded
+  // Priority: Cart overrides ROM from $C000-$FFFF when loaded.
+  // The cart is handed the CPU address and does its own translation — a flat
+  // image subtracts CART_START internally, a banked one runs it through the
+  // mapper — so this line does not have to know which kind is in the slot.
   if (addr >= CART_CODE && addr <= CART_END && cartLoaded) {
-    data = cart.read(addr - CART_START);
+    data = cart.read(addr);
     return data;
   }
 
@@ -1247,9 +1253,10 @@ FASTRUN void write(uint16_t addr, uint8_t val) {
   data = val;
   readWrite = LOW;
 
-  // Priority: Cart overrides ROM from $C000-$FFFF when loaded
+  // Priority: Cart overrides ROM from $C000-$FFFF when loaded. A write to
+  // $E000-$FFFF latches the bank register; one to $C000-$DFFF reaches flash.
   if (addr >= CART_CODE && addr <= CART_END && cartLoaded) {
-    cart.write(addr - CART_START, data);
+    cart.write(addr, data);
     return;
   }
 
