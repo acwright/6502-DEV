@@ -9,7 +9,6 @@ const char *cartStatusMessage(CartStatus status) {
     case CART_OK:          return "Loaded";
     case CART_ERR_OPEN:    return "Cartridge could not be opened";
     case CART_ERR_SIZE:    return "Not a cartridge image size (32K, 128K, 256K, 512K or 1M)";
-    case CART_ERR_MAPPER:  return "Banked cartridges need the mapper";
     case CART_ERR_MEMORY:  return "Not enough memory for this cartridge";
     case CART_ERR_PSRAM:   return "This cartridge needs PSRAM, which is not fitted";
     case CART_ERR_READ:    return "Cartridge could not be read to the end";
@@ -74,6 +73,13 @@ void Cart::release() {
   this->imageSize = 0;
   this->inPsram = false;
   this->nameDisagrees = false;
+  this->isBanked = false;
+  this->chips = 0;
+  this->chipSize = 0;
+  this->bankMask = 0;
+  this->bankReg = 0;
+  this->selChip = 0;
+  this->selBank = 0;
 }
 
 bool Cart::allocate(uint32_t size) {
@@ -88,6 +94,52 @@ bool Cart::allocate(uint32_t size) {
   return true;
 }
 
+// The fixed region is always the **primary** chip's last 8 KB. `chip` never
+// applies to it, which is what guarantees the reset vectors cannot be banked
+// out from under the CPU.
+void Cart::refillFixed() {
+  if (!this->isBanked) { return; }
+  memcpy(this->fixedWindow, this->data + this->chipSize - CART_BANK_SIZE, CART_BANK_SIZE);
+}
+
+// The 8 KB the register currently selects. Selecting the absent U2 — a 512 KB
+// image, or a 1 MB board with only one chip fitted — reads open bus, which
+// every emulator in the rollout models as $FF.
+void Cart::refillWindow() {
+  if (!this->isBanked) { return; }
+
+  if (this->selChip >= this->chips) {
+    memset(this->bankWindow, 0xFF, CART_BANK_SIZE);
+    return;
+  }
+
+  uint32_t base = (uint32_t) this->selChip * this->chipSize +
+                  (uint32_t) this->selBank * CART_BANK_SIZE;
+  memcpy(this->bankWindow, this->data + base, CART_BANK_SIZE);
+}
+
+// A write anywhere in $E000-$FFFF latches the register and reaches no flash.
+//
+// The guard on "actually changed" is not an optimisation to be tidied away:
+// SetBank in the 6502-CRT cartridge template writes the register
+// unconditionally, so a game that calls it in a loop would otherwise copy 8 KB
+// per call.
+void Cart::latchBank(uint8_t value) {
+  this->bankReg = value;
+
+  uint8_t chip = (value >> 6) & 1;
+  // The NC high address pins on a 010A or a 020A are exactly this mask, so a
+  // register value above the part's bank count aliases down — and bit 7 is
+  // latched and goes nowhere, so 128-255 mirror 0-127.
+  uint8_t bank = value & this->bankMask;
+
+  if (chip == this->selChip && bank == this->selBank) { return; }
+
+  this->selChip = chip;
+  this->selBank = bank;
+  this->refillWindow();
+}
+
 CartStatus Cart::load(const char *path) {
   if (!SD.mediaPresent()) { return CART_ERR_OPEN; }
 
@@ -97,10 +149,6 @@ CartStatus Cart::load(const char *path) {
   uint32_t size = (uint32_t) file.size();
 
   if (!cartTarget(size)) { file.close(); return CART_ERR_SIZE; }
-
-  // The mapper is not written yet, so a banked image is refused rather than
-  // loaded and misread as a flat one.
-  if (size != CART_SIZE_FLAT) { file.close(); return CART_ERR_MAPPER; }
 
   if (size >= CART_PSRAM_FROM && external_psram_size == 0) {
     file.close();
@@ -113,8 +161,8 @@ CartStatus Cart::load(const char *path) {
 
   if (!this->allocate(size)) { file.close(); return CART_ERR_MEMORY; }
 
-  // A quarter of a kilobyte at a time rather than a byte at a time: at 1 MB the
-  // difference is the whole load.
+  // A page at a time rather than a byte at a time: at 1 MB the difference is
+  // the whole load.
   uint32_t done = 0;
   while (done < size) {
     uint32_t want = size - done;
@@ -127,6 +175,16 @@ CartStatus Cart::load(const char *path) {
 
   if (done != size) { this->release(); return CART_ERR_READ; }
 
+  // §2's derived constants. On a -1M image U1 is the first 512 KB and U2 the
+  // second (§1 rule 4), so the file is linear and so is the bank numbering.
+  this->isBanked = (size != CART_SIZE_FLAT);
+  if (this->isBanked) {
+    this->chips = (size > CART_SIZE_512K) ? 2 : 1;
+    this->chipSize = size / this->chips;
+    this->bankMask = (uint8_t) ((this->chipSize / CART_BANK_SIZE) - 1);
+    this->reset();
+  }
+
   const char *claimed = claimedTarget(path);
   this->nameDisagrees = (strcmp(claimed, cartTarget(size)) != 0);
 
@@ -138,16 +196,37 @@ void Cart::unload() {
   this->file = "None";
 }
 
+void Cart::reset() {
+  if (!this->isBanked) { return; }
+
+  this->bankReg = 0;
+  this->selChip = 0;
+  this->selBank = 0;
+  this->refillFixed();
+  this->refillWindow();
+}
+
 // The flat cart is the whole 32 KB image indexed from a $8000 origin. Only
 // $C000-$FFFF is ever asked for — main.cpp decodes the I/O window and the ROM
 // in front of the rest — so the low half is loaded and never read, which is
 // exactly what the byte-at-a-time loader's 16 KB skip amounted to.
 FASTRUN uint8_t Cart::read(uint32_t addr) {
-  return this->data[addr - CART_START];
+  if (!this->isBanked) { return this->data[addr - CART_START]; }
+  if (addr >= CART_FIXED_BASE) { return this->fixedWindow[addr - CART_FIXED_BASE]; }
+  return this->bankWindow[addr - CART_WINDOW_BASE];
 }
 
-// A ROM cart has no WEB. Writes to it go nowhere, as they do on the board.
 FASTRUN void Cart::write(uint32_t addr, uint8_t value) {
+  // A ROM cart has no WEB. Writes to it go nowhere, as they do on the board.
+  if (!this->isBanked) { return; }
+
+  if (addr >= CART_FIXED_BASE) {
+    this->latchBank(value);
+    return;
+  }
+
+  // $C000-$DFFF is a flash write at the translated address, which only does
+  // anything as part of a JEDEC command sequence. Until that state machine
+  // exists, a bare write here is swallowed exactly as one outside a sequence is.
   (void) addr;
-  (void) value;
 }
