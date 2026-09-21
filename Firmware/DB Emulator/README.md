@@ -13,7 +13,7 @@ DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulat
   - Base RAM: up to 32KB (configurable)
   - Banked RAM: 32KB (default), up to 512KB with PSRAM installed
   - ROM support (full 32KB `BIOS.bin` image; 24KB visible at `$A000-$FFFF` once I/O overlays `$8000-$9FFF`)
-  - Cartridge loading (16KB)
+  - Cartridge loading — 16 KB flat, or 128 KB to 1 MB banked (Flash Cart), the larger sizes in PSRAM
 - **I/O Support**:
   - USB Keyboard input
   - USB Joystick support (Xbox 360/One controllers)
@@ -42,6 +42,53 @@ DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulat
   - Web API control
 - **Variable Clock Speed**: Adjustable CPU frequency from very slow to maximum speed
 - **Real-Time Clock**: TimeLib integration for timestamped operations
+
+### Flash carts
+
+A cartridge image in `Carts/` is one of five sizes, and **the size decides how it is
+mapped** — never the name. 32,768 bytes is the ROM cart this emulator has always taken,
+mapped flat. 131,072, 262,144, 524,288 and 1,048,576 bytes are a Flash Cart, mapped by the
+bank register. Any other length is refused. A name whose target suffix disagrees with the
+byte count — `Game-512K.crt` that is 262,144 bytes long — loads as what it actually is and
+says so; the name is a label, the bytes decide.
+
+A banked cart is one or two SST39SF0x0 flash chips behind a bank register:
+
+- `$C000–$DFFF` is an 8 KB **window** onto whichever bank the register selects.
+- `$E000–$FFFF` is the **fixed region**, always the primary chip's last 8 KB, whatever the
+  register holds. The reset and interrupt vectors live there, so they can never be banked
+  out from under the CPU.
+- A write anywhere in `$E000–$FFFF` latches the register; it reaches no flash. A reset
+  clears it, because the register's `/MR` is on `RESB`.
+- A write to `$C000–$DFFF` is a flash write, which does something only as part of a JEDEC
+  command sequence — so a cartridge can program and erase itself, exactly as it does on the
+  board.
+
+The two windows the CPU can see are held in internal RAM and the image itself is in PSRAM
+for the two largest sizes, which is what keeps a cart read at two branches and an array
+index. A bank change costs one 8 KB copy and happens far less often than a fetch.
+
+**The `.crt` is opened read-only and no path in this firmware opens one for writing.** What
+a cartridge writes to itself is collected as 4 KB sectors and written to `Carts/<name>.sav`
+beside it — on unload, on loading a different cart, and from `Sa(V)e Cart Data`. On load a
+matching sidecar is laid back over the image. Its header carries the `.crt`'s size and
+CRC-32, so a save can never land on a different build of the cartridge: rebuild the cart and
+it is reported as belonging to a different build, ignored, and left on the card untouched.
+
+That is what makes a save safe. `6502-flash program` — the tool that burns a real chip —
+reads the `.crt` and nothing else, and has no flag to include a save.
+
+**One knowing difference from hardware: program and erase complete instantly here.** The
+emulated CPU is free-running, so there is no cycle count to hang a busy window on. Both
+standard polling loops still terminate, so ordinary save code works — but a routine that
+programs the chip while *running from it* works here and hangs on real hardware, where a
+busy chip answers every read with status bits, vectors included. 6502-EMULATOR models the
+busy window and is where that bug is meant to be caught.
+
+The naming scheme, the mapper, the command set and the `.sav` container are specified in
+6502-VCS `PLAN.md` §§1–4, which three emulators and one programmer all implement. The tests
+in [`test/cart/`](test/cart/README.md) check this one against that rollout's shared
+fixtures, on a desktop.
 
 ## Prerequisites
 
@@ -141,7 +188,7 @@ build_flags =
 2. **Create directories** on the SD card:
    ```
    /ROMs/       - BIOS and operating system ROMs
-   /Carts/      - Cartridge images
+   /Carts/      - Cartridge images (.crt), and the .sav files they write beside them
    /Programs/   - User programs
    /Snapshots/  - Memory snapshots
    /WWW/        - Embedded web application (See README in /html folder)
@@ -226,15 +273,14 @@ Once connected, you'll see the emulator banner and status. Available commands:
 - **`K`** - Tick: Execute one clock cycle (when stopped)
 - **`T`** - Reset: Hardware reset of the emulator
 
-#### Memory Management
-- **`A`** - Toggle RAM: Enable/disable RAM
-- **`O`** - Toggle ROM: Enable/disable ROM
-- **`L`** - Toggle Cart: Enable/disable cartridge
+#### Cartridge
+- **`U`** - Unload Cart: Empty the slot, writing the cartridge's save data out first
+- **`V`** - Save Cart Data: Write `Carts/<name>.sav` without ejecting
 
 #### File Management
 - **`M`** - List ROMs: Show available ROM files from SD card
 - **`C`** - List Carts: Show available cartridge files
-- **`U`** - List Programs: Show available user programs
+- **`A`** - List Programs: Show available user programs
 - **`0-7`** - Load File: Load the selected file (after listing)
 - **`[`** - Previous Page: Navigate file lists
 - **`]`** - Next Page: Navigate file lists
@@ -301,7 +347,12 @@ Returns system information and CPU state in JSON format:
 {
   "address": 65535,
   "cartEnabled": true,
-  "cartFile": "game.bin",
+  "cartFile": "Game-512K.crt",
+  "cartSize": 524288,
+  "cartTarget": "512K",
+  "cartBanked": true,
+  "cartBank": 14,
+  "cartDirty": true,
   "cpuAccumulator": 0,
   "cpuOpcodeCycle": 0,
   "cpuPC": 65520,
