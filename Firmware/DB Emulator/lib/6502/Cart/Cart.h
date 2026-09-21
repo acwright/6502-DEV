@@ -47,6 +47,19 @@ enum CartStatus : uint8_t {
   CART_ERR_READ    // the file ended early, or the SD card went away mid-read
 };
 
+// Where a chip's JEDEC unlock sequence has got to (§3). Each chip has its own:
+// the sequence is addressed through /CE and B6 picks the chip, so programming
+// U2 does not disturb U1.
+enum CartSeq : uint8_t {
+  CART_SEQ_IDLE,
+  CART_SEQ_UNLOCK1, // 5555<-AA seen
+  CART_SEQ_UNLOCK2, // 2AAA<-55 seen
+  CART_SEQ_PROGRAM, // 5555<-A0 seen; the next write is the byte
+  CART_SEQ_ERASE1,  // 5555<-80 seen
+  CART_SEQ_ERASE2,  // 5555<-AA seen again
+  CART_SEQ_ERASE3   // 2AAA<-55 seen again; the next write picks chip or sector
+};
+
 // One sentence for each of the above, in the register the serial menu prints in.
 const char *cartStatusMessage(CartStatus status);
 
@@ -91,11 +104,31 @@ class Cart {
     uint8_t fixedWindow[CART_BANK_SIZE];
     uint8_t bankWindow[CART_BANK_SIZE];
 
+    // One JEDEC state machine per chip (§3), and the software ID the part
+    // answers with, derived from CHIP_SIZE so that `id` here and `id` over the
+    // Flash Helper return the same pair.
+    uint8_t seq[2] = { CART_SEQ_IDLE, CART_SEQ_IDLE };
+    bool idMode[2] = { false, false };
+    uint8_t deviceId = 0;
+
+    // Which 4 KB sectors the cartridge has written to itself since it was
+    // loaded — one bit each, 256 of them at 1 MB. This is the difference
+    // between the .crt on the SD card and what the machine is running, and it
+    // is what a .sav sidecar is made of.
+    uint8_t dirtyBits[CART_SIZE_1M / CART_SECTOR_SIZE / 8];
+
     void release();
     bool allocate(uint32_t size);
     void refillFixed();
     void refillWindow();
+    void fillId(uint8_t *window);
     void latchBank(uint8_t value);
+    void command(uint8_t chip, uint32_t at, uint8_t value);
+    void program(uint8_t chip, uint32_t at, uint8_t value);
+    void eraseSector(uint8_t chip, uint32_t at);
+    void eraseChip(uint8_t chip);
+    void cacheStore(uint8_t chip, uint32_t at, uint8_t value);
+    void markDirty(uint32_t sector);
 
   public:
     Cart();
