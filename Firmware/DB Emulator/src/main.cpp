@@ -47,6 +47,7 @@ void decreaseFrequency();
 void increaseFrequency();
 void toggleRunStop();
 void unloadCart();
+void saveCartData();
 void readROMs();
 void listROMs();
 void loadROM(uint index);
@@ -367,6 +368,13 @@ void onCommand(char command) {
       Serial.print("Cart: ");
       Serial.println(cart.file);
       break;
+    case 'v':
+    case 'V':
+      if (!SD.mediaPresent()) { Serial.println("SD Card Not Detected!"); break; }
+      if (!cartLoaded) { Serial.println("No cartridge loaded!"); break; }
+      if (!cart.dirty()) { Serial.println("Cartridge has written nothing to save."); break; }
+      saveCartData();
+      break;
     case '-':
       decreaseFrequency();
       Serial.print("Frequency: ");
@@ -598,7 +606,9 @@ void info() {
   Serial.println("--------------------------------------------------------------");
   Serial.println("| (+/-) Clk Freq     | (D)ump / Sna(P)shot | In(F)o / Lo(G)  |");
   Serial.println("--------------------------------------------------------------");
-  Serial.println("| Unload Cart (U)    | List RO(M)s / (C)arts / Progr(A)ms    |");
+  Serial.println("| Unload Cart (U)    | Sa(V)e Cart Data                      |");
+  Serial.println("--------------------------------------------------------------");
+  Serial.println("| List RO(M)s / (C)arts / Progr(A)ms                          |");
   Serial.println("--------------------------------------------------------------");
   Serial.println();
 }
@@ -838,10 +848,28 @@ void toggleRunStop() {
 }
 
 void unloadCart() {
+  // The save goes to the card before the image goes out of memory — it is the
+  // only copy of what the cartridge wrote to itself, and the .crt it came from
+  // is never written.
+  if (cartLoaded) { saveCartData(); }
+
   // The bus stops asking before the bytes go away: cart.unload() gives the
   // image's memory back, and on a 1 MB cart that memory is a megabyte of PSRAM.
   cartLoaded = false;
   cart.unload();
+}
+
+// Writes <stem>.sav beside the .crt. Silent when the cartridge has written
+// nothing to itself, which is every ROM cart and most sessions.
+void saveCartData() {
+  if (!cartLoaded || !cart.dirty()) { return; }
+
+  if (cart.saveDirty()) {
+    Serial.print("Saved cart data: ");
+    Serial.println(cart.file);
+  } else {
+    Serial.println("Cart data could not be saved!");
+  }
 }
 
 void readROMs() {
@@ -953,7 +981,9 @@ void readCarts() {
 
     if (file) {
       String filename = String(file.name());
-      if (!filename.startsWith(".")) {
+      // A .sav lives beside its .crt in this directory and is not a cartridge,
+      // so it is not offered as one.
+      if (!filename.startsWith(".") && !filename.endsWith(".sav") && !filename.endsWith(".SAV")) {
         Carts[index] = filename;
         index++;
       }
@@ -992,6 +1022,11 @@ void loadCart(uint index) {
 void loadCartFile(String filename) {
   if (!filename.length() || filename == "?") { return; }
 
+  // Whatever is in the slot keeps what it wrote to itself. Loading over a cart
+  // without this is how a save is lost, and it is not how a save is thrown
+  // away — that is what re-loading the .crt with no sidecar beside it is for.
+  if (cartLoaded) { saveCartData(); }
+
   // A load that fails leaves the slot honestly empty rather than half full:
   // Cart::load() has already given the old image back by the time most of its
   // failures can happen, and a cart that is partly the last one is worse than
@@ -1010,6 +1045,13 @@ void loadCartFile(String filename) {
 
   cart.file = filename;
   cartLoaded = true;
+
+  // A mismatched or malformed sidecar is worth saying out loud: the cart starts
+  // without it, and the file is left on the card exactly as it was.
+  if (cart.save() != CART_SAVE_NONE) {
+    Serial.print("Cart: ");
+    Serial.println(cartSaveMessage(cart.save()));
+  }
 
   // Rule 3 of the naming scheme: the bytes decide and the name is a label, so a
   // disagreement is worth saying out loud and is never worth refusing the file
@@ -1770,6 +1812,8 @@ FASTRUN void onServerControl(AsyncWebServerRequest *request) {
     reset();
   } else if (command == "u" || command == "U") {  // Unload Cart
     unloadCart();
+  } else if (command == "v" || command == "V") {  // Save Cart Data
+    saveCartData();
   } else if (command == "-") {                    // Decrease Frequency
     decreaseFrequency();
   } else if (command == "+") {                    // Increase Frequency

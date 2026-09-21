@@ -4,6 +4,48 @@
 // is fitted. It has no header of its own.
 extern "C" uint8_t external_psram_size;
 
+// One 4 KB sector on its way to or from the SD card, in RAM2 rather than in the
+// image. A 512 KB or 1 MB image is in PSRAM, and staging through ordinary RAM
+// keeps the card's DMA and the cache out of each other's way — the same reason
+// the whole image is read a sector at a time rather than a byte at a time.
+DMAMEM static uint8_t stage[CART_SECTOR_SIZE];
+
+// CRC-32, IEEE, the zlib polynomial — the one the .sav container names (§4).
+// Table-free: 256 words of table is more than this firmware should spend on one
+// checksum it computes twice per cartridge.
+static uint32_t crc32Update(uint32_t crc, const uint8_t *buf, uint32_t len) {
+  crc = ~crc;
+  while (len--) {
+    crc ^= *buf++;
+    for (uint8_t k = 0; k < 8; k++) {
+      crc = (crc >> 1) ^ (0xEDB88320u & (uint32_t) (-(int32_t) (crc & 1)));
+    }
+  }
+  return ~crc;
+}
+
+static uint32_t readLE32(const uint8_t *at) {
+  return (uint32_t) at[0] | ((uint32_t) at[1] << 8) |
+         ((uint32_t) at[2] << 16) | ((uint32_t) at[3] << 24);
+}
+
+static void writeLE32(uint8_t *at, uint32_t value) {
+  at[0] = (uint8_t) (value);
+  at[1] = (uint8_t) (value >> 8);
+  at[2] = (uint8_t) (value >> 16);
+  at[3] = (uint8_t) (value >> 24);
+}
+
+// Cart-512K.crt -> Cart-512K.sav, beside it. The extension is replaced rather
+// than appended, so the pair reads as a pair in a listing.
+static String sidecarFor(const char *path) {
+  String out = String(path);
+  int dot = out.lastIndexOf('.');
+  int slash = out.lastIndexOf('/');
+  if (dot > slash) { out.remove(dot); }
+  return out + ".sav";
+}
+
 const char *cartStatusMessage(CartStatus status) {
   switch (status) {
     case CART_OK:          return "Loaded";
@@ -13,6 +55,15 @@ const char *cartStatusMessage(CartStatus status) {
     case CART_ERR_PSRAM:   return "This cartridge needs PSRAM, which is not fitted";
     case CART_ERR_READ:    return "Cartridge could not be read to the end";
     default:               return "Unknown error";
+  }
+}
+
+const char *cartSaveMessage(CartSaveStatus status) {
+  switch (status) {
+    case CART_SAVE_APPLIED:  return "Save data applied";
+    case CART_SAVE_MISMATCH: return "Save belongs to a different build of this cart";
+    case CART_SAVE_BAD:      return "Save data is not a .sav and was left alone";
+    default:                 return "No save data";
   }
 }
 
@@ -84,6 +135,10 @@ void Cart::release() {
   this->seq[0] = this->seq[1] = CART_SEQ_IDLE;
   this->idMode[0] = this->idMode[1] = false;
   memset(this->dirtyBits, 0, sizeof(this->dirtyBits));
+  this->imageCrc = 0;
+  this->saveStatus = CART_SAVE_NONE;
+  this->imagePath = "";
+  this->sidecarPath = "";
 }
 
 bool Cart::allocate(uint32_t size) {
@@ -181,19 +236,28 @@ CartStatus Cart::load(const char *path) {
 
   if (!this->allocate(size)) { file.close(); return CART_ERR_MEMORY; }
 
-  // A page at a time rather than a byte at a time: at 1 MB the difference is
-  // the whole load.
+  // A sector at a time rather than a byte at a time: at 1 MB the difference is
+  // the whole load. The checksum is taken on the way past, because it is the
+  // checksum of the file and this is the only moment the file and the image are
+  // the same bytes.
   uint32_t done = 0;
+  uint32_t crc = 0;
   while (done < size) {
     uint32_t want = size - done;
-    if (want > PAGE_SIZE) { want = PAGE_SIZE; }
-    int got = file.read(this->data + done, want);
+    if (want > CART_SECTOR_SIZE) { want = CART_SECTOR_SIZE; }
+    int got = file.read(stage, want);
     if (got <= 0) { break; }
+    memcpy(this->data + done, stage, (size_t) got);
+    crc = crc32Update(crc, stage, (uint32_t) got);
     done += (uint32_t) got;
   }
   file.close();
 
   if (done != size) { this->release(); return CART_ERR_READ; }
+
+  this->imageCrc = crc;
+  this->imagePath = String(path);
+  this->sidecarPath = sidecarFor(path);
 
   // §2's derived constants. On a -1M image U1 is the first 512 KB and U2 the
   // second (§1 rule 4), so the file is linear and so is the bank numbering.
@@ -205,13 +269,127 @@ CartStatus Cart::load(const char *path) {
     this->deviceId = (this->chipSize == CART_SIZE_128K) ? 0xB5
                    : (this->chipSize == CART_SIZE_256K) ? 0xB6
                                                         : 0xB7;
-    this->reset();
   }
+
+  // The overlay goes on after the image and before the windows are filled, so
+  // the CPU never sees the pre-save bytes. A mismatched or malformed sidecar
+  // starts the cart without it and leaves the file on the card alone — nothing
+  // here ever deletes a save.
+  this->saveStatus = this->applySave();
+  if (this->isBanked) { this->reset(); }
 
   const char *claimed = claimedTarget(path);
   this->nameDisagrees = (strcmp(claimed, cartTarget(size)) != 0);
 
   return CART_OK;
+}
+
+bool Cart::sectorDirty(uint32_t sector) const {
+  if (sector >= sizeof(this->dirtyBits) * 8) { return false; }
+  return (this->dirtyBits[sector >> 3] & (uint8_t) (1u << (sector & 7))) != 0;
+}
+
+uint32_t Cart::sectorCount() const {
+  return this->imageSize / CART_SECTOR_SIZE;
+}
+
+bool Cart::dirty() const {
+  for (uint32_t s = 0; s < this->sectorCount(); s++) {
+    if (this->sectorDirty(s)) { return true; }
+  }
+  return false;
+}
+
+// Lay a sidecar over the image, if there is one that belongs to it.
+//
+// image_size and image_crc are what make the sidecar safe. Rebuild the cart and
+// the checksum moves, and stale sectors would otherwise land over new code.
+CartSaveStatus Cart::applySave() {
+  if (!this->sidecarPath.length()) { return CART_SAVE_NONE; }
+  if (!SD.exists(this->sidecarPath.c_str())) { return CART_SAVE_NONE; }
+
+  File file = SD.open(this->sidecarPath.c_str());
+  if (!file) { return CART_SAVE_NONE; }
+
+  uint8_t header[16];
+  if (file.read(header, sizeof(header)) != (int) sizeof(header)) {
+    file.close();
+    return CART_SAVE_BAD;
+  }
+
+  if (header[0] != 'A' || header[1] != 'C' || header[2] != 'S' || header[3] != 'V' ||
+      header[4] != 1) {
+    file.close();
+    return CART_SAVE_BAD;
+  }
+
+  uint16_t count = (uint16_t) (header[6] | ((uint16_t) header[7] << 8));
+  uint32_t savedSize = readLE32(header + 8);
+  uint32_t savedCrc = readLE32(header + 12);
+
+  if (savedSize != this->imageSize || savedCrc != this->imageCrc) {
+    file.close();
+    return CART_SAVE_MISMATCH;
+  }
+
+  for (uint16_t i = 0; i < count; i++) {
+    uint8_t index[4];
+    if (file.read(index, sizeof(index)) != (int) sizeof(index)) { file.close(); return CART_SAVE_BAD; }
+    uint32_t sector = readLE32(index);
+    if (file.read(stage, CART_SECTOR_SIZE) != (int) CART_SECTOR_SIZE) { file.close(); return CART_SAVE_BAD; }
+    if (sector >= this->sectorCount()) { continue; }
+
+    memcpy(this->data + sector * CART_SECTOR_SIZE, stage, CART_SECTOR_SIZE);
+    // Counted dirty, because it is. The overlay *is* the difference between the
+    // .crt on the card and what the cart is running, so a session that read a
+    // save back and did not write to it again would otherwise write an empty
+    // sidecar on unload and throw the save away.
+    this->markDirty(sector);
+  }
+
+  file.close();
+  return CART_SAVE_APPLIED;
+}
+
+bool Cart::saveDirty() {
+  if (!this->data || !this->sidecarPath.length()) { return false; }
+
+  uint32_t total = 0;
+  for (uint32_t s = 0; s < this->sectorCount(); s++) {
+    if (this->sectorDirty(s)) { total++; }
+  }
+  if (total == 0) { return true; } // nothing to say, and no file to leave behind
+
+  if (!SD.mediaPresent()) { return false; }
+
+  // SD.open(..., FILE_WRITE) appends, so the old sidecar goes first: a save
+  // that shrank would otherwise keep the tail of the one before it.
+  if (SD.exists(this->sidecarPath.c_str())) { SD.remove(this->sidecarPath.c_str()); }
+
+  File file = SD.open(this->sidecarPath.c_str(), FILE_WRITE);
+  if (!file) { return false; }
+
+  uint8_t header[16] = { 'A', 'C', 'S', 'V', 1, 0, 0, 0 };
+  header[6] = (uint8_t) (total & 0xFF);
+  header[7] = (uint8_t) (total >> 8);
+  writeLE32(header + 8, this->imageSize);
+  writeLE32(header + 12, this->imageCrc);
+
+  bool ok = file.write(header, sizeof(header)) == (size_t) sizeof(header);
+
+  // Ascending sector index, which the container requires and which a loop over
+  // the bitmap gives for free.
+  for (uint32_t s = 0; ok && s < this->sectorCount(); s++) {
+    if (!this->sectorDirty(s)) { continue; }
+    uint8_t index[4];
+    writeLE32(index, s);
+    memcpy(stage, this->data + s * CART_SECTOR_SIZE, CART_SECTOR_SIZE);
+    ok = file.write(index, sizeof(index)) == (size_t) sizeof(index) &&
+         file.write(stage, CART_SECTOR_SIZE) == (size_t) CART_SECTOR_SIZE;
+  }
+
+  file.close();
+  return ok;
 }
 
 void Cart::unload() {

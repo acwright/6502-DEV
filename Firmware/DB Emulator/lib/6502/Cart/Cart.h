@@ -60,8 +60,17 @@ enum CartSeq : uint8_t {
   CART_SEQ_ERASE3   // 2AAA<-55 seen again; the next write picks chip or sector
 };
 
+// What was found beside the .crt when it was loaded (§4).
+enum CartSaveStatus : uint8_t {
+  CART_SAVE_NONE,     // no sidecar, which is the ordinary case
+  CART_SAVE_APPLIED,  // its sectors are laid over the image
+  CART_SAVE_MISMATCH, // it belongs to a different build of this cart
+  CART_SAVE_BAD       // it is not a .sav
+};
+
 // One sentence for each of the above, in the register the serial menu prints in.
 const char *cartStatusMessage(CartStatus status);
+const char *cartSaveMessage(CartSaveStatus status);
 
 // "32K", "128K", "256K", "512K", "1M" — §1's table — or NULL for a length that
 // is not a cartridge at all.
@@ -129,6 +138,22 @@ class Cart {
     void eraseChip(uint8_t chip);
     void cacheStore(uint8_t chip, uint32_t at, uint8_t value);
     void markDirty(uint32_t sector);
+    bool sectorDirty(uint32_t sector) const;
+    uint32_t sectorCount() const;
+    CartSaveStatus applySave();
+
+    // The .crt this cart came from and the <stem>.sav beside it. The .crt is
+    // opened read-only and nothing in this firmware ever opens one for writing.
+    String imagePath = "";
+    String sidecarPath = "";
+
+    // CRC-32 of the image as it was **loaded**, not as it now stands. It is the
+    // cart's identity and it does not move when the cartridge programs itself:
+    // it is what a .sav header carries, so taking it from the current contents
+    // would make a cart stop matching its own saves the moment it wrote one.
+    uint32_t imageCrc = 0;
+
+    CartSaveStatus saveStatus = CART_SAVE_NONE;
 
   public:
     Cart();
@@ -156,6 +181,21 @@ class Cart {
     // is holding a flat image or a banked one.
     uint8_t read(uint32_t addr);
     void write(uint32_t addr, uint8_t value);
+
+    // Writes the dirty sectors to <stem>.sav beside the .crt, in the container
+    // of 6502-VCS PLAN.md §4, so a save can be carried to the desktop emulator
+    // or merged onto a real chip with `6502-flash merge`. Returns false if the
+    // file could not be written; a cart with nothing dirty writes nothing and
+    // returns true.
+    bool saveDirty();
+
+    // True when the cartridge has written to itself since it was loaded — which
+    // includes sectors that came back out of a sidecar, since those are still a
+    // difference from the .crt on the card.
+    bool dirty() const;
+
+    // What was beside the .crt when this cart was loaded.
+    CartSaveStatus save() const { return saveStatus; }
 
     uint32_t size() const { return imageSize; }
     uint8_t bank() const { return bankReg; }
