@@ -56,7 +56,6 @@ void readCarts();
 void listCarts();
 void loadCart(uint index);
 void loadCartFile(String filename);
-void loadCartPath(String path);
 void readPrograms();
 void listPrograms();
 void loadProgram(uint index);
@@ -836,8 +835,10 @@ void toggleRunStop() {
 }
 
 void unloadCart() {
-  cart.file = "None";
+  // The bus stops asking before the bytes go away: cart.unload() gives the
+  // image's memory back, and on a 1 MB cart that memory is a megabyte of PSRAM.
   cartLoaded = false;
+  cart.unload();
 }
 
 void readROMs() {
@@ -986,33 +987,39 @@ void loadCart(uint index) {
 }
 
 void loadCartFile(String filename) {
-  if (!filename.length()) { return; }
+  if (!filename.length() || filename == "?") { return; }
+
+  // A load that fails leaves the slot honestly empty rather than half full:
+  // Cart::load() has already given the old image back by the time most of its
+  // failures can happen, and a cart that is partly the last one is worse than
+  // no cart at all.
+  cartLoaded = false;
+
+  String path = "Carts/" + filename;
+  CartStatus status = cart.load(path.c_str());
+
+  if (status != CART_OK) {
+    cart.unload();
+    Serial.print("Cart: ");
+    Serial.println(cartStatusMessage(status));
+    return;
+  }
 
   cart.file = filename;
   cartLoaded = true;
 
-  loadCartPath("Carts/" + filename);
-}
-
-void loadCartPath(String path) {
-  if (!SD.mediaPresent()) { return; }
-
-  File file = SD.open(path.c_str());
-
-  if (file) {
-    uint i = 0;
-
-    while(file.available()) {
-      if (i < 0x4000) { 
-        file.read(); // Skip the first 16K
-      } else {
-        cart.load(i, file.read());
-      }
-      i++;
-    }
+  // Rule 3 of the naming scheme: the bytes decide and the name is a label, so a
+  // disagreement is worth saying out loud and is never worth refusing the file
+  // over.
+  if (cart.nameMismatch()) {
+    Serial.print("Warning: ");
+    Serial.print(filename);
+    Serial.print(" is ");
+    Serial.print(cart.size());
+    Serial.print(" bytes, so it loads as a ");
+    Serial.print(cartTarget(cart.size()));
+    Serial.println(" cart. The name is a label; the bytes decide.");
   }
-
-  file.close();
 }
 
 void readPrograms() {
