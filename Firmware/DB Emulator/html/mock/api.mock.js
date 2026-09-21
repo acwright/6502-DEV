@@ -18,6 +18,11 @@ const state = {
   programFile: 'hello.bin',
   romFile: 'BIOS.bin',
   cartFile: '',
+  cartSize: 0,
+  cartTarget: '',
+  cartBanked: false,
+  cartBank: 0,
+  cartDirty: false,
   lastSnapshot: 0,
   cpuAccumulator: 0x42,
   cpuX: 0x10,
@@ -43,7 +48,7 @@ function generateMemPage(base, page) {
 // Fake file lists on SD card
 const romFiles     = ['BIOS.bin', 'Monitor.bin', 'BASIC.bin', '?', '?', '?', '?', '?',
                        'Forth.bin', 'TinyBASIC.bin', '?', '?', '?', '?', '?', '?']
-const cartFiles    = ['Hozmom.bin', 'MDP.bin', '?', '?', '?', '?', '?', '?']
+const cartFiles    = ['Hozmom.crt', 'MDP-512K.crt', '?', '?', '?', '?', '?', '?']
 const programFiles = ['hello.bin', 'blink.bin', 'fib.bin', 'snake.bin', '?', '?', '?', '?',
                        'test1.bin', '?', '?', '?', '?', '?', '?', '?']
 
@@ -64,6 +69,11 @@ export default defineMock([
       address:          state.address,
       cartEnabled:      state.cartEnabled,
       cartFile:         state.cartFile,
+      cartSize:         state.cartSize,
+      cartTarget:       state.cartTarget,
+      cartBanked:       state.cartBanked,
+      cartBank:         state.cartBank,
+      cartDirty:        state.cartDirty,
       cpuAccumulator:   state.cpuAccumulator,
       cpuOpcodeCycle:   state.cpuOpcodeCycle,
       cpuPC:            state.cpuPC,
@@ -105,6 +115,16 @@ export default defineMock([
         case 'a': case 'A': state.ramEnabled = !state.ramEnabled; break
         case 'o': case 'O': state.romEnabled = !state.romEnabled; break
         case 'l': case 'L': state.cartEnabled = !state.cartEnabled; break
+        case 'u': case 'U':                                         // unload cart
+          state.cartEnabled = false
+          state.cartFile = ''
+          state.cartSize = 0
+          state.cartTarget = ''
+          state.cartBanked = false
+          state.cartBank = 0
+          state.cartDirty = false
+          break
+        case 'v': case 'V': state.cartDirty = false; break          // save cart data
         case 's': case 'S':                                         // step
           state.cpuPC = (state.cpuPC + 1) & 0xFFFF
           state.address = state.cpuPC
@@ -201,7 +221,20 @@ export default defineMock([
       const filename = url.searchParams.get('filename')
 
       if (target === 'rom')          state.romFile = filename
-      else if (target === 'cart')    state.cartFile = filename
+      else if (target === 'cart') {
+        // The mapper is decided by the file's size, which a mock has not got —
+        // so it reads the target suffix instead, which is the one thing the
+        // firmware never does.
+        state.cartFile   = filename
+        state.cartEnabled = true
+        const suffix = /-(128K|256K|512K|1M)\.crt$/i.exec(filename)
+        state.cartTarget = suffix ? suffix[1].toUpperCase() : '32K'
+        state.cartBanked = suffix !== null
+        state.cartBank   = 0
+        state.cartDirty  = suffix !== null
+        state.cartSize   = { '32K': 0x8000, '128K': 0x20000, '256K': 0x40000,
+                             '512K': 0x80000, '1M': 0x100000 }[state.cartTarget]
+      }
       else if (target === 'program') state.programFile = filename
 
       return ''

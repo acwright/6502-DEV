@@ -48,6 +48,7 @@ void increaseFrequency();
 void toggleRunStop();
 void unloadCart();
 void saveCartData();
+String cartStatusLine();
 void readROMs();
 void listROMs();
 void loadROM(uint index);
@@ -283,7 +284,7 @@ void onCommand(char command) {
           break;
         case INPUT_CTX_CART:
           Serial.print("Loaded Cart: ");
-          Serial.println(cart.file);
+          Serial.println(cartStatusLine());
           break;
         case INPUT_CTX_PROG:
           Serial.print("Loaded Program: ");
@@ -366,7 +367,7 @@ void onCommand(char command) {
     case 'U':
       unloadCart();
       Serial.print("Cart: ");
-      Serial.println(cart.file);
+      Serial.println(cartStatusLine());
       break;
     case 'v':
     case 'V':
@@ -593,7 +594,7 @@ void info() {
   Serial.print("ROM: ");
   Serial.println(rom.file);
   Serial.print("Cart: ");
-  Serial.println(cart.file);
+  Serial.println(cartStatusLine());
   Serial.print("Frequency: ");
   Serial.println(FREQ_LABELS[freqIndex]);
   Serial.print("IP Address: ");
@@ -857,6 +858,26 @@ void unloadCart() {
   // image's memory back, and on a 1 MB cart that memory is a megabyte of PSRAM.
   cartLoaded = false;
   cart.unload();
+}
+
+// "Hozmom-512K.crt (512K, bank $0E)", or just the name for a 32K ROM cart, or
+// "None" for an empty slot. Without the bank a banked cart is close to
+// undebuggable — whatever is on screen came out of a window whose contents
+// nothing else reports.
+String cartStatusLine() {
+  if (!cartLoaded) { return cart.file; }
+
+  String line = cart.file;
+  line += " (";
+  line += cartTarget(cart.size());
+  if (cart.banked()) {
+    char detail[20];
+    snprintf(detail, sizeof(detail), ", bank $%02X", cart.bank());
+    line += detail;
+  }
+  if (cart.dirty()) { line += ", unsaved"; }
+  line += ")";
+  return line;
 }
 
 // Writes <stem>.sav beside the .crt. Silent when the cartridge has written
@@ -1625,6 +1646,14 @@ FASTRUN void onServerInfo(AsyncWebServerRequest *request) {
   doc["address"]            = address;
   doc["cartEnabled"]        = cartLoaded;
   doc["cartFile"]           = cart.file;
+  // A banked cart without its bank is close to undebuggable from a browser,
+  // which is most of why the web interface exists. The keys are flat, like
+  // every other key here.
+  doc["cartSize"]           = cartLoaded ? cart.size() : 0;
+  doc["cartTarget"]         = cartLoaded ? cartTarget(cart.size()) : "";
+  doc["cartBanked"]         = cart.banked();
+  doc["cartBank"]           = cart.bank();
+  doc["cartDirty"]          = cartLoaded && cart.dirty();
   doc["cpuAccumulator"]     = cpu.accumulator();
   doc["cpuOpcodeCycle"]     = cpu.opcodeCycle();
   doc["cpuPC"]              = cpu.programCounter();

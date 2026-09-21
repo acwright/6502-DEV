@@ -94,6 +94,7 @@ function cacheDom() {
   dom.rtc                = $('rtc');
   dom.lastSnapshot       = $('last-snapshot');
   dom.unloadCart         = $('unload-cart');
+  dom.saveCart           = $('save-cart');
 
   // CPU panel
   dom.cpuAccHex          = $('cpu-accumulator-hex');
@@ -152,6 +153,21 @@ function cacheDom() {
 function hex8(val)  { return '$' + val.toString(16).toUpperCase().padStart(2, '0'); }
 function hex16(val) { return '$' + val.toString(16).toUpperCase().padStart(4, '0'); }
 
+// "Hozmom-512K.crt (512K, bank $0E)". A banked cart without its bank is close
+// to undebuggable from a browser, and "unsaved" is the only warning that the
+// cartridge has written to itself and nothing has been written back yet.
+function formatCart(info) {
+  const name = info.cartFile || 'None';
+  if (!info.cartEnabled || name === 'None') { return 'None'; }
+
+  const parts = [];
+  if (info.cartTarget) { parts.push(info.cartTarget); }
+  if (info.cartBanked) { parts.push('bank ' + hex8(info.cartBank)); }
+  if (info.cartDirty)  { parts.push('unsaved'); }
+
+  return parts.length ? name + ' (' + parts.join(', ') + ')' : name;
+}
+
 function formatFreqPeriod(period) {
   if (period >= 1000000) return (period / 1000000).toFixed(1) + ' s';
   if (period >= 1000)    return (period / 1000).toFixed(1) + ' ms';
@@ -180,7 +196,7 @@ function updateInfo(info) {
   // Emulator info rows
   dom.programFile.textContent = info.programFile || 'None';
   dom.romFile.textContent     = info.romFile || 'None';
-  dom.cartFile.textContent    = info.cartFile || 'None';
+  dom.cartFile.textContent    = formatCart(info);
   dom.freqLabel.innerHTML     = escapeHtml(info.freqLabel) + ' (<span id="freq-period">' + formatFreqPeriod(info.freqPeriod) + '</span>)';
   dom.ipAddress.textContent   = info.ipAddress || '0.0.0.0';
 
@@ -195,6 +211,10 @@ function updateInfo(info) {
 
   // Unload Cart button: hidden when no cart loaded, always enabled when visible
   dom.unloadCart.style.display = info.cartEnabled ? '' : 'none';
+
+  // Save Cart Data: only a cart that has written to itself has anything to save,
+  // and unloading saves anyway — this is for saving without ejecting.
+  dom.saveCart.style.display = info.cartDirty ? '' : 'none';
 
   // CPU registers
   dom.cpuAccHex.textContent    = hex8(info.cpuAccumulator);
@@ -488,8 +508,10 @@ function bindEvents() {
   dom.increaseFreq.addEventListener('click',   () => controlAndRefresh('+'));
   dom.refresh.addEventListener('click',        () => refreshAll());
 
-  // Unload Cart button
+  // Unload Cart button. Unloading saves the cart's data on the way out, so
+  // Save Cart Data beside it is for saving without ejecting.
   dom.unloadCart.addEventListener('click', () => controlAndRefresh('u'));
+  dom.saveCart.addEventListener('click',   () => controlAndRefresh('v'));
 
   // Memory tabs
   initTabs(dom.memoryTabs, (target) => {
