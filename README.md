@@ -84,6 +84,11 @@ This repository contains KiCad 7.0+ PCB designs for the two boards that make up 
 
 The main board hosting the Teensy 4.1. Provides 65C02 bus emulation, SD card storage, Ethernet, USB keyboard/joystick input, and hardware control buttons (Run/Stop, Step, Reset, Frequency). Includes a bus connector and card slot with level shifters for optional real hardware expansion.
 
+**Rev 1.0's limits:**
+
+- **Pull-ups:** fit 10kΩ for R1–R4, not the 1kΩ in the files. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
+- **`RESB`:** the Teensy drives `RESB` push-pull through U3, a level shifter that always drives while it's enabled, so it holds `RESB` high against any card that tries to pull it low. No card on the bus can reset the machine (the COB RTC Card's DS1511Y, for example), and firmware can't change that. The fix, an open-drain stage with a 10kΩ pull-up, needs a new revision.
+
 ### DEV Output Board
 `Hardware/DEV Output Board/`
 
