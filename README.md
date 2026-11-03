@@ -159,7 +159,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | J2 | 1 | SPI | Pin Header 2×4 2.54mm | | | | [AMAZON](https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472) |
 | J3 | 1 | PANEL | Pin Header 2×4 2.54mm | | | | [AMAZON](https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472) |
 | J4 | 1 | 6502 Card Connector | Card Edge 2×20 2.54mm | | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) | |
-| J5 | 1 | 6502 Bus | Pin Socket 2×20 2.54mm | | | | [AMAZON](https://www.amazon.com/Female-Headers-Connector-Header-Raspberry/dp/B07DNHS2SJ) |
+| J5 | 1 | 6502 Bus | Pin Socket 2×20 2.54mm | | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | | |
 | J6 | 1 | USB Host | USB Type-C Receptacle | [C2988369](https://www.lcsc.com/search?q=C2988369) | | | |
 | J7 | 1 | USB HOST | Pin Header 1×5 2.54mm | | | | [AMAZON](https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS) |
 | J8 | 1 | RJ45 w/ LEDs | RJ45 8P8C Shielded | | [1278-1052-ND](https://www.digikey.com/en/products/filter?keywords=1278-1052-ND) | | |
