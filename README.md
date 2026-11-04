@@ -130,6 +130,8 @@ See [Firmware/DOB Display/README.md](./Firmware/DOB%20Display/README.md) for set
 
 3D-printable enclosure parts and laser-cut top panels for the DEV system.
 
+**Top panels are versioned by board revision**, like `Hardware/`: `CAD/Tops/<Board>/Rev X/`. Each revision has its own complete folder, even when two revisions share the same files. `Bases/` holds the parts for a whole computer, not for one board, so it isn't versioned.
+
 The **[plate mounting drawing](CAD/Bases/Plate%20Mounting%20Drawing.png)** ([SVG](CAD/Bases/Plate%20Mounting%20Drawing.svg)) shows where the DEV Board and the DEV Output Board mount on the base plate, with every hole's position and the hardware the build needs. The plate is a stack of three 3 mm acrylic layers.
 
 ## Production
