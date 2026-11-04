@@ -176,6 +176,16 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 ### DEV Output Board
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The silkscreen labels J1 `AUDIO`, with a `+` beside it. Rev 1.0's says `SPEAKER`, with no `+`.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/DEV Output Board/Rev 1.0/` and `Production/DEV Output Board/Rev 1.0/` match the boards JLCPCB made (order Y88). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | DigiKey | Mouser | Other |
 |-----------|-----|-------|-------------|---------|--------|-------|
 | C1 | 1 | 3.3nF | Disc Capacitor | | | [AMAZON](https://www.amazon.com/PANMILED-Multilayer-Monolithic-Capacitors-Assortment/dp/B0CYQ1Z4G5) |
