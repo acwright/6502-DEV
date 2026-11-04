@@ -155,6 +155,13 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 ### DEV Board
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release. Built and tested. `Hardware/DEV Board/Rev 1.0/` and `Production/DEV Board/Rev 1.0/` match the boards JLCPCB made (order Y68). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
+
 | Reference | Qty | Value | Description | LCSC | DigiKey | Mouser | Other |
 |-----------|-----|-------|-------------|------|---------|--------|-------|
 | BT1 | 1 | CR2032 | Battery Holder | | [BAT-HLD-001-THM-ND](https://www.digikey.com/en/products/filter?keywords=BAT-HLD-001-THM-ND) | [712-BAT-HLD-001-THM](https://www.mouser.com/ProductDetail/712-BAT-HLD-001-THM) | |
