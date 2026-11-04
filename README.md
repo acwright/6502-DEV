@@ -137,6 +137,8 @@ The **[plate mounting drawing](CAD/Bases/Plate%20Mounting%20Drawing.png)** ([SVG
 ## Production
 `Production/`
 
+[REVISIONS.md](REVISIONS.md) lists every board revision: whether it was made, its JLCPCB order, the commit it was made from, and what fits it.
+
 JLCPCB-ready Gerber files and BOM/CPL for PCB fabrication and assembly.
 
 ## Schematics
