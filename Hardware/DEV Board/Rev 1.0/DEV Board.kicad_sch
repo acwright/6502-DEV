@@ -21126,7 +21126,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1278-1052-ND"
+		(property "Digikey" "931-TMJDD111B083FC2A1D-ND"
 			(at 223.52 220.98 90)
 			(hide yes)
 			(show_name no)
@@ -21148,7 +21148,7 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "960-TDD111B083FC2A1D"
 			(at 223.52 220.98 90)
 			(hide yes)
 			(show_name no)

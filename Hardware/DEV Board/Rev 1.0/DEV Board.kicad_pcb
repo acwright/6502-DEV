@@ -14783,7 +14783,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1278-1052-ND"
+		(property "Digikey" "931-TMJDD111B083FC2A1D-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14809,7 +14809,7 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "960-TDD111B083FC2A1D"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

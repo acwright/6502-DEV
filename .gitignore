@@ -9,3 +9,6 @@ Thumbs.db
 .vscode/
 # Planning documents are kept local
 PLAN.md
+
+# KiCad local history
+.history

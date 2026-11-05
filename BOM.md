@@ -32,7 +32,6 @@ These change what you buy or fit. The boards themselves stay as they were made.
 |---|---|---|---|
 | DEV Board | 1.0 | R1–R4 | Fit 10k, not 1k. If your board came with 1k soldered here, replace it. See the build notes. |
 | DEV Board | 1.0 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
-| DEV Board | 1.0 | J8 | `J1B1211CCD` is discontinued at Digi-Key, and Mouser only offers it with a minimum of 120, with none in stock. Look for surplus. |
 
 ### Build notes
 
@@ -64,7 +63,7 @@ Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.0/digikey.csv), [mouser.csv](B
 | J5 | 1 | 6502 Bus | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  | |
 | J6 | 1 | USB Host | G-Switch GT-USB-7010ASV |  |  | LCSC [C2988369](https://www.lcsc.com/search?q=C2988369) | Yes |
 | J7 | 1 | USB HOST | Pin header 1×5, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
-| J8 | 1 | RJ45_LED | WIZnet J1B1211CCD | [1278-1052-ND](https://www.digikey.com/en/products/filter?keywords=1278-1052-ND) |  |  | |
+| J8 | 1 | RJ45_LED | Taoglas TMJDD111B083FC2A1D | [931-TMJDD111B083FC2A1D-ND](https://www.digikey.com/en/products/filter?keywords=931-TMJDD111B083FC2A1D-ND) | [960-TDD111B083FC2A1D](https://www.mouser.com/ProductDetail/960-TDD111B083FC2A1D) |  | |
 | J9 | 1 | ETHERNET | Adam Tech 2PH2-06-UA | [2057-2PH2-06-UA-ND](https://www.digikey.com/en/products/filter?keywords=2057-2PH2-06-UA-ND) | [200-TMM10301TD](https://www.mouser.com/ProductDetail/200-TMM10301TD) |  | |
 | R1–R4 | 4 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
 | R5–R8 | 4 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
@@ -81,6 +80,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 - **BT1:** Retainer for a CR2032 cell. BAT-HLD-001-THM, on the tested boards, is obsolete; this is its listed continuation. Digi-Key has none in stock today.
 - **J5:** Male box header with a keying notch, for a 40-way ribbon cable.
 - **J6:** What LCSC C2988369 is. The footprint is HRO TYPE-C-31-M-12, and JLCPCB placed this part on the made boards.
+- **J8:** Replaces WIZnet J1B1211CCD, now discontinued, which older builds used. Its pinout, LEDs and pad positions match this footprint on the datasheet. No board has been built with it yet.
 - **J9:** Mouser sells Samtec TMM-103-01-T-D, the same 2 mm 2×3; its Adam Tech listing has a minimum of 10,000.
 
 
