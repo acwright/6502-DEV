@@ -29,8 +29,6 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 - [Schematics](#schematics)
 - [Libraries](#libraries)
 - [Bill of Materials](#bill-of-materials)
-  - [DEV Board](#dev-board-1)
-  - [DEV Output Board](#dev-output-board-1)
 - [License](#license)
 
 ---
@@ -85,11 +83,6 @@ This repository contains KiCad 7.0+ PCB designs for the two boards that make up 
 `Hardware/DEV Board/`
 
 The main board hosting the Teensy 4.1. Provides 65C02 bus emulation, SD card storage, Ethernet, USB keyboard/joystick input, and hardware control buttons (Run/Stop, Step, Reset, Frequency). Includes a bus connector and card slot with level shifters for optional real hardware expansion.
-
-**Rev 1.0's limits:**
-
-- **Pull-ups:** fit 10kΩ for R1–R4, not the 1kΩ in the files. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
-- **`RESB`:** the Teensy drives `RESB` push-pull through U3, a level shifter that always drives while it's enabled, so it holds `RESB` high against any card that tries to pull it low. No card on the bus can reset the machine (the COB RTC Card's DS1511Y, for example), and firmware can't change that. The fix, an open-drain stage with a 10kΩ pull-up, needs a new revision.
 
 ### DEV Output Board
 `Hardware/DEV Output Board/`
@@ -157,32 +150,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 ## Bill of Materials
 
-Every part for every board, by revision, is in **[BOM.md](BOM.md)**, with supplier numbers, known issues and files to upload to Digi-Key and Mouser.
-
-### DEV Board
-
-#### Revision History
-
-**Rev 1.0**
-
-- Initial release. Built and tested. `Hardware/DEV Board/Rev 1.0/` and `Production/DEV Board/Rev 1.0/` match the boards JLCPCB made (order Y68). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
-
-Parts list: [BOM.md](BOM.md#dev-board).
-
-### DEV Output Board
-
-#### Revision History
-
-**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
-
-- The silkscreen labels J1 `AUDIO`, with a `+` beside it. Rev 1.0's says `SPEAKER`, with no `+`.
-
-**Rev 1.0**
-
-- Initial release, and the board on sale. `Hardware/DEV Output Board/Rev 1.0/` and `Production/DEV Output Board/Rev 1.0/` match the boards JLCPCB made (order Y88). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-Parts list: [BOM.md](BOM.md#dev-output-board).
+Every part for every board, by revision, is in **[BOM.md](BOM.md)**, with supplier numbers, known issues, build notes and files to upload to Digi-Key and Mouser. What changed in each revision, and what is known about each one, is in **[REVISIONS.md](REVISIONS.md)**.
 
 ## License
 

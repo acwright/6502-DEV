@@ -16,7 +16,7 @@ Every part for every board in this repository, by revision, with supplier number
 
 ## Which revision do I have?
 
-Look on the board: the silk prints the revision next to the copyright line. [REVISIONS.md](REVISIONS.md) has the facts for each one, and the [README](README.md) lists what changed between them.
+Look on the board: the silk prints the revision next to the copyright line. [REVISIONS.md](REVISIONS.md) has the facts for each one, and its history lists what changed between them.
 
 | Board | Revision | What the silk says | Status |
 |---|---|---|---|
@@ -35,7 +35,9 @@ These change what you buy or fit. The boards themselves stay as they were made.
 
 ### Build notes
 
-These come from the README.
+How to build each board, where it needs more than its parts list.
+
+<!-- Build notes: hand-written. tools/bom/gen_bom.py keeps everything between these two markers. -->
 
 **DEV Board**
 
@@ -43,6 +45,7 @@ These come from the README.
 - **Pull-ups:** fit 10kΩ for R1–R4, not the 1kΩ in the files. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
 - **`RESB`:** the Teensy drives `RESB` push-pull through U3, a level shifter that always drives while it's enabled, so it holds `RESB` high against any card that tries to pull it low. No card on the bus can reset the machine (the COB RTC Card's DS1511Y, for example), and firmware can't change that. The fix, an open-drain stage with a 10kΩ pull-up, needs a new revision.
 
+<!-- End of build notes. -->
 
 ## DEV Board
 

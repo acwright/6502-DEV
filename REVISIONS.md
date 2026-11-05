@@ -19,3 +19,26 @@ Every revision of every board in this repository, and what is known about each. 
 | DEV Output Board | 1.1 | Drawn | — |  |  |  | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: Teensy back-side pads |
 
 The audit last ran on 2026-11-04. Each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Tindie stock is from the listings as saved on 2026-10-23.
+
+<!-- History: hand-written. tools/revision-audit/register.py keeps everything from here to the end. -->
+
+## History
+
+What changed in each revision of each board, newest first. The table above has the facts about each one.
+
+### DEV Board
+
+**Rev 1.0**
+
+- Initial release. Built and tested. `Hardware/DEV Board/Rev 1.0/` and `Production/DEV Board/Rev 1.0/` match the boards JLCPCB made (order Y68). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
+
+### DEV Output Board
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The silkscreen labels J1 `AUDIO`, with a `+` beside it. Rev 1.0's says `SPEAKER`, with no `+`.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/DEV Output Board/Rev 1.0/` and `Production/DEV Output Board/Rev 1.0/` match the boards JLCPCB made (order Y88). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
