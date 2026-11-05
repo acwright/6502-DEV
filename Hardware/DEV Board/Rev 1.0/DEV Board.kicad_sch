@@ -11,7 +11,7 @@
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
-		(symbol "6502 Parts:BAT-HLD-001-THM"
+		(symbol "6502 Parts:CR2032 Holder"
 			(pin_names
 				(offset 1.016)
 			)
@@ -42,7 +42,7 @@
 					(justify left bottom)
 				)
 			)
-			(property "Footprint" "6502 Parts:BAT_BAT-HLD-001-THM"
+			(property "Footprint" "6502 Parts:CR2032 Holder"
 				(at -0.254 -8.382 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -88,7 +88,7 @@
 					(justify bottom)
 				)
 			)
-			(symbol "BAT-HLD-001-THM_0_0"
+			(symbol "CR2032 Holder_0_0"
 				(polyline
 					(pts
 						(xy -3.81 1.905) (xy -2.54 1.905)
@@ -162,7 +162,7 @@
 					)
 				)
 			)
-			(symbol "BAT-HLD-001-THM_1_0"
+			(symbol "CR2032 Holder_1_0"
 				(pin power_in line
 					(at -6.35 0 0)
 					(length 5.08)
@@ -21093,7 +21093,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "6502 Parts:J1B1211CCD"
+		(property "Footprint" "6502 Parts:RJ45 Jack LED"
 			(at 222.885 220.98 90)
 			(hide yes)
 			(show_name no)
@@ -21836,7 +21836,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SW_TS-1187A-B-A-B"
+		(property "Footprint" "6502 Parts:Tact Switch SMD 5.1mm"
 			(at 314.96 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -22129,7 +22129,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SW_TS-1187A-B-A-B"
+		(property "Footprint" "6502 Parts:Tact Switch SMD 5.1mm"
 			(at 330.2 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -23406,7 +23406,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SW_TS-1187A-B-A-B"
+		(property "Footprint" "6502 Parts:Tact Switch SMD 5.1mm"
 			(at 299.72 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -23699,7 +23699,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SW_TS-1187A-B-A-B"
+		(property "Footprint" "6502 Parts:Tact Switch SMD 5.1mm"
 			(at 284.48 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -25634,7 +25634,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 39.37 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -26144,7 +26144,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:BAT-HLD-001-THM")
+		(lib_id "6502 Parts:CR2032 Holder")
 		(at 316.23 133.35 0)
 		(unit 1)
 		(body_style 1)
@@ -26175,7 +26175,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:BAT_BAT-HLD-001-THM"
+		(property "Footprint" "6502 Parts:CR2032 Holder"
 			(at 315.976 141.732 0)
 			(hide yes)
 			(show_name no)

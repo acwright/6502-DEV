@@ -1,8 +1,8 @@
 (kicad_symbol_lib
-	(version 20241209)
+	(version 20251024)
 	(generator "kicad_symbol_editor")
-	(generator_version "9.0")
-	(symbol "BAT-HLD-001-THM"
+	(generator_version "10.0")
+	(symbol "CR2032 Holder"
 		(pin_names
 			(offset 1.016)
 		)
@@ -27,7 +27,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "6502 Parts:BAT_BAT-HLD-001-THM"
+		(property "Footprint" "6502 Parts:CR2032 Holder"
 			(at -0.254 -8.382 0)
 			(effects
 				(font
@@ -65,7 +65,7 @@
 				(hide yes)
 			)
 		)
-		(symbol "BAT-HLD-001-THM_0_0"
+		(symbol "CR2032 Holder_0_0"
 			(polyline
 				(pts
 					(xy -3.81 1.905) (xy -2.54 1.905)
@@ -139,7 +139,7 @@
 				)
 			)
 		)
-		(symbol "BAT-HLD-001-THM_1_0"
+		(symbol "CR2032 Holder_1_0"
 			(pin power_in line
 				(at -6.35 0 0)
 				(length 5.08)
