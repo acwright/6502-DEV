@@ -509,7 +509,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "478-3175-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -521,7 +521,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/PANMILED-Multilayer-Monolithic-Capacitors-Assortment/dp/B0CYQ1Z4G5"
+		(property "Other" ""
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -533,11 +533,37 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "581-SR151C332KAR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "13ac1835-aab9-4682-88a9-fd4ffb41f9c1")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f4f331c5-f7d6-5789-a44a-23908d38270a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8beee6b6-346d-583e-9ca3-024f759af26f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2063,6 +2089,32 @@
 				)
 			)
 		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "17bfc6a0-624f-5390-9e20-5f31a3f4ba76")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec583adc-7945-51ba-ae7a-bd2394a23460")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e01c54ca-b035-48c9-ab57-79333a78ca3a")
 		(sheetname "/")
 		(sheetfile "DEV Output Board.kicad_sch")
@@ -2298,7 +2350,7 @@
 				)
 			)
 		)
-		(property "Digikey" "RNF18FTD1K00CT-ND"
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2310,7 +2362,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/ALLECIN-8W-Metal-Film-Resistor/dp/B0C77TM3NR"
+		(property "Other" ""
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2322,11 +2374,37 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-MFR-12FTF52-1K"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ef56d809-010e-4679-bb41-15148b813279")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "be81c545-7910-5fd9-ad25-bbc874f77100")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dac20830-713f-5d11-be5b-c36c8d44ca85")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2505,7 +2583,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "S1011EC-40-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2517,7 +2595,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
+		(property "Other" ""
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2529,11 +2607,37 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "200-TSW14007TS"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d51b608b-a746-4401-9040-d886d07d56fe")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0789b963-c037-5cca-bd9f-2bfd012a9ae4")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4ee5f57c-e088-515a-a071-dfc2fbcc0988")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2893,6 +2997,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3f3d838f-46b2-4b9b-afe3-3479e0e8e036")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7c3031fc-f911-5070-ac27-be4a83eb4455")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3fb808b0-e51a-58b1-81cf-42bcea605392")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3846,7 +3976,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "S1011EC-40-ND"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -3858,7 +3988,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
+		(property "Other" ""
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -3870,11 +4000,37 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "200-TSW14007TS"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e377edb4-55f0-4142-869d-5548a8c848e5")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d32888ab-a618-5f96-a3ae-0252b3012987")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "afbdc498-30ac-5b73-b7b1-4cd174124695")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4164,7 +4320,7 @@
 				)
 			)
 		)
-		(property "Digikey" "455-2247-ND"
+		(property "Digikey" "455-B2B-XH-A-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4193,6 +4349,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "bb3d3fba-4867-4b41-a9e6-5eb32366305b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1c5667f3-4cab-58af-9815-fc390853112e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef3a42c1-6f7c-592d-83eb-fcda10142132")
 			(effects
 				(font
 					(size 1.27 1.27)

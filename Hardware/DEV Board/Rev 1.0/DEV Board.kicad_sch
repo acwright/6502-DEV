@@ -76,103 +76,7 @@
 					)
 				)
 			)
-			(property "SnapEDA_Link" "https://www.snapeda.com/parts/BAT-HLD-001-THM/Linx+Technologies+Inc./view-part/?ref=snap"
-				(at -0.254 -8.382 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Check_prices" "https://www.snapeda.com/parts/BAT-HLD-001-THM/Linx+Technologies+Inc./view-part/?ref=eda"
-				(at -0.254 -8.382 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Package" "None"
-				(at -0.254 -12.192 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Price" "None"
-				(at -0.762 -11.938 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "MF" "Linx Technologies"
-				(at -1.27 -10.16 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "MP" "BAT-HLD-001-THM"
-				(at -1.27 -10.16 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
 			(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=90431&manufacturer=Linx Technologies&part_name=BAT-HLD-001-THM&search_term=None"
-				(at -0.254 -8.382 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Availability" "In Stock"
-				(at -1.016 -11.938 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Description_1" "\nHolder for CR2032 and CR2025 Batteries, Through-Hole Mount, Bulk Packaging\n"
 				(at -0.254 -8.382 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -5731,42 +5635,6 @@
 					)
 				)
 			)
-			(property "MF" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Package" "TSSOP-24 Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "MP" "SN74LVC4245APWR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
 			(symbol "SN74LVC4245APWR_1_0_0"
 				(pin input line
 					(at -17.78 -17.78 0)
@@ -6279,42 +6147,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-				)
-			)
-			(property "MF" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Package" "TSSOP-24 Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "MP" "SN74LVC4245APWR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
 				)
 			)
 			(symbol "SN74LVC4245APWR_2_0_0"
@@ -6831,42 +6663,6 @@
 					)
 				)
 			)
-			(property "MF" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Package" "TSSOP-24 Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "MP" "SN74LVC4245APWR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
 			(symbol "SN74LVC4245APWR_3_0_0"
 				(pin input line
 					(at -17.78 -17.78 0)
@@ -7379,42 +7175,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-				)
-			)
-			(property "MF" "Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "Package" "TSSOP-24 Texas Instruments"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-				)
-			)
-			(property "MP" "SN74LVC4245APWR"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
 				)
 			)
 			(symbol "SN74LVC4245APWR_4_0_0"
@@ -19213,7 +18973,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -19271,7 +19031,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "732-5401-ND"
 			(at 78.74 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -19282,7 +19042,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Female-Headers-Connector-Header-Raspberry/dp/B07DNHS2SJ"
+		(property "Other" ""
 			(at 78.74 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -19293,7 +19053,29 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "710-61204021621"
+			(at 78.74 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 78.74 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 78.74 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -19508,7 +19290,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 346.71 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -19530,8 +19312,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 346.71 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 346.71 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19631,7 +19424,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 358.14 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -19653,8 +19446,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 358.14 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 358.14 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19685,7 +19489,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -19767,6 +19571,28 @@
 			)
 		)
 		(property "Mouser" ""
+			(at 322.58 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 322.58 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 322.58 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -20062,7 +19888,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 369.57 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -20084,8 +19910,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 369.57 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 369.57 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20187,7 +20024,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-56.0KCRCT-ND"
 			(at 156.21 203.2 90)
 			(hide yes)
 			(show_name no)
@@ -20209,8 +20046,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-0756KL"
 			(at 156.21 203.2 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 156.21 203.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20310,7 +20158,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 129.54 138.43 90)
 			(hide yes)
 			(show_name no)
@@ -20332,8 +20180,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 129.54 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 129.54 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20558,7 +20417,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -20617,7 +20476,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "2057-2PH2-06-UA-ND"
 			(at 255.27 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -20628,7 +20487,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/uxcell-2-0mm-Pitch-Double-Headers/dp/B00899WM00"
+		(property "Other" ""
 			(at 255.27 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -20639,7 +20498,29 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "200-TMM10301TD"
+			(at 255.27 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 255.27 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 255.27 220.98 0)
 			(hide yes)
 			(show_name no)
@@ -20752,7 +20633,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 214.63 198.12 90)
 			(hide yes)
 			(show_name no)
@@ -20774,8 +20655,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 214.63 198.12 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 214.63 198.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20954,7 +20846,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 325.12 161.29 90)
 			(hide yes)
 			(show_name no)
@@ -20976,8 +20868,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 325.12 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 325.12 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21008,7 +20911,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -21067,7 +20970,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "S2011EC-40-ND"
 			(at 370.84 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -21078,7 +20981,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472"
+		(property "Other" ""
 			(at 370.84 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -21089,7 +20992,29 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "649-67996-140HLF"
+			(at 370.84 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 370.84 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 370.84 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -21139,7 +21064,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
@@ -21201,17 +21126,6 @@
 				)
 			)
 		)
-		(property "MPN" "J1B1211CCD"
-			(at 223.52 220.98 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(property "Digikey" "1278-1052-ND"
 			(at 223.52 220.98 90)
 			(hide yes)
@@ -21234,8 +21148,30 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "950-J1B1211CCD"
 			(at 223.52 220.98 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 223.52 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 223.52 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21494,7 +21430,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -21552,7 +21488,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "S1011EC-40-ND"
 			(at 173.99 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -21563,7 +21499,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
+		(property "Other" ""
 			(at 173.99 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -21574,7 +21510,29 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "200-TSW14007TS"
+			(at 173.99 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 173.99 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 173.99 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -21955,6 +21913,17 @@
 				)
 			)
 		)
+		(property "Jameco" ""
+			(at 309.88 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "574d6fea-57cb-4f52-92c0-8337f30e8dac")
 		)
@@ -22237,6 +22206,17 @@
 				)
 			)
 		)
+		(property "Jameco" ""
+			(at 325.12 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d90c107d-cb13-453c-ac7c-100ea7f76aca")
 		)
@@ -22258,7 +22238,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -22318,7 +22298,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "S2011EC-40-ND"
 			(at 370.84 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -22329,7 +22309,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Uxcell-Double-Straight-Header-Strip/dp/B00X77A472"
+		(property "Other" ""
 			(at 370.84 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -22340,7 +22320,29 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "649-67996-140HLF"
+			(at 370.84 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 370.84 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 370.84 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -22391,7 +22393,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -22449,7 +22451,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "S1011EC-40-ND"
 			(at 298.45 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -22460,7 +22462,7 @@
 				)
 			)
 		)
-		(property "Other" "https://www.amazon.com/Straight-Breakaway-Connector-Breadboard-Electronic/dp/B0FRZW75VS"
+		(property "Other" ""
 			(at 298.45 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -22471,7 +22473,29 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "200-TSW14007TS"
+			(at 298.45 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 298.45 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 298.45 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -22572,7 +22596,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 294.64 161.29 90)
 			(hide yes)
 			(show_name no)
@@ -22594,8 +22618,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 294.64 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 294.64 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22774,7 +22809,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 129.54 130.81 90)
 			(hide yes)
 			(show_name no)
@@ -22796,8 +22831,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 129.54 130.81 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 129.54 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22976,7 +23022,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-150CRCT-ND"
 			(at 231.14 237.49 90)
 			(hide yes)
 			(show_name no)
@@ -22998,8 +23044,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-07150RL"
 			(at 231.14 237.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 231.14 237.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23178,7 +23235,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 129.54 123.19 90)
 			(hide yes)
 			(show_name no)
@@ -23200,8 +23257,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 129.54 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 129.54 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23406,6 +23474,17 @@
 		)
 		(property "Mouser" ""
 			(at 294.64 173.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 294.64 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23697,6 +23776,17 @@
 				)
 			)
 		)
+		(property "Jameco" ""
+			(at 279.4 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ad2946d9-d43f-4f96-9188-01dfdadd699e")
 		)
@@ -23865,7 +23955,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 279.4 161.29 90)
 			(hide yes)
 			(show_name no)
@@ -23887,8 +23977,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 279.4 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 279.4 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23990,7 +24091,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-56.0KCRCT-ND"
 			(at 156.21 205.74 90)
 			(hide yes)
 			(show_name no)
@@ -24012,8 +24113,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-0756KL"
 			(at 156.21 205.74 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 156.21 205.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24113,7 +24225,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 309.88 161.29 90)
 			(hide yes)
 			(show_name no)
@@ -24135,8 +24247,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 309.88 161.29 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 309.88 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24236,7 +24359,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 335.28 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -24258,8 +24381,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 335.28 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 335.28 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25142,7 +25276,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 312.42 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -25164,8 +25298,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 312.42 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 312.42 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25265,7 +25410,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1.00KCRCT-ND"
 			(at 129.54 115.57 90)
 			(hide yes)
 			(show_name no)
@@ -25287,8 +25432,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-RC0805FR-071KL"
 			(at 129.54 115.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 129.54 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25388,7 +25544,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 323.85 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -25410,8 +25566,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 323.85 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 323.85 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25442,7 +25609,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -25523,6 +25690,28 @@
 			)
 		)
 		(property "Mouser" "571-5-5530843-4"
+			(at 39.37 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 39.37 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 39.37 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -25895,7 +26084,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "311-1140-1-ND"
 			(at 300.99 213.36 90)
 			(hide yes)
 			(show_name no)
@@ -25917,8 +26106,19 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "603-CC805KRX7R9BB104"
 			(at 300.99 213.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 300.99 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25949,7 +26149,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -26009,7 +26209,7 @@
 				)
 			)
 		)
-		(property "Digikey" "BAT-HLD-001-THM-ND"
+		(property "Digikey" "343-BAT-HLD-001-THM-TRCT-ND"
 			(at 316.23 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -26031,7 +26231,29 @@
 				)
 			)
 		)
-		(property "Mouser" "712-BAT-HLD-001-THM"
+		(property "Mouser" ""
+			(at 316.23 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 316.23 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 316.23 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -26508,6 +26730,17 @@
 			)
 		)
 		(property "Mouser" ""
+			(at 134.62 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
 			(at 134.62 213.36 0)
 			(hide yes)
 			(show_name no)
