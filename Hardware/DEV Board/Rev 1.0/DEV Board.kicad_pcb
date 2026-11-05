@@ -14809,7 +14809,7 @@
 				)
 			)
 		)
-		(property "Mouser" "950-J1B1211CCD"
+		(property "Mouser" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

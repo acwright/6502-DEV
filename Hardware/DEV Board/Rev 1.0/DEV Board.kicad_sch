@@ -21148,7 +21148,7 @@
 				)
 			)
 		)
-		(property "Mouser" "950-J1B1211CCD"
+		(property "Mouser" ""
 			(at 223.52 220.98 90)
 			(hide yes)
 			(show_name no)
