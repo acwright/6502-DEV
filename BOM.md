@@ -19,11 +19,13 @@ Every part for every board in this repository, by revision, with supplier number
 
 Look on the board: the silk prints the revision next to the copyright line. [REVISIONS.md](REVISIONS.md) has the facts for each one, and its history lists what changed between them.
 
-| Board | Revision | What the silk says | Status |
-|---|---|---|---|
-| [DEV Board](#dev-board) | 1.0 | Rev 1.0 | Made, tested |
-| [DEV Output Board](#dev-output-board) | 1.0 | Rev 1.0 | Made, tested |
-| [DEV Output Board](#dev-output-board) | 1.1 | Rev 1.1 | Drawn, not made yet |
+**To make a new board, make the newest revision**, and check its label first. The README's [Which revision to make](README.md#which-revision-to-make) explains the three labels: **Tested**, **Proven design** and **Untested**.
+
+| Board | Revision | What the silk says | Status | Label |
+|---|---|---|---|---|
+| [DEV Board](#dev-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [DEV Output Board](#dev-output-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [DEV Output Board](#dev-output-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text only |
 
 ## Known issues
 
@@ -52,7 +54,7 @@ How to build each board, where it needs more than its parts list.
 
 ### DEV Board Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.0/digikey.csv), [mouser.csv](BOM/DEV%20Board/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/DEV%20Board/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/DEV%20Board/Rev%201.0/mouser-through-hole.csv)
 
@@ -92,7 +94,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### DEV Output Board Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: silkscreen text only.
 
 Cart files: [digikey.csv](BOM/DEV%20Output%20Board/Rev%201.1/digikey.csv), [mouser.csv](BOM/DEV%20Output%20Board/Rev%201.1/mouser.csv)
 
@@ -110,7 +112,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### DEV Output Board Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/DEV%20Output%20Board/Rev%201.0/digikey.csv), [mouser.csv](BOM/DEV%20Output%20Board/Rev%201.0/mouser.csv)
 
