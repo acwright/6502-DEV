@@ -3049,7 +3049,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 220.98 55.88 90)
 		(fields_autoplaced yes)
 		(effects
@@ -3073,7 +3073,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 74.93 161.29 180)
 		(fields_autoplaced yes)
 		(effects
@@ -3385,7 +3385,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 115.57 101.6 0)
 		(fields_autoplaced yes)
 		(effects
@@ -3409,7 +3409,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 170.18 54.61 90)
 		(fields_autoplaced yes)
 		(effects

@@ -13156,7 +13156,7 @@
 		(uuid "ffe81e91-3a09-4307-ae4d-d6c21f466ab4")
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 90.17 207.01 0)
 		(fields_autoplaced yes)
 		(effects
@@ -13412,7 +13412,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 50.8 196.85 0)
 		(fields_autoplaced yes)
 		(effects
@@ -13484,7 +13484,7 @@
 		)
 	)
 	(global_label "A8"
-		(shape output)
+		(shape input)
 		(at 50.8 214.63 0)
 		(fields_autoplaced yes)
 		(effects
@@ -13748,7 +13748,7 @@
 		)
 	)
 	(global_label "D-"
-		(shape input)
+		(shape bidirectional)
 		(at 181.61 210.82 0)
 		(fields_autoplaced yes)
 		(effects
@@ -13796,7 +13796,7 @@
 		)
 	)
 	(global_label "A8"
-		(shape output)
+		(shape input)
 		(at 90.17 214.63 0)
 		(fields_autoplaced yes)
 		(effects
@@ -13960,7 +13960,7 @@
 		)
 	)
 	(global_label "SYNC"
-		(shape output)
+		(shape input)
 		(at 69.85 207.01 180)
 		(fields_autoplaced yes)
 		(effects
@@ -14032,7 +14032,7 @@
 		)
 	)
 	(global_label "D-"
-		(shape input)
+		(shape bidirectional)
 		(at 153.67 213.36 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14128,7 +14128,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 30.48 209.55 180)
 		(fields_autoplaced yes)
 		(effects
@@ -14152,7 +14152,7 @@
 		)
 	)
 	(global_label "A5"
-		(shape output)
+		(shape input)
 		(at 50.8 222.25 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14224,7 +14224,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 50.8 199.39 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14366,7 +14366,7 @@
 		)
 	)
 	(global_label "A6"
-		(shape output)
+		(shape input)
 		(at 50.8 219.71 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14510,7 +14510,7 @@
 		)
 	)
 	(global_label "D+"
-		(shape input)
+		(shape bidirectional)
 		(at 181.61 213.36 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14626,7 +14626,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 69.85 204.47 180)
 		(fields_autoplaced yes)
 		(effects
@@ -14720,7 +14720,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 90.17 196.85 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14768,7 +14768,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 69.85 209.55 180)
 		(fields_autoplaced yes)
 		(effects
@@ -14882,7 +14882,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 50.8 204.47 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15022,7 +15022,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 50.8 227.33 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15046,7 +15046,7 @@
 		)
 	)
 	(global_label "A5"
-		(shape output)
+		(shape input)
 		(at 90.17 222.25 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15238,7 +15238,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 50.8 209.55 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15356,7 +15356,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 50.8 207.01 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15546,7 +15546,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 205.74 100.33 90)
 		(fields_autoplaced yes)
 		(effects
@@ -15636,7 +15636,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 90.17 234.95 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15682,7 +15682,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 50.8 229.87 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15730,7 +15730,7 @@
 		)
 	)
 	(global_label "BE"
-		(shape input)
+		(shape output)
 		(at 135.89 138.43 0)
 		(effects
 			(font
@@ -15844,7 +15844,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 90.17 199.39 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15868,7 +15868,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 50.8 201.93 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15892,7 +15892,7 @@
 		)
 	)
 	(global_label "A6"
-		(shape output)
+		(shape input)
 		(at 90.17 219.71 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16054,7 +16054,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 205.74 29.21 90)
 		(fields_autoplaced yes)
 		(effects
@@ -16342,7 +16342,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 231.14 242.57 270)
 		(effects
 			(font
@@ -16460,7 +16460,7 @@
 		)
 	)
 	(global_label "A4"
-		(shape output)
+		(shape input)
 		(at 90.17 224.79 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16602,7 +16602,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 363.22 149.86 180)
 		(fields_autoplaced yes)
 		(effects
@@ -16766,7 +16766,7 @@
 		)
 	)
 	(global_label "D+"
-		(shape input)
+		(shape bidirectional)
 		(at 153.67 218.44 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16814,7 +16814,7 @@
 		)
 	)
 	(global_label "A9"
-		(shape output)
+		(shape input)
 		(at 50.8 212.09 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16906,7 +16906,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 279.4 152.4 90)
 		(effects
 			(font
@@ -17022,7 +17022,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 130.81 29.21 90)
 		(fields_autoplaced yes)
 		(effects
@@ -17070,7 +17070,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 58.42 29.21 90)
 		(fields_autoplaced yes)
 		(effects
@@ -17166,7 +17166,7 @@
 		)
 	)
 	(global_label "A7"
-		(shape output)
+		(shape input)
 		(at 90.17 217.17 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17214,7 +17214,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 90.17 209.55 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17238,7 +17238,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 90.17 204.47 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17286,7 +17286,7 @@
 		)
 	)
 	(global_label "A9"
-		(shape output)
+		(shape input)
 		(at 90.17 212.09 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17450,7 +17450,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 135.89 130.81 0)
 		(effects
 			(font
@@ -17614,7 +17614,7 @@
 		)
 	)
 	(global_label "RDY"
-		(shape input)
+		(shape output)
 		(at 135.89 115.57 0)
 		(effects
 			(font
@@ -17824,7 +17824,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 182.88 49.53 180)
 		(effects
 			(font
@@ -17846,7 +17846,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 90.17 232.41 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17870,7 +17870,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 59.69 100.33 90)
 		(fields_autoplaced yes)
 		(effects
@@ -18124,7 +18124,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape output)
+		(shape passive)
 		(at 292.1 71.12 180)
 		(fields_autoplaced yes)
 		(effects
@@ -18192,7 +18192,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 135.89 123.19 0)
 		(effects
 			(font
@@ -18262,7 +18262,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape output)
+		(shape passive)
 		(at 353.06 40.64 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18378,7 +18378,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 30.48 204.47 180)
 		(fields_autoplaced yes)
 		(effects
@@ -18518,7 +18518,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 90.17 227.33 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18542,7 +18542,7 @@
 		)
 	)
 	(global_label "SYNC"
-		(shape output)
+		(shape input)
 		(at 30.48 207.01 180)
 		(fields_autoplaced yes)
 		(effects
@@ -18682,7 +18682,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 50.8 232.41 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18706,7 +18706,7 @@
 		)
 	)
 	(global_label "A4"
-		(shape output)
+		(shape input)
 		(at 50.8 224.79 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18802,7 +18802,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 90.17 201.93 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18826,7 +18826,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 90.17 229.87 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18898,7 +18898,7 @@
 		)
 	)
 	(global_label "A7"
-		(shape output)
+		(shape input)
 		(at 50.8 217.17 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18922,7 +18922,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 50.8 234.95 0)
 		(fields_autoplaced yes)
 		(effects
