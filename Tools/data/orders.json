@@ -1,0 +1,33 @@
+{
+ "_about": "What is known about each revision beyond its files: made (JLCPCB's order, its date, and the commit it was made from, byte-matched to the export in git), drawn, never made, ordered, notes, tested, and the label each revision carries. Tools/revision-audit/register.py writes REVISIONS.md from it.",
+ "made": {
+  "DEV|DEV Output Board|1.0": [
+   "Y88",
+   "2026-03-26",
+   "6502-COB ddaceb3"
+  ],
+  "DEV|DEV Board|1.0": [
+   "Y68",
+   "2025-10-28",
+   "6502-COB 9b9e95d"
+  ]
+ },
+ "drawn": [
+  "DEV|DEV Output Board|1.1"
+ ],
+ "never": [],
+ "ordered": {},
+ "made_unchecked": {},
+ "notes": {},
+ "tested": {
+  "DEV|DEV Board|1.0": "Yes",
+  "DEV|DEV Output Board|1.0": "Yes"
+ },
+ "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
+ "labels": {
+  "DEV|DEV Output Board|1.1": [
+   "Proven design",
+   "Silkscreen text only"
+  ]
+ }
+}
