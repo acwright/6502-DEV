@@ -180,5 +180,5 @@
 <text x="42" y="15" font-size="7.2" text-anchor="start" fill="#16202c" font-weight="bold">DEV base plate: mounting drawing</text>
 <text x="42" y="23" font-size="3.6" text-anchor="start" fill="#7b8794" font-weight="normal">Looking down on the plate, as the computer is used. All dimensions in mm.</text>
 <line x1="34" y1="276.6" x2="494" y2="276.6" stroke="#16202c" stroke-width="0.25"/>
-<text x="34" y="281.6" font-size="3" text-anchor="start" fill="#7b8794" font-weight="normal">6502-DEV · CAD/Bases/Plate.svg, Plate.lbrn2, Plate.stl · three 3 mm acrylic layers</text>
+<text x="34" y="281.6" font-size="3" text-anchor="start" fill="#7b8794" font-weight="normal">6502-DEV · CAD/Bases/Plate.svg, Plate.stl · three 3 mm acrylic layers</text>
 <text x="494" y="281.6" font-size="3" text-anchor="end" fill="#7b8794" font-weight="normal">© 2026 A.C. Wright Design</text></svg>
