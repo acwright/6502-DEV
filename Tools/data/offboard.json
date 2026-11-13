@@ -4,6 +4,6 @@
   "DEV|DEV Output Board|J1": "AUDIO: the board's only audio output, to a speaker. It doesn't stand in for a part on the board."
  },
  "connector_accepted": {
-  "DEV|DEV Board|J3": "Four buttons share one 2×4 header, drawn before the JST XH standard. DEV Board 1.1 keeps it as it is (owner, 2026-11-07; KICAD.md K12)."
+  "DEV|DEV Board|J3": "Four buttons share one 2×4 header, drawn before the JST XH standard. The DEV Board keeps it as it is (owner, 2026-11-07). Rev 1.0 stays the newest revision: no Rev 1.1 is planned (owner, 2026-11-13; KICAD.md K12)."
  }
 }

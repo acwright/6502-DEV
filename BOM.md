@@ -45,8 +45,10 @@ How to build each board, where it needs more than its parts list.
 **DEV Board**
 
 **Rev 1.0's limits:**
-- **Pull-ups:** fit 10kΩ for R1–R4, not the 1kΩ in the files. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
-- **`RESB`:** the Teensy drives `RESB` push-pull through U3, a level shifter that always drives while it's enabled, so it holds `RESB` high against any card that tries to pull it low. No card on the bus can reset the machine (the COB RTC Card's DS1511Y, for example), and firmware can't change that. The fix, an open-drain stage with a 10kΩ pull-up, needs a new revision.
+- **Pull-ups:** fit 10kΩ for R1–R4, as the parts list says. Rev 1.0 was first drawn with 1kΩ there, and its files have said 10kΩ since 2026-11-04. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
+
+**What it connects to:**
+- **`RESB`:** the DEV Board stands in for a Main Board, so it owns reset. The Teensy drives `RESB` onto the bus through U3, a level shifter that only sends signals out, so there's no `RESB` pull-up, and nothing else may pull `RESB` low. Connect a DEV only to a passive backplane, never to the COB Backplane Pro, whose reset circuit would pull against U3, and don't fit a card that pulls `RESB` low, such as the COB RTC Card.
 
 <!-- End of build notes. -->
 
