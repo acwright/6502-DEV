@@ -5296,17 +5296,6 @@
 			(justify left)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 140.08 99.56 0)
-		(layer "F.SilkS")
-		(uuid "fa8a037b-442c-4d95-b0dc-6128ca676fc8")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(gr_text "© 2024 A.C. Wright Design | acwrightdesign.com | Rev 1.1"
 		(at 91.71 121.37 270)
 		(layer "F.SilkS")
