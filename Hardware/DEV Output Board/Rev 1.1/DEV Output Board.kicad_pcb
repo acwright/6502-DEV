@@ -983,7 +983,7 @@
 	(footprint "6502 Logos:6502 DEV Output Board Logo 4mm"
 		(layer "F.Cu")
 		(uuid "08c4777b-287a-434b-8251-d15b901466ba")
-		(at 161.888339 56.049876 180)
+		(at 161.511822 55.999476 180)
 		(property "Reference" "G***"
 			(at 0 0 180)
 			(layer "F.SilkS")
