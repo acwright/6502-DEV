@@ -1,27 +1,36 @@
 {
  "_about": "What is known about each revision beyond its files: made (JLCPCB's order, its date, and the commit it was made from, byte-matched to the export in git), drawn, never made, ordered, notes, tested, and the label each revision carries. Tools/revision-audit/register.py writes REVISIONS.md from it.",
  "made": {
-  "DEV|DEV Output Board|1.0": [
-   "Y88",
-   "2026-03-26",
-   "6502-COB ddaceb3"
-  ],
   "DEV|DEV Board|1.0": [
    "Y68",
    "2025-10-28",
    "6502-COB 9b9e95d"
+  ],
+  "DEV|DEV LCD Board|1.0": [
+   "Y80",
+   "2026-01-13",
+   "6502-COB 2a232e3"
+  ],
+  "DEV|DEV Output Board|1.0": [
+   "Y88",
+   "2026-03-26",
+   "6502-COB ddaceb3"
   ]
  },
  "drawn": [
   "DEV|DEV Board|1.1",
+  "DEV|DEV LCD Board|1.1",
   "DEV|DEV Output Board|1.1"
  ],
  "never": [],
  "ordered": {},
  "made_unchecked": {},
- "notes": {},
+ "notes": {
+  "DEV|DEV LCD Board|1.0": "made as the COB LCD Board (6502-COB, order Y80): its silk says 6502 LCD BOARD"
+ },
  "tested": {
   "DEV|DEV Board|1.0": "Yes",
+  "DEV|DEV LCD Board|1.0": "Yes",
   "DEV|DEV Output Board|1.0": "Yes"
  },
  "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
@@ -30,9 +39,15 @@
    "Proven design",
    "Rev 1.0's circuit; the IC designators placed by the family's rule"
   ],
+  "DEV|DEV LCD Board|1.1": [
+   "Proven design",
+   "The DEV's name in the logo, JLCPCB's marker removed; silkscreen only"
+  ],
   "DEV|DEV Output Board|1.1": [
    "Proven design",
    "Silkscreen text only"
   ]
- }
+ },
+ "_replaced": "A made revision whose number a newer design took, by the owner's ruling (KICAD.md K39). Each entry keeps the made boards' JLCPCB order, its date, the commit they were made from, and the last commit that holds the made files; the revision itself is drawn, in 'drawn'. The tools treat it as drawn; register.py names the made boards in its notes.",
+ "replaced": {}
 }

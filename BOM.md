@@ -25,6 +25,8 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 |---|---|---|---|---|
 | [DEV Board](#dev-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [DEV Board](#dev-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; the IC designators placed by the family's rule |
+| [DEV LCD Board](#dev-lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [DEV LCD Board](#dev-lcd-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only |
 | [DEV Output Board](#dev-output-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [DEV Output Board](#dev-output-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text only |
 
@@ -53,6 +55,10 @@ How to build each board, where it needs more than its parts list.
 
 **What it connects to:**
 - **`RESB`:** the DEV Board stands in for a Main Board, so it owns reset. The Teensy drives `RESB` onto the bus through U3, a level shifter that only sends signals out, so there's no `RESB` pull-up, and nothing else may pull `RESB` low. Connect a DEV only to a passive backplane, never to the COB Backplane Pro, whose reset circuit would pull against U3, and don't fit a card that pulls `RESB` low, such as the COB RTC Card.
+
+**DEV LCD Board**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen: the logo carries the DEV's name and JLCPCB's order-number marker is gone; a Rev 1.0 is built and used the same way.
 
 <!-- End of build notes. -->
 
@@ -131,6 +137,61 @@ Pin headers are cut from strips, and the cart files count whole strips.
 - **J6:** What LCSC C2988369 is. The footprint is HRO TYPE-C-31-M-12, and JLCPCB placed this part on the made boards.
 - **J8:** Replaces WIZnet J1B1211CCD, now discontinued, which older builds used. Its pinout, LEDs and pad positions match this footprint on the datasheet. No board has been built with it yet.
 - **J9:** Mouser sells Samtec TMM-103-01-T-D, the same 2 mm 2×3; its Adam Tech listing has a minimum of 10,000.
+
+
+## DEV LCD Board
+
+### DEV LCD Board Rev 1.1
+
+Drawn, not made yet. **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only.
+
+Cart files: [digikey.csv](BOM/DEV%20LCD%20Board/Rev%201.1/digikey.csv), [mouser.csv](BOM/DEV%20LCD%20Board/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| C1–C4 | 4 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
+| D1, D2 | 2 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  |
+| J1 | 1 | 6502 Bus | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  |
+| J2 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  |
+| J3 | 1 | HVSYNC | Pin header 1×1, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  |
+| R1 | 1 | 10k | YAGEO MFR-12FTF52-10K | [13-MFR-12FTF52-10KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-10KCT-ND) | [603-MFR-12FTF52-10K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-10K) |  |
+| U1 | 1 | 65C22 | Western Design Center (WDC) W65C22N6TPG-14 |  | [955-W65C22N6TPG-14](https://www.mouser.com/ProductDetail/955-W65C22N6TPG-14) |  |
+| U2 | 1 | Adafruit 2.8 TFT LCD | Adafruit 2.8 TFT LCD, Adafruit 2.8 TFT LCD |  |  | [Adafruit](https://www.adafruit.com/product/1770) |
+| U3 | 1 | 74HC138 | Texas Instruments SN74HC138N | [296-1575-5-ND](https://www.digikey.com/en/products/filter?keywords=296-1575-5-ND) | [595-SN74HC138N](https://www.mouser.com/ProductDetail/595-SN74HC138N) |  |
+| U3 | 1 | Socket | IC socket, 16-pin, 0.3 in | [3M5475-ND](https://www.digikey.com/en/products/filter?keywords=3M5475-ND) | [517-4816-3004-CP](https://www.mouser.com/ProductDetail/517-4816-3004-CP) | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
+| J2 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **D1, D2:** A 1N914 also works.
+- **J1:** Male box header with a keying notch, for a 40-way ribbon cable.
+
+### DEV LCD Board Rev 1.0
+
+Made, tested. **Tested**.
+
+Cart files: [digikey.csv](BOM/DEV%20LCD%20Board/Rev%201.0/digikey.csv), [mouser.csv](BOM/DEV%20LCD%20Board/Rev%201.0/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| C1–C4 | 4 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
+| D1, D2 | 2 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  |
+| J1 | 1 | 6502 Bus | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  |
+| J2 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  |
+| J3 | 1 | HVSYNC | Pin header 1×1, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  |
+| R1 | 1 | 10k | YAGEO MFR-12FTF52-10K | [13-MFR-12FTF52-10KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-10KCT-ND) | [603-MFR-12FTF52-10K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-10K) |  |
+| U1 | 1 | 65C22 | Western Design Center (WDC) W65C22N6TPG-14 |  | [955-W65C22N6TPG-14](https://www.mouser.com/ProductDetail/955-W65C22N6TPG-14) |  |
+| U2 | 1 | Adafruit 2.8 TFT LCD | Adafruit 2.8 TFT LCD, Adafruit 2.8 TFT LCD |  |  | [Adafruit](https://www.adafruit.com/product/1770) |
+| U3 | 1 | 74HC138 | Texas Instruments SN74HC138N | [296-1575-5-ND](https://www.digikey.com/en/products/filter?keywords=296-1575-5-ND) | [595-SN74HC138N](https://www.mouser.com/ProductDetail/595-SN74HC138N) |  |
+| U3 | 1 | Socket | IC socket, 16-pin, 0.3 in | [3M5475-ND](https://www.digikey.com/en/products/filter?keywords=3M5475-ND) | [517-4816-3004-CP](https://www.mouser.com/ProductDetail/517-4816-3004-CP) | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
+| J2 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **D1, D2:** A 1N914 also works.
+- **J1:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 
 ## DEV Output Board

@@ -22,6 +22,8 @@ Every revision of every board in this repository, and what is known about each. 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | DEV Board | 1.0 | Made, matches order | **Tested** | Y68 | 2025-10-28 | `6502-COB 9b9e95d` | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J6 shield pads |
 | DEV Board | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; the IC designators placed by the family's rule |  |  |  | — | 100×100 | 6 mm | — | — | symbol has pins the footprint lacks: J6 shield pads |
+| DEV LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `6502-COB 2a232e3` | — | 100×100 | 6 mm | yes | — | made as the COB LCD Board (6502-COB, order Y80): its silk says 6502 LCD BOARD |
+| DEV LCD Board | 1.1 | Drawn | **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | DEV Output Board | 1.0 | Made, matches order | **Tested** | Y88 | 2026-03-26 | `6502-COB ddaceb3` | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: Teensy back-side pads |
 | DEV Output Board | 1.1 | Drawn | **Proven design**: silkscreen text only |  |  |  | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: Teensy back-side pads |
 
@@ -32,6 +34,8 @@ JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, ma
 ## History
 
 What changed in each revision of each board, newest first. The table above has the facts about each one.
+
+**The DEV LCD Board, 2026-11-14.** The LCD Board, a 320×240 TFT behind a 65C22, is a DEV board and moved here from 6502-COB. Rev 1.0 moved as made; Rev 1.1 carries the new name in its logo. See [DEV LCD Board](#dev-lcd-board).
 
 **The generated logos on the boards, 2026-11-14.** Every revision not yet made now prints its logo exactly as `Tools/logos/generate.py` draws it. KiCad keeps a copy of each footprint in the PCB, so when the library's logos were redrawn from Bebas Neue the boards still carried the older traced copies. `Tools/logos/embed.py` put the library's logo into each of the 2 revisions here (DEV Board 1.1, DEV Output Board 1.1), keeping the centre of the print where it was, and its check in `derived-check.py` keeps them in step. The DEV Board 1.1's logo, which the owner ruled onto the design, changes visibly: its name is 3% narrower (0.34 mm), so the logo moved 0.17 mm to keep its end 11.5 mm from the corner. On the DEV Output Board 1.1 the difference is under 0.02 mm. `Tools/revision-audit/gproof.py` shows only the front silkscreen changed on each. Made revisions keep the logo they were made with.
 
@@ -59,6 +63,20 @@ What changed in each revision of each board, newest first. The table above has t
 
 - Initial release. Built and tested. `Hardware/DEV Board/Rev 1.0/` and `Production/DEV Board/Rev 1.0/` match the boards JLCPCB made (order Y68). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
+
+### DEV LCD Board
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is built first)
+
+- The board belongs to the DEV, so it moved here from 6502-COB, where it was the LCD Board (owner, 2026-11-13). Rev 1.1 carries its new name: the logo reads `6502 DEV LCD BOARD`, drawn by `Tools/logos/generate.py`, and sits on the top holes' line with its end 11.5 mm from the corner, as every logo on a revision not yet made does.
+- JLCPCB's order-number marker, `JLCJLCJLCJLC`, is gone from the silkscreen, as from every revision not yet made: JLCPCB stopped printing order numbers in May 2026 and asks for the text not to be there.
+- The silkscreen's revision reads Rev 1.1. The circuit, parts, copper, holes and outline are Rev 1.0's.
+
+**Rev 1.0**
+
+- Initial release, made as the COB LCD Board: its silkscreen says `6502 LCD BOARD`. Built and tested. `Hardware/DEV LCD Board/Rev 1.0/` and `Production/DEV LCD Board/Rev 1.0/` match the boards JLCPCB made (order Y80). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received; the zip keeps the name it was ordered under, `6502_LCD_Board_1.0.zip`.
+- Moved from 6502-COB on 2026-11-14 (its history there ends at the commit that removed it). Its files are renamed `DEV LCD Board`, with the project's name inside them, and its title blocks say `AC6502 DEV LCD Board`: drawing-sheet text, which no Gerber layer carries. Every Gerber layer and the drill file plot exactly as the COB's files did, and the schematic's netlist is the same.
+- The PCB file was restored to the made layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
 ### DEV Output Board
 
