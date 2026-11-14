@@ -2175,7 +2175,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Logos:6502 Dev Board Logo 4mm"
+	(footprint "6502 Logos:6502 DEV Board Logo 4mm"
 		(layer "F.Cu")
 		(uuid "08c4777b-287a-434b-8251-d15b901466ba")
 		(at 166.719057 56.139968 180)

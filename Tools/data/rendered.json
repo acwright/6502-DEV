@@ -1,7 +1,7 @@
 {
- "DEV|DEV Board|1.0": "f50acd94d4b6b103ad80b88d9f9fefce05d1f59c",
- "DEV|DEV Board|1.1": "3f84f11c62405404de50cb327f5cdb68c0d89baf",
- "DEV|DEV Output Board|1.0": "03145b1a83e705986b0d4c042663f316ad42d752",
+ "DEV|DEV Board|1.0": "7293d69c764d1d8afa8a352fbb890a2207aec96d",
+ "DEV|DEV Board|1.1": "6067424a6c5639d4de1ca42c5c4faed680d70f65",
+ "DEV|DEV Output Board|1.0": "334599a33d141e959f7ea25f6140dbbaea69c1f0",
  "DEV|DEV Output Board|1.1": "aa0af47a25f8432b76de53a9d01e31895cd7b573",
  "_about": "What each revision's PCB looked like when its images were rendered. Tools/board-images/render.py writes it, and derived-check.py compares."
 }
