@@ -109,7 +109,7 @@ Each revision carries one of three labels:
 
 | Board | Newest revision | Label | Why |
 |---|---|---|---|
-| DEV Board | 1.0 | **Tested** | Built and tested. |
+| DEV Board | 1.1 | **Proven design** | Rev 1.0's circuit; the IC designators placed by the family's rule. |
 | DEV Output Board | 1.1 | **Proven design** | Silkscreen text only. |
 <!-- End of which revision to make -->
 
@@ -226,7 +226,7 @@ The table lists every off-board header on each board's newest revision, read fro
 
 | Board | Rev | Header | Label | Connector | What it's for | Leave off |
 |---|---|---|---|---|---|---|
-| DEV Board | 1.0 | J3 | `PANEL` | Pin header, 2×4, 2.54 mm | Four buttons on the case, each between its pin and ground: Run/Stop on pin 1, Step on pin 3, Clock on pin 5 and Reset on pin 7. Pins 2, 4, 6 and 8 are ground. Each button is wired across one of SW1–SW4, the board's own buttons. | SW1–SW4, if the case covers them. Both sets of buttons work if they stay. |
+| DEV Board | 1.1 | J3 | `PANEL` | Pin header, 2×4, 2.54 mm | Four buttons on the case, each between its pin and ground: Run/Stop on pin 1, Step on pin 3, Clock on pin 5 and Reset on pin 7. Pins 2, 4, 6 and 8 are ground. Each button is wired across one of SW1–SW4, the board's own buttons. | SW1–SW4, if the case covers them. Both sets of buttons work if they stay. |
 
 <!-- End of off-board headers -->
 

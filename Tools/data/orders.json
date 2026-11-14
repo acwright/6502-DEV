@@ -13,6 +13,7 @@
   ]
  },
  "drawn": [
+  "DEV|DEV Board|1.1",
   "DEV|DEV Output Board|1.1"
  ],
  "never": [],
@@ -25,6 +26,10 @@
  },
  "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
  "labels": {
+  "DEV|DEV Board|1.1": [
+   "Proven design",
+   "Rev 1.0's circuit; the IC designators placed by the family's rule"
+  ],
   "DEV|DEV Output Board|1.1": [
    "Proven design",
    "Silkscreen text only"
