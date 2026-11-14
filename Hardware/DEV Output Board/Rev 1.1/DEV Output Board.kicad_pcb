@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 DEV Output Board")
+		(title "AC6502 DEV Output Board")
 		(date "2025-12-06")
 		(rev "1.1")
 		(company "A.C. Wright Design")
