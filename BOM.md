@@ -91,10 +91,10 @@ Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.1/digikey.csv), [mouser.csv](B
 | R5–R8 | 4 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
 | R9, R10 | 2 | 56k | YAGEO RC0805FR-0756KL | [311-56.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-56.0KCRCT-ND) | [603-RC0805FR-0756KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0756KL) | LCSC [C169923](https://www.lcsc.com/search?q=C169923) | Yes |
 | R11 | 1 | 150 | YAGEO RC0805FR-07150RL | [311-150CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-150CRCT-ND) | [603-RC0805FR-07150RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07150RL) | LCSC [C17471](https://www.lcsc.com/search?q=C17471) | Yes |
-| SW1 | 1 | Run/Stop | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
-| SW2 | 1 | Step | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
-| SW3 | 1 | Clock | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
-| SW4 | 1 | Reset | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
+| SW1 | 1 | Run/Stop | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
+| SW2 | 1 | Step | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
+| SW3 | 1 | Clock | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
+| SW4 | 1 | Reset | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
 | U4 | 1 | Teensy4.1 | Teensy4.1, Teensy41 |  |  | [PJRC](https://www.pjrc.com/store/teensy41.html) | |
 
 Pin headers are cut from strips, and the cart files count whole strips.

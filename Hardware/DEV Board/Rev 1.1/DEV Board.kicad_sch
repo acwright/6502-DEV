@@ -8021,6 +8021,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "EXP0 and EXP1 carry HRDB (High ROM disable bar) in a build that uses cartridges:\na cartridge grounds them to take $C000-$FFFF from the ROM. They are free only in\na build that never uses cartridges. EXP2 and EXP3 are always free."
+		(exclude_from_sim no)
+		(at 58.42 257.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "98238c0b-ea25-5286-b7aa-d4d3dfd06cf9")
+	)
 	(junction
 		(at 370.84 71.12)
 		(diameter 0)
@@ -8116,6 +8127,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "29da42a3-b856-473c-81d4-cdb6369adec9")
+	)
+	(junction
+		(at 163.83 203.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2e43b0f4-662b-4485-9019-f2fc39c24043")
 	)
 	(junction
 		(at 382.27 180.34)
@@ -8286,12 +8303,6 @@
 		(uuid "8e482e32-ac18-43d8-9d45-e5efcb6c6e12")
 	)
 	(junction
-		(at 163.83 205.74)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "95ef0ca5-af70-4e89-9618-b5b5d8a67a51")
-	)
-	(junction
 		(at 312.42 219.71)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8434,6 +8445,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f585f740-c93c-4a76-a88e-d7525868e8d2")
+	)
+	(junction
+		(at 163.83 198.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f6154dc5-585d-40a7-9490-a2e81aefe496")
 	)
 	(junction
 		(at 335.28 219.71)
@@ -10707,7 +10724,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 198.12) (xy 153.67 198.12)
+			(xy 149.86 198.12) (xy 163.83 198.12)
 		)
 		(stroke
 			(width 0)
@@ -11214,6 +11231,16 @@
 			(type default)
 		)
 		(uuid "9446eafc-00f9-4109-a00a-9068026267b9")
+	)
+	(wire
+		(pts
+			(xy 163.83 198.12) (xy 163.83 203.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "952c0f7f-0b50-4b2e-9364-ae79c6d0e459")
 	)
 	(wire
 		(pts
@@ -12207,6 +12234,16 @@
 	)
 	(wire
 		(pts
+			(xy 163.83 198.12) (xy 166.37 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8d3f248-2b34-4699-a297-b6855a3da0b7")
+	)
+	(wire
+		(pts
 			(xy 69.85 229.87) (xy 73.66 229.87)
 		)
 		(stroke
@@ -12924,16 +12961,6 @@
 			(type default)
 		)
 		(uuid "f079d9af-ce8e-45ee-9e5d-84864d54f407")
-	)
-	(wire
-		(pts
-			(xy 163.83 205.74) (xy 163.83 210.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1192c1f-92b5-47a6-a10a-9012614e04d1")
 	)
 	(wire
 		(pts
@@ -15799,7 +15826,7 @@
 	)
 	(global_label "5V_HOST"
 		(shape input)
-		(at 153.67 198.12 0)
+		(at 166.37 198.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15809,7 +15836,7 @@
 		)
 		(uuid "74d43bf4-31e7-48d7-b693-51de1423748f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 164.759 198.12 0)
+			(at 177.459 198.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16186,30 +16213,6 @@
 		(uuid "846d3299-7234-47de-8037-d4fd5c94a77a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 23.904 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "5V_HOST"
-		(shape input)
-		(at 163.83 210.82 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f382719a-d5ca-48a2-8569-3da83f49fe8e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 163.83 216.82 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21590,7 +21593,6 @@
 			)
 		)
 	)
-
 	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 322.58 133.35 270)
@@ -26740,17 +26742,6 @@
 				)
 			)
 		)
-	)
-	(text "EXP0 and EXP1 carry HRDB (High ROM disable bar) in a build that uses cartridges:\na cartridge grounds them to take $C000-$FFFF from the ROM. They are free only in\na build that never uses cartridges. EXP2 and EXP3 are always free."
-		(exclude_from_sim no)
-		(at 58.42 257.81 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "98238c0b-ea25-5286-b7aa-d4d3dfd06cf9")
 	)
 	(sheet_instances
 		(path "/"
