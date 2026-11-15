@@ -60,6 +60,10 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen: the logo carries the DEV's name and JLCPCB's order-number marker is gone; a Rev 1.0 is built and used the same way.
 
+**DEV Output Board**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen. J1 reads `AUDIO`, with a `+` beside pin 1, where a Rev 1.0's reads `SPEAKER`. On both revisions J1 is an audio output for an amplified speaker or a line input, not for a bare speaker, and pin 1 is the signal, pin 2 ground.
+
 <!-- End of build notes. -->
 
 ## DEV Board

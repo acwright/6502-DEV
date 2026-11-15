@@ -82,7 +82,7 @@ What changed in each revision of each board, newest first. The table above has t
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- The silkscreen labels J1 `AUDIO`, with a `+` beside it. Rev 1.0's says `SPEAKER`, with no `+`.
+- The silkscreen labels J1 `AUDIO`, with a `+` beside pin 1, the signal. Rev 1.0's says `SPEAKER`, with no `+`. J1 is an audio output for an amplified speaker or a line input, not for a bare speaker, so the label now says so, and the `+` marks which pin carries the signal.
 
 **Rev 1.0**
 
