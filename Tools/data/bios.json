@@ -1,0 +1,35 @@
+[
+ {
+  "repo": "DEV",
+  "board": "DEV Board",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its Teensy 4.1 runs `BIOS.bin` from its SD card on an emulated 65C02, with every card the BIOS looks for emulated in its window, IO 1 to IO 8.",
+  "source": "[DB Emulator](Firmware/DB%20Emulator/README.md)"
+ },
+ {
+  "repo": "DEV",
+  "board": "DEV LCD Board",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "not used",
+  "reason": "The BIOS doesn't look for it: its 65C22 VIA goes in a window no other card uses, and your own software drives the LCD.",
+  "source": "README [Jumpers](#jumpers)"
+ },
+ {
+  "repo": "DEV",
+  "board": "DEV Output Board",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "No registers on the bus: it shows the DEV Board's emulated video and plays its emulated SID, sent over serial.",
+  "source": "[DB Emulator](Firmware/DB%20Emulator/README.md)"
+ }
+]
