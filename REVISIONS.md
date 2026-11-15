@@ -21,7 +21,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Board | Rev | Status | Label | Order | Ordered | Made from | Tindie stock | Size (mm) | Holes | Top panel | Enclosure | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | DEV Board | 1.0 | Made, matches order | **Tested** | Y68 | 2025-10-28 | `6502-COB 9b9e95d` | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J6 shield pads |
-| DEV Board | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; the IC designators placed by the family's rule |  |  |  | — | 100×100 | 6 mm | — | — | symbol has pins the footprint lacks: J6 shield pads |
+| DEV Board | 1.1 | Drawn | **Untested**: J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved |  |  |  | — | 100×100 | 6 mm | — | — | symbol has pins the footprint lacks: J6 shield pads; 2 unconnected; DRC errors: starved_thermal 2 |
 | DEV LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `6502-COB 2a232e3` | — | 100×100 | 6 mm | yes | — | made as the COB LCD Board (6502-COB, order Y80): its silk says 6502 LCD BOARD |
 | DEV LCD Board | 1.1 | Drawn | **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | DEV Output Board | 1.0 | Made, matches order | **Tested** | Y88 | 2026-03-26 | `6502-COB ddaceb3` | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: Teensy back-side pads |
@@ -56,6 +56,7 @@ What changed in each revision of each board, newest first. The table above has t
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Drawn so the family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The circuit, parts, copper, holes and outline are Rev 1.0's.
+- R9 and R10, J6's CC resistors, pull CC1 and CC2 up to `5V_HOST`, the port's VBUS, where Rev 1.0 pulls them down to GND (owner, 2026-11-15). J6 is a USB host port, and a USB-C host signals that it supplies power with a 56 kΩ pull-up on each CC pin (USB Type-C's Rp for default USB power); a pull-down is what a device presents. On Rev 1.0 a device on a USB-C to USB-C cable that waits for the host's pull-up before it starts may stay off; one plugged in through a USB-A adapter, or that simply runs from VBUS, works, as the tested Rev 1.0 does. The values stay 56 kΩ. Routing the two pads to `5V_HOST` is the owner's.
 - U3's and U6's designators move to the ends of their chips, as every IC's on a revision not yet made does. The IC values stay hidden: all five are surface mount.
 - The silkscreen's revision reads Rev 1.1.
 

@@ -24,7 +24,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | Board | Revision | What the silk says | Status | Label |
 |---|---|---|---|---|
 | [DEV Board](#dev-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [DEV Board](#dev-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; the IC designators placed by the family's rule |
+| [DEV Board](#dev-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved |
 | [DEV LCD Board](#dev-lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [DEV LCD Board](#dev-lcd-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only |
 | [DEV Output Board](#dev-output-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -51,7 +51,7 @@ How to build each board, where it needs more than its parts list.
 **Rev 1.0's limits:**
 - **Pull-ups:** fit 10kΩ for R1–R4, as the parts list says. Rev 1.0 was first drawn with 1kΩ there, and its files have said 10kΩ since 2026-11-04. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only where two designators sit on the silkscreen.
+**Building a Rev 1.0:** nothing to do, as built. Rev 1.1 moves two designators on the silkscreen, and pulls J6's CC pins up to `5V_HOST` through R9 and R10 (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down to GND. A keyboard or controller through a USB-A adapter, or one that simply runs from VBUS, works on Rev 1.0, as tested. A device on a USB-C to USB-C cable that waits for a host's pull-up may stay off. To make a Rev 1.0 match Rev 1.1 (optional, not yet tried): lift the GND end of R9 and of R10 (pad 1, away from J6's CC tracks) off its pad, and wire both lifted ends to `5V_HOST` at J7 pin 1.
 
 **What it connects to:**
 - **`RESB`:** the DEV Board stands in for a Main Board, so it owns reset. The Teensy drives `RESB` onto the bus through U3, a level shifter that only sends signals out, so there's no `RESB` pull-up, and nothing else may pull `RESB` low. Connect a DEV only to a passive backplane, never to the COB Backplane Pro, whose reset circuit would pull against U3, and don't fit a card that pulls `RESB` low, such as the COB RTC Card.
@@ -70,7 +70,7 @@ How to build each board, where it needs more than its parts list.
 
 ### DEV Board Rev 1.1
 
-Drawn, not made yet. **Proven design**: rev 1.0's circuit; the IC designators placed by the family's rule.
+Drawn, not made yet. **Untested**: J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved.
 
 Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.1/digikey.csv), [mouser.csv](BOM/DEV%20Board/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/DEV%20Board/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/DEV%20Board/Rev%201.1/mouser-through-hole.csv)
 

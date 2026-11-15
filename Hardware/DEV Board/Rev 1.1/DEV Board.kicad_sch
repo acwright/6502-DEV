@@ -16199,6 +16199,30 @@
 	)
 	(global_label "5V_HOST"
 		(shape input)
+		(at 163.83 210.82 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f382719a-d5ca-48a2-8569-3da83f49fe8e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 163.83 216.82 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "5V_HOST"
+		(shape input)
 		(at 181.61 208.28 0)
 		(fields_autoplaced yes)
 		(effects
@@ -21566,83 +21590,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 163.83 210.82 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "469f2425-eae4-4caf-b7d4-9ec287cd0369")
-		(property "Reference" "#PWR013"
-			(at 163.83 217.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 163.83 214.63 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 163.83 210.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 163.83 210.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 163.83 210.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1e863339-15aa-40ac-b207-06bfc1f44020")
-		)
-		(instances
-			(project "DEV Board"
-				(path "/5d95bc66-f610-41ca-b1ae-73f5b5edc5a7"
-					(reference "#PWR013")
-					(unit 1)
-				)
-			)
-		)
-	)
+
 	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 322.58 133.35 270)

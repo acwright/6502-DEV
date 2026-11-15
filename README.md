@@ -116,7 +116,7 @@ Each revision carries one of three labels:
 
 | Board | Newest revision | Label | Why |
 |---|---|---|---|
-| DEV Board | 1.1 | **Proven design** | Rev 1.0's circuit; the IC designators placed by the family's rule. |
+| DEV Board | 1.1 | **Untested** | J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved. |
 | DEV LCD Board | 1.1 | **Proven design** | The DEV's name in the logo, JLCPCB's marker removed; silkscreen only. |
 | DEV Output Board | 1.1 | **Proven design** | Silkscreen text only. |
 <!-- End of which revision to make -->

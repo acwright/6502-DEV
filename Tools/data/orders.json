@@ -36,8 +36,8 @@
  "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
  "labels": {
   "DEV|DEV Board|1.1": [
-   "Proven design",
-   "Rev 1.0's circuit; the IC designators placed by the family's rule"
+   "Untested",
+   "J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved"
   ],
   "DEV|DEV LCD Board|1.1": [
    "Proven design",
