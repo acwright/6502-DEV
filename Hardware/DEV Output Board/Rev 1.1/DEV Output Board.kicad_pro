@@ -576,7 +576,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/DEV Output Board/Rev 1.1/DEV Output Board.step",
+      "step": "../../../CAD/Models/DEV Output Board/Rev 1.1/DEV Output Board.step",
       "svg": "",
       "vrml": ""
     },

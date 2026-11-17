@@ -8021,6 +8021,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "EXP0 and EXP1 carry HRDB (High ROM disable bar) in a build that uses cartridges:\na cartridge grounds them to take $C000-$FFFF from the ROM. They are free only in\na build that never uses cartridges. EXP2 and EXP3 are always free."
+		(exclude_from_sim no)
+		(at 58.42 257.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "98238c0b-ea25-5286-b7aa-d4d3dfd06cf9")
+	)
 	(junction
 		(at 370.84 71.12)
 		(diameter 0)
@@ -21435,7 +21446,7 @@
 		(dnp no)
 		(uuid "44060a18-6f0f-4122-be97-5e1f45b52740")
 		(property "Reference" "J7"
-			(at 173.99 221.742 0)
+			(at 173.482 202.946 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21445,7 +21456,7 @@
 			)
 		)
 		(property "Value" "USB HOST"
-			(at 177.546 224.028 0)
+			(at 177.038 205.232 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26792,17 +26803,6 @@
 				)
 			)
 		)
-	)
-	(text "EXP0 and EXP1 carry HRDB (High ROM disable bar) in a build that uses cartridges:\na cartridge grounds them to take $C000-$FFFF from the ROM. They are free only in\na build that never uses cartridges. EXP2 and EXP3 are always free."
-		(exclude_from_sim no)
-		(at 58.42 257.81 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "98238c0b-ea25-5286-b7aa-d4d3dfd06cf9")
 	)
 	(sheet_instances
 		(path "/"

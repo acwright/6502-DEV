@@ -21462,7 +21462,7 @@
 		(dnp no)
 		(uuid "44060a18-6f0f-4122-be97-5e1f45b52740")
 		(property "Reference" "J7"
-			(at 173.99 221.742 0)
+			(at 173.736 203.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21472,7 +21472,7 @@
 			)
 		)
 		(property "Value" "USB HOST"
-			(at 177.546 224.028 0)
+			(at 177.292 205.486 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
