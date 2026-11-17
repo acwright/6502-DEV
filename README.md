@@ -109,14 +109,14 @@ A 320×240 TFT LCD (an Adafruit 2.8" ILI9341 breakout) driven through a 65C22 VI
 Each revision carries one of three labels:
 
 - **Tested:** This revision was built and tested.
-- **Proven design:** Not built at this revision, but its circuit is a tested revision's. The only changes are silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
+- **Proven design:** Not built at this revision, but its circuit is proven. Either it is a tested revision's circuit, or each change copies a circuit built and tested on another board or on the bench, or is a textbook circuit that leaves everything the tested revision does as it was. Any other change is silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
 - **Untested:** The circuit, the power path or the layout changed in a way that only a built board proves, or the board has never been built at all.
 
 [BOM.md](BOM.md) has the parts for every revision, and its known issues.
 
 | Board | Newest revision | Label | Why |
 |---|---|---|---|
-| DEV Board | 1.1 | **Untested** | J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved. |
+| DEV Board | 1.1 | **Proven design** | Rev 1.0's circuit, except that J6's CC resistors pull up to `5V_HOST` (56 kΩ), as a USB-C host's should, where Rev 1.0 pulls them down. Nothing Rev 1.0 was tested with changes. Two designators moved. |
 | DEV LCD Board | 1.1 | **Proven design** | The DEV's name in the logo, JLCPCB's marker removed; silkscreen only. |
 | DEV Output Board | 1.1 | **Proven design** | Silkscreen text only. |
 <!-- End of which revision to make -->
@@ -126,14 +126,14 @@ Each revision carries one of three labels:
 
 Whether each board works with the stock BIOS, and what it takes if not. The stock BIOS for the DEV is **BIOS 1.x**, from the `v1.x` branch of [6502-BIOS](https://github.com/acwright/6502-BIOS). The ACE runs BIOS 2.x, for a 6502-PICOVDP. The DEV can't run BIOS 2.x yet: its DB Emulator firmware is written for BIOS 1.x. The BIOS looks for each card in its own 1 KB window at boot, and uses only what it finds.
 
-- **Out of the box:** the BIOS finds the board and uses it, built from its parts list with the jumpers the [Jumpers](#jumpers) table gives. A card counts only on the window the BIOS expects; on another window it's the builder's experiment.
+- **Compatible:** the BIOS finds the board and uses it, built from its parts list with the jumpers the [Jumpers](#jumpers) table gives. A card counts only on the window the BIOS expects; on another window it's the builder's experiment.
 - **After a step:** it works once the builder does what the entry names, beyond the parts list and the jumpers.
 - **Not used by the BIOS:** safe beside it, but your own software drives it.
 - **Nothing to support:** the board has no registers for the BIOS to find, such as a backplane, a helper behind a card, or a cartridge's programmer.
 
 | Board | Rev | Stock BIOS | Why | Source |
 |---|---|---|---|---|
-| DEV Board | 1.0, 1.1 | **Out of the box** | Its Teensy 4.1 runs `BIOS.bin` from its SD card on an emulated 65C02, with every card the BIOS looks for emulated in its window, IO 1 to IO 8. | [DB Emulator](Firmware/DB%20Emulator/README.md) |
+| DEV Board | 1.0, 1.1 | **Compatible** | Its Teensy 4.1 runs `BIOS.bin` from its SD card on an emulated 65C02, with every card the BIOS looks for emulated in its window, IO 1 to IO 8. | [DB Emulator](Firmware/DB%20Emulator/README.md) |
 | DEV LCD Board | 1.0, 1.1 | **Not used by the BIOS** | The BIOS doesn't look for it: its 65C22 VIA goes in a window no other card uses, and your own software drives the LCD. | README [Jumpers](#jumpers) |
 | DEV Output Board | 1.0, 1.1 | **Nothing to support** | No registers on the bus: it shows the DEV Board's emulated video and plays its emulated SID, sent over serial. | [DB Emulator](Firmware/DB%20Emulator/README.md) |
 

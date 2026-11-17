@@ -6,7 +6,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its Teensy 4.1 runs `BIOS.bin` from its SD card on an emulated 65C02, with every card the BIOS looks for emulated in its window, IO 1 to IO 8.",
   "source": "[DB Emulator](Firmware/DB%20Emulator/README.md)"
  },

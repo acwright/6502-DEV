@@ -24,7 +24,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | Board | Revision | What the silk says | Status | Label |
 |---|---|---|---|---|
 | [DEV Board](#dev-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [DEV Board](#dev-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved |
+| [DEV Board](#dev-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit, except that J6's CC resistors pull up to `5V_HOST` (56 kΩ), as a USB-C host's should, where Rev 1.0 pulls them down. Nothing Rev 1.0 was tested with changes. Two designators moved |
 | [DEV LCD Board](#dev-lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [DEV LCD Board](#dev-lcd-board) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only |
 | [DEV Output Board](#dev-output-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -70,7 +70,7 @@ How to build each board, where it needs more than its parts list.
 
 ### DEV Board Rev 1.1
 
-Drawn, not made yet. **Untested**: J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved.
+Drawn, not made yet. **Proven design**: rev 1.0's circuit, except that J6's CC resistors pull up to `5V_HOST` (56 kΩ), as a USB-C host's should, where Rev 1.0 pulls them down. Nothing Rev 1.0 was tested with changes. Two designators moved.
 
 Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.1/digikey.csv), [mouser.csv](BOM/DEV%20Board/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/DEV%20Board/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/DEV%20Board/Rev%201.1/mouser-through-hole.csv)
 

@@ -13,7 +13,7 @@ Every revision of every board in this repository, and what is known about each. 
 **Label** says whether a builder can rely on a revision. Make the newest revision of a board, and check its label first:
 
 - **Tested:** This revision was built and tested.
-- **Proven design:** Not built at this revision, but its circuit is a tested revision's. The only changes are silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
+- **Proven design:** Not built at this revision, but its circuit is proven. Either it is a tested revision's circuit, or each change copies a circuit built and tested on another board or on the bench, or is a textbook circuit that leaves everything the tested revision does as it was. Any other change is silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
 - **Untested:** The circuit, the power path or the layout changed in a way that only a built board proves, or the board has never been built at all.
 
 **Holes** is how far the corner mounting holes sit from the board's edges. The standard is 6 mm, and 5 mm on the ACE Board, the CF Adapter and the Keyboard Helper. A dash means a card or cart, which has no corner holes.
@@ -21,7 +21,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Board | Rev | Status | Label | Order | Ordered | Made from | Tindie stock | Size (mm) | Holes | Top panel | Enclosure | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | DEV Board | 1.0 | Made, matches order | **Tested** | Y68 | 2025-10-28 | `6502-COB 9b9e95d` | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J6 shield pads |
-| DEV Board | 1.1 | Drawn | **Untested**: J6's CC pins pulled up to `5V_HOST` (56 kΩ), as a USB-C host should; Rev 1.0 pulls them down. Otherwise Rev 1.0's circuit, with two designators moved |  |  |  | — | 100×100 | 6 mm | — | — | symbol has pins the footprint lacks: J6 shield pads |
+| DEV Board | 1.1 | Drawn | **Proven design**: rev 1.0's circuit, except that J6's CC resistors pull up to `5V_HOST` (56 kΩ), as a USB-C host's should, where Rev 1.0 pulls them down. Nothing Rev 1.0 was tested with changes. Two designators moved |  |  |  | — | 100×100 | 6 mm | — | — | symbol has pins the footprint lacks: J6 shield pads |
 | DEV LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `6502-COB 2a232e3` | — | 100×100 | 6 mm | yes | — | made as the COB LCD Board (6502-COB, order Y80): its silk says 6502 LCD BOARD |
 | DEV LCD Board | 1.1 | Drawn | **Proven design**: the DEV's name in the logo, JLCPCB's marker removed; silkscreen only |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | DEV Output Board | 1.0 | Made, matches order | **Tested** | Y88 | 2026-03-26 | `6502-COB ddaceb3` | — | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: Teensy back-side pads |
