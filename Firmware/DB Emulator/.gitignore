@@ -5,3 +5,5 @@
 .vscode/ipch
 # The host Cart tests build here
 test/cart/build
+# The host Storage Card tests build here
+test/storage/build

@@ -18,18 +18,8 @@ void StorageCard::begin() {
 
     file.close();
   }
-  if (!SD.exists(ST_IDENTITY_FILE_NAME)) {
-    File file = SD.open(ST_IDENTITY_FILE_NAME, FILE_WRITE);
-    uint8_t identity[ST_SECTOR_SIZE];
-
-    this->generateIdentity(identity);
-
-    for (int i = 0; i < ST_SECTOR_SIZE; i++) {
-      file.write(identity[i]);
-    }
-
-    file.close();
-  }
+  // IDENTIFY is built in memory (generateIdentity()), so an Identity.bin
+  // written by an older firmware is no longer read.
 }
 
 uint8_t StorageCard::read(uint16_t address) {
@@ -97,7 +87,7 @@ void StorageCard::reset() {
   this->lba1 = 0x00;
   this->lba2 = 0x00;
   this->lba3 = 0xE0;
-  this->status = 0x00 | ST_STATUS_RDY;
+  this->status = ST_STATUS_RDY | ST_STATUS_DSC;
   this->command = 0x00;
 
   this->isIdentifying = false;
@@ -113,74 +103,66 @@ void StorageCard::reset() {
 //
 
 void StorageCard::executeCommand() {
+  if (!SD.mediaPresent()) {
+    // Abort with general error
+    this->fail(ST_ERR_AMNF);
+    return;
+  } else if (this->isTransferring || this->isIdentifying) {
+    // A command in the middle of another one's transfer ends that transfer
+    // and is refused, as a real card does
+    this->fail(ST_ERR_ABRT);
+    return;
+  }
+
   // New command so clear errors and flags
   this->status &= ~ST_STATUS_ERR;
   this->status &= ~ST_STATUS_DRQ;
   this->error = 0x00;
-  this->commandDataSize = ST_SECTOR_SIZE * this->sectorCount;
+  this->commandDataSize = ST_SECTOR_SIZE * (uint32_t) (this->sectorCount ? this->sectorCount : 256); // ATA: 0 is 256
   this->bufferIndex = 0;
   this->sectorOffset = 0;
 
-  if (!SD.mediaPresent()) {
-    // Abort with general error
-    this->status |= ST_STATUS_ERR;
-    this->error |= ST_ERR_AMNF;
-    return;
-  } else if (this->isTransferring || this->isIdentifying) {
-    // Abort with error if already executing a command
-    this->status |= ST_STATUS_ERR;
-    this->error |= ST_ERR_ABRT;
-    return;
-  }
-
   switch (this->command) {
-    case 0xC0: { // Erase sector
-        if (!this->sectorValid()) {
-          // Not in sector range so abort with IDNF flag
-          this->status |= ST_STATUS_ERR;
-          this->error |= ST_ERR_ABRT | ST_ERR_IDNF;
-        } else {
-          File file = SD.open(ST_STORAGE_FILE_NAME, FILE_WRITE);
+    case 0xC0: { // Erase sectors: `count` of them from the LBA
+        File file = SD.open(ST_STORAGE_FILE_NAME, FILE_WRITE);
 
+        for (uint32_t s = 0; s < this->transferSectors(); s++) {
+          uint32_t sector = this->sectorIndex() + s;
+
+          if (sector >= ST_SECTOR_COUNT) {
+            // Past the end of the card so abort with IDNF flag
+            this->fail(ST_ERR_ABRT | ST_ERR_IDNF);
+            break;
+          }
           if (file) {
-            file.seek(this->sectorIndex() * 512);
+            file.seek(sector * ST_SECTOR_SIZE);
             for (int i = 0; i < ST_SECTOR_SIZE; i++) {
-              file.write(0x00);
+              file.write((uint8_t) 0x00);
             }
-            file.close();
           }
         }
+        if (file) file.close();
 
         break;
       }
     case 0xEC: { // Identify drive
-        File identity = SD.open(ST_IDENTITY_FILE_NAME);
-
-        if (identity) {
-          for (int i = 0; i < ST_SECTOR_SIZE; i++) {
-            this->buffer[i] = identity.read();
-          }
-          identity.close();
-        }
-
-        this->commandDataSize = 0x200; // Identify drive fills buffer with 512 bytes of identity data
+        this->generateIdentity(this->buffer);
+        this->commandDataSize = ST_SECTOR_SIZE; // Identify drive fills buffer with 512 bytes of identity data
         this->status |= ST_STATUS_DRQ;
         this->isIdentifying = true;
         break;
       }
     case 0x20: // Read sector
     case 0x21:
-      // Check to see if media present if not abort with error
       if (!this->sectorValid()) {
         // Not in sector range so abort with IDNF flag
-        this->status |= ST_STATUS_ERR;
-        this->error |= ST_ERR_ABRT | ST_ERR_IDNF;
+        this->fail(ST_ERR_ABRT | ST_ERR_IDNF);
       } else {
         // Otherwise load the buffer with first sector and set the DRQ flag and continue
         File storage = SD.open(ST_STORAGE_FILE_NAME);
 
         if (storage) {
-          storage.seek(this->sectorIndex() * 512);
+          storage.seek(this->sectorIndex() * ST_SECTOR_SIZE);
           for(int i = 0; i < ST_SECTOR_SIZE; i++) {
             this->buffer[i] = storage.read();
           }
@@ -195,11 +177,9 @@ void StorageCard::executeCommand() {
       break; // We don't support setting features but we accept them without error
     case 0x30: // Write sector
     case 0x31:
-      // Check to see if media present if not abort with error
       if (!this->sectorValid()) {
         // Not in sector range so abort with IDNF flag
-        this->status |= ST_STATUS_ERR;
-        this->error |= ST_ERR_ABRT | ST_ERR_IDNF;
+        this->fail(ST_ERR_ABRT | ST_ERR_IDNF);
       } else {
         // Otherwise set the DRQ flag and continue
         this->status |= ST_STATUS_DRQ;
@@ -208,10 +188,33 @@ void StorageCard::executeCommand() {
       break;
     default:
       // All other commands are unsupported so abort with error
-      this->status |= ST_STATUS_ERR;
-      this->error |= ST_ERR_ABRT;
+      this->fail(ST_ERR_ABRT);
       break;
   }
+}
+
+// End any transfer with an error, as a real card does: DRQ clears and the
+// data register stops moving bytes
+void StorageCard::fail(uint8_t error) {
+  this->status |= ST_STATUS_ERR;
+  this->status &= ~ST_STATUS_DRQ;
+  this->error = error;
+  this->isTransferring = false;
+  this->isIdentifying = false;
+  this->bufferIndex = 0;
+}
+
+// The sectors this command moves: its count, with 0 meaning 256
+uint32_t StorageCard::transferSectors() {
+  return this->commandDataSize / ST_SECTOR_SIZE;
+}
+
+bool StorageCard::isReading() {
+  return this->command == 0x20 || this->command == 0x21;
+}
+
+bool StorageCard::isWriting() {
+  return this->command == 0x30 || this->command == 0x31;
 }
 
 uint8_t StorageCard::readBuffer() {
@@ -227,7 +230,7 @@ uint8_t StorageCard::readBuffer() {
     }
 
     return data;
-  } else if (this->isTransferring) {
+  } else if (this->isTransferring && this->isReading()) {
     uint8_t data = this->buffer[this->bufferIndex];
 
     if (this->bufferIndex < ST_SECTOR_SIZE - 1) {
@@ -236,15 +239,22 @@ uint8_t StorageCard::readBuffer() {
       this->bufferIndex = 0;
       this->sectorOffset++;
 
-      if (this->sectorOffset < this->sectorCount) { // Load the next sector
-        File storage = SD.open(ST_STORAGE_FILE_NAME);
+      if (this->sectorOffset < this->transferSectors()) { // Load the next sector
+        uint32_t sector = this->sectorIndex() + this->sectorOffset;
 
-        if (storage) {
-          storage.seek(this->sectorIndex() * 512 + (512 * this->sectorOffset));
-          for(int i = 0; i < ST_SECTOR_SIZE; i++) {
-            this->buffer[i] = storage.read();
+        if (sector >= ST_SECTOR_COUNT) {
+          // Past the end of the card
+          this->fail(ST_ERR_ABRT | ST_ERR_IDNF);
+        } else {
+          File storage = SD.open(ST_STORAGE_FILE_NAME);
+
+          if (storage) {
+            storage.seek(sector * ST_SECTOR_SIZE);
+            for(int i = 0; i < ST_SECTOR_SIZE; i++) {
+              this->buffer[i] = storage.read();
+            }
+            storage.close();
           }
-          storage.close();
         }
       } else {
         this->isTransferring = false;
@@ -259,6 +269,10 @@ uint8_t StorageCard::readBuffer() {
 }
 
 void StorageCard::writeBuffer(uint8_t value) {
+  // Only a write command's transfer takes data: outside one (DRQ clear) a real
+  // card ignores the data register
+  if (!this->isTransferring || !this->isWriting()) return;
+
   this->buffer[this->bufferIndex] = value;
 
   if (this->bufferIndex < ST_SECTOR_SIZE - 1) {
@@ -270,7 +284,7 @@ void StorageCard::writeBuffer(uint8_t value) {
     File file = SD.open(ST_STORAGE_FILE_NAME, FILE_WRITE);
 
     if (file) {
-      file.seek(this->sectorIndex() * 512 + (512 * this->sectorOffset));
+      file.seek((this->sectorIndex() + this->sectorOffset) * ST_SECTOR_SIZE);
       for (int i = 0; i < ST_SECTOR_SIZE; i++) {
         file.write(buffer[i]);
       }
@@ -279,10 +293,12 @@ void StorageCard::writeBuffer(uint8_t value) {
 
     this->sectorOffset++;
 
-    // Check if all sectors have been written
-    if (this->sectorOffset >= this->sectorCount) {
+    // Check if all sectors have been written, or the next is past the end
+    if (this->sectorOffset >= this->transferSectors()) {
       this->isTransferring = false;
       this->status &= ~ST_STATUS_DRQ;
+    } else if (this->sectorIndex() + this->sectorOffset >= ST_SECTOR_COUNT) {
+      this->fail(ST_ERR_ABRT | ST_ERR_IDNF);
     }
   }
 }
@@ -295,16 +311,28 @@ bool StorageCard::sectorValid() {
   return this->sectorIndex() < ST_SECTOR_COUNT;
 }
 
+// An IDENTIFY string over `words` words, space padded. ATA puts the first
+// character of each pair in the word's high byte, so it is sent second: the
+// pair "AC" goes out as 'C', 'A', and a driver swaps each word back.
+void StorageCard::identityText(uint8_t *identity, int word, int words, const char *text) {
+  size_t length = strlen(text);
+
+  for (int i = 0; i < words * 2; i++) {
+    identity[word * 2 + (i ^ 1)] = (size_t) i < length ? (uint8_t) text[i] : ' ';
+  }
+}
+
 void StorageCard::generateIdentity(uint8_t *identity) {
-  // Generate emulated 256MB CF card identity
+  // Generate emulated 256MB CF card identity, laid out as a real card sends
+  // it: every word low byte first
   // Some data taken from real Promaster 128MB CF card
   // Geometry is 2048 cylinders x 8 heads x 32 sectors = 524288 sectors (256MB)
 
   // Fill with zeros first
   memset(identity, 0, ST_SECTOR_SIZE);
 
-  identity[0]   = 0x84;
-  identity[1]   = 0x8A; // Removable Disk
+  identity[0]   = 0x8A;
+  identity[1]   = 0x84; // General configuration $848A: a CompactFlash card
   identity[2]   = 0x00;
   identity[3]   = 0x08; // # of cylinders
   identity[4]   = 0x00;
@@ -320,30 +348,11 @@ void StorageCard::generateIdentity(uint8_t *identity) {
   identity[14]  = 0x08;
   identity[15]  = 0x00;
   identity[16]  = 0x00;
-  identity[17]  = 0x00; // # of sectors per card
+  identity[17]  = 0x00; // # of sectors per card, high word first
   identity[18]  = 0x00;
   identity[19]  = 0x00; // Reserved
 
-  identity[20]  = 'A';
-  identity[21]  = 'C';
-  identity[22]  = 'W';
-  identity[23]  = 'D';
-  identity[24]  = '6';
-  identity[25]  = '5';
-  identity[26]  = '0';
-  identity[27]  = '2';
-  identity[28]  = 'E';
-  identity[29]  = 'M';
-  identity[30]  = 'U';
-  identity[31]  = 'C';
-  identity[32]  = 'F';
-  identity[33]  = '1';
-  identity[34]  = '0';
-  identity[35]  = '1';
-  identity[36]  = '0';
-  identity[37]  = '1';
-  identity[38]  = '0';
-  identity[39]  = '1'; // Serial # ACWD6502EMUCF1010101
+  this->identityText(identity, 10, 10, "ACWD6502EMUCF1010101"); // Serial #
 
   identity[40]  = 0x01;
   identity[41]  = 0x00; // Buffer type
@@ -352,55 +361,8 @@ void StorageCard::generateIdentity(uint8_t *identity) {
   identity[44]  = 0x04;
   identity[45]  = 0x00; // # of ECC bytes passed
 
-  identity[46]  = '1';
-  identity[47]  = '.';
-  identity[48]  = '0';
-  identity[49]  = 0x20;
-  identity[50]  = 0x20;
-  identity[51]  = 0x20;
-  identity[52]  = 0x20;
-  identity[53]  = 0x20; // Firmware revision
-
-  identity[54]  = 'A';
-  identity[55]  = 'C';
-  identity[56]  = 'W';
-  identity[57]  = 'D';
-  identity[58]  = '6';
-  identity[59]  = '5';
-  identity[60]  = '0';
-  identity[61]  = '2';
-  identity[62]  = 'E';
-  identity[63]  = 'M';
-  identity[64]  = 'U';
-  identity[65]  = 'C';
-  identity[66]  = 'F';
-  identity[67]  = ' ';
-  identity[68]  = ' ';
-  identity[69]  = ' ';
-  identity[70]  = ' ';
-  identity[71]  = ' ';
-  identity[72]  = ' ';
-  identity[73]  = ' ';
-  identity[74]  = ' ';
-  identity[75]  = ' ';
-  identity[76]  = ' ';
-  identity[77]  = ' ';
-  identity[78]  = ' ';
-  identity[79]  = ' ';
-  identity[80]  = ' ';
-  identity[81]  = ' ';
-  identity[82]  = ' ';
-  identity[83]  = ' ';
-  identity[84]  = ' ';
-  identity[85]  = ' ';
-  identity[86]  = ' ';
-  identity[87]  = ' ';
-  identity[88]  = ' ';
-  identity[89]  = ' ';
-  identity[90]  = ' ';
-  identity[91]  = ' ';
-  identity[92]  = ' ';
-  identity[93]  = ' '; // Model # ACWD6502EMUCF
+  this->identityText(identity, 23, 4, "1.0");            // Firmware revision
+  this->identityText(identity, 27, 20, "ACWD6502EMUCF"); // Model #
 
   identity[94]  = 0x01;
   identity[95]  = 0x00; // Max of 1 sector on R/W multiple cmd
@@ -432,6 +394,6 @@ void StorageCard::generateIdentity(uint8_t *identity) {
   identity[121] = 0x00;
   identity[122] = 0x08;
   identity[123] = 0x00; // Total # of sectors in LBA mode
-  
+
   // All zeros from here on out
 }

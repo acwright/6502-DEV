@@ -19,7 +19,7 @@ DB Emulator transforms a Teensy 4.1 into a powerful 65C02 computer system emulat
   - USB Joystick support (Xbox 360/One controllers)
   - RAM Card (I/O 1 and I/O 2, banked RAM)
   - RTC Card (I/O 3, DS1511Y real-time clock)
-  - Storage Card (I/O 4, emulated 256MB CompactFlash backed by `Storage.bin` on SD)
+  - Storage Card (I/O 4, emulated 256MB CompactFlash backed by `Storage.bin` on SD). It answers as a real card does: ready reads `$50`, IDENTIFY is laid out as a card sends it (built in memory; an `Identity.bin` left by an older firmware is no longer read), a count of 0 moves 256 sectors, and a command written during a transfer ends it. The tests in [`test/storage/`](test/storage/README.md) check it on a desktop
   - Serial Card (I/O 5, Rockwell R6551 ACIA, bound to `SerialUSB1` — the BIOS serial console). It models the standard Serial Card with its `CTS EN` jumper at ground, as every board is built: CTS, DCD and DSR are all tied low, so CTS never stops the transmitter, DCD never stops the receiver, and DSR and DCD both read 0 (active low). There is no card picker and no jumper setting, and none of the Serial Card Pro's lines. Clearing DTR (command bit 0) still turns the receiver, the transmitter and the interrupts off, as it does inside the real chip even though the card leaves the DTR pin unconnected. One thing the real chip does is deliberately left out: a TIC of `00` (command bits 3-2) raises RTS here but does not also stop the transmitter, because this firmware embeds no ROM and cannot check that the image on the SD card is one that survives it — see the comment on `SerialCard::transmitterEnabled`
   - GPIO Card (I/O 6, 65C22 VIA with keyboard/joystick attachments)
   - Sound Card (I/O 7, SID — MOS 6581 emulation, streamed to web interface and DOB Display)
@@ -536,7 +536,7 @@ DB Emulator/
 ├── src/
 │   └── main.cpp              # Main firmware code
 ├── include/                  # Additional headers
-├── test/                     # Unit tests
+├── test/                     # Host tests: cart/ (the mapper), storage/ (the CompactFlash card)
 ├── html/                     # Web interface source
 └── platformio.ini            # PlatformIO configuration
 ```

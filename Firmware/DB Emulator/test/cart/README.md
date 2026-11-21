@@ -13,7 +13,8 @@ So this runs on a desktop, where a Teensy is not:
 
 `shim/` is the two dozen lines of `Arduino.h` and `SD.h` that `Cart.cpp` actually uses,
 over `std::string` and `stdio`. Nothing else in the firmware is shimmed and nothing else
-should be — this exists for the one class that has an external contract.
+should be: this exists for the classes that have an external contract. The other one is the
+Storage Card, in [`test/storage/`](../storage/README.md), with its own shim.
 
 ## The fixtures
 

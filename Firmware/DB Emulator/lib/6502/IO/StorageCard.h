@@ -48,9 +48,10 @@
 /* STATUS REGISTER                                                    */
 /* | 7   | 6   | 5   | 4   | 3   | 2    | 1   | 0   |                 */
 /* | BSY | RDY | DWF | DSC | DRQ | CORR | IDX | ERR |                 */
-/* | 0   | 1   | 0   | 0   | 0   | 0    | 0   |  0  |  <- Default Val */
+/* | 0   | 1   | 0   | 1   | 0   | 0    | 0   |  0  |  <- Default Val */
 /*                                                                    */
-/* Note: The emulated CF card is always RDY and never BSY             */
+/* Note: The emulated CF card is always RDY and never BSY. Ready      */
+/* reads $50, RDY and DSC, as a real card does.                       */
 /*                                                                    */
 /* BSY  - Drive Busy                                                  */
 /* RDY  - Drive Ready                                                 */
@@ -80,17 +81,15 @@
 #define ST_STORAGE_SIZE   0x10000000    // 256MB (268435456 bytes) - 256 BIOS disk banks
 #define ST_SECTOR_SIZE    0x200         // 512 bytes
 #define ST_SECTOR_COUNT   0x80000       // 524288 512 byte sectors
-#define ST_IDENTITY_SIZE  0x100         // 256 bytes
 #define ST_INIT_BLOCK     0x1000        // 4096 byte block used to initialise the backing file
 
 #define ST_STORAGE_FILE_NAME    "Storage.bin"
-#define ST_IDENTITY_FILE_NAME   "Identity.bin"
 
 class StorageCard: public IO {
   private:
     uint8_t buffer[0x200]; // 512 bytes
     uint16_t bufferIndex;
-    uint16_t commandDataSize;
+    uint32_t commandDataSize; // up to 256 sectors: a count of 0 is 256
     uint32_t sectorOffset;
     
     uint8_t error;
@@ -107,10 +106,15 @@ class StorageCard: public IO {
     bool isTransferring;
 
     void executeCommand();
+    void fail(uint8_t error);
+    uint32_t transferSectors();
+    bool isReading();
+    bool isWriting();
     uint8_t readBuffer();
     void writeBuffer(uint8_t value);
     uint32_t sectorIndex();
     bool sectorValid();
+    void identityText(uint8_t *identity, int word, int words, const char *text);
     void generateIdentity(uint8_t *identity);
 
   public:
