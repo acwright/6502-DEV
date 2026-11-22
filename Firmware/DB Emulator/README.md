@@ -90,6 +90,31 @@ The naming scheme, the mapper, the command set and the `.sav` container are spec
 in [`test/cart/`](test/cart/README.md) check this one against that rollout's shared
 fixtures, on a desktop.
 
+### Keyboard and joysticks: the older model
+
+The keyboard here works the way 6502-EMULATOR's did before the machine's keyboard
+firmware learned to share its ports with the joysticks. It is not wrong for the BIOS or
+BASIC, which both work, but it is kinder than the machine, so a program can work here and
+not on the machine:
+
+- **One key, held until it is read.** There is no queue: a key typed before the last was
+  read replaces it, and a key stays on the port until the 6502 reads it. On the machine
+  sixteen keys wait their turn, one goes out at a time, and each stays on the port for
+  20 ms, so a program that polls the VIA too slowly misses keys there.
+- **A held stick never holds a key back.** On the machine the sticks share the keyboard's
+  lines, and a key whose code a held stick would change waits until the stick is released.
+- **The port is let go at once.** `KBDisable` gets the port straight away here; on the
+  machine it can take up to 100 µs, which `KBDisable`'s own wait covers.
+- **A key survives a joystick read.** Here an unread key is still there after `KBDisable`
+  and `KBEnable`; on the machine reading a stick ends the key on the port.
+- **The matrix is scanned one way only.** Writing Port B selects columns and Port A reads
+  the rows, whatever the direction registers say. The machine's matrix is plain wiring,
+  and the way the DOCS scan it, a row driven low on Port A and the columns read on Port B,
+  reads nothing here.
+
+6502-EMULATOR models all of these as the machine behaves, and is where a program that
+depends on them is meant to be caught.
+
 ## Prerequisites
 
 ### Hardware Requirements
