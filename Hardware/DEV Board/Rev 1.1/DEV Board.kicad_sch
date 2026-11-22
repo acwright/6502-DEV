@@ -20324,7 +20324,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 57.15 127 0)
 			(hide yes)
 			(show_name no)
@@ -20346,7 +20346,18 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
+			(at 57.15 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
 			(at 57.15 127 0)
 			(hide yes)
 			(show_name no)
@@ -21335,7 +21346,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 55.88 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -21357,7 +21368,18 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
+			(at 55.88 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
 			(at 55.88 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -24438,7 +24460,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 128.27 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -24460,7 +24482,18 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
+			(at 128.27 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
 			(at 128.27 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -24789,7 +24822,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 203.2 127 0)
 			(hide yes)
 			(show_name no)
@@ -24811,7 +24844,18 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
+			(at 203.2 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
 			(at 203.2 127 0)
 			(hide yes)
 			(show_name no)
@@ -26293,7 +26337,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 203.2 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -26315,7 +26359,18 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
+			(at 203.2 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Jameco" ""
 			(at 203.2 55.88 0)
 			(hide yes)
 			(show_name no)

@@ -5208,7 +5208,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -5232,11 +5232,24 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2b14b123-aaf2-4552-848c-26f36e8cf9c6")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eedb7918-88f0-523b-aa1b-41c8950ded24")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10513,7 +10526,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -10537,11 +10550,24 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "dc82cf2c-dbe7-4fc3-b36a-7223c08d19ec")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cfe21edf-2dce-57ff-8514-5970ae33edd9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11067,7 +11093,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -11091,11 +11117,24 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0e753f03-e57a-4455-8707-7866ddcfe573")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d88cd272-602b-5740-bac4-2179a3fcb9d6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15282,7 +15321,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -15306,11 +15345,24 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "142b9208-9a8e-49f6-8def-e8332d33938a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "458b63fd-052b-5c69-bd8a-80d6e5aadde4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17340,7 +17392,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "296-12183-1-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -17364,11 +17416,24 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "595-SN74LVC4245APWR"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "72d656bc-3ec0-4305-9908-01d0dd4ae2b6")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac1e054b-dd03-5f6e-842f-a2a1edb5ad17")
 			(effects
 				(font
 					(size 1.27 1.27)

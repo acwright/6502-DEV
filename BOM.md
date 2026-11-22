@@ -95,6 +95,7 @@ Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.1/digikey.csv), [mouser.csv](B
 | SW2 | 1 | Step | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
 | SW3 | 1 | Clock | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
 | SW4 | 1 | Reset | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | Yes |
+| U1–U3, U5, U6 | 5 | SN74LVC4245APWR | Texas Instruments SN74LVC4245APWR | [296-12183-1-ND](https://www.digikey.com/en/products/filter?keywords=296-12183-1-ND) | [595-SN74LVC4245APWR](https://www.mouser.com/ProductDetail/595-SN74LVC4245APWR) | LCSC [C7859](https://www.lcsc.com/search?q=C7859) | Yes |
 | U4 | 1 | Teensy4.1 | Teensy4.1, Teensy41 |  |  | [PJRC](https://www.pjrc.com/store/teensy41.html) | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
@@ -132,6 +133,7 @@ Cart files: [digikey.csv](BOM/DEV%20Board/Rev%201.0/digikey.csv), [mouser.csv](B
 | SW2 | 1 | Step | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
 | SW3 | 1 | Clock | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
 | SW4 | 1 | Reset | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
+| U1–U3, U5, U6 | 5 | SN74LVC4245APWR | Texas Instruments SN74LVC4245APWR | [296-12183-1-ND](https://www.digikey.com/en/products/filter?keywords=296-12183-1-ND) | [595-SN74LVC4245APWR](https://www.mouser.com/ProductDetail/595-SN74LVC4245APWR) | LCSC [C7859](https://www.lcsc.com/search?q=C7859) | Yes |
 | U4 | 1 | Teensy4.1 | Teensy4.1, Teensy41 |  |  | [PJRC](https://www.pjrc.com/store/teensy41.html) | |
 
 Pin headers are cut from strips, and the cart files count whole strips.

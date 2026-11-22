@@ -107,5 +107,15 @@
  "DEV|DEV LCD Board|1.1|J3": "pinheader-1x01-2.54-vertical",
  "DEV|DEV LCD Board|1.1|U2": "Adafruit 2.8 TFT LCD|Adafruit 2.8 TFT LCD",
  "DEV|DEV LCD Board|1.1|J1": "conn-bus",
- "DEV|DEV LCD Board|1.1|R1": "10k|axial"
+ "DEV|DEV LCD Board|1.1|R1": "10k|axial",
+ "DEV|DEV Board|1.0|U1": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.0|U2": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.0|U3": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.0|U5": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.0|U6": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.1|U1": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.1|U2": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.1|U3": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.1|U5": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm",
+ "DEV|DEV Board|1.1|U6": "74LVC4245A|TSSOP-24_4.4x7.8mm_P0.65mm"
 }
