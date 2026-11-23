@@ -103,6 +103,9 @@ not on the machine:
   20 ms, so a program that polls the VIA too slowly misses keys there.
 - **A held stick never holds a key back.** On the machine the sticks share the keyboard's
   lines, and a key whose code a held stick would change waits until the stick is released.
+- **A key held on the web page repeats.** The browser's auto-repeat comes through as
+  more presses, and each one is typed. The machine's keyboard has no repeat: a held key
+  types once. A USB keyboard plugged into the Teensy types once too, as the machine does.
 - **The port is let go at once.** `KBDisable` gets the port straight away here; on the
   machine it can take up to 100 µs, which `KBDisable`'s own wait covers.
 - **A key survives a joystick read.** Here an unread key is still there after `KBDisable`
